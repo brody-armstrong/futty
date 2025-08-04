@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLeagues } from '../contexts/LeagueContext'
 import { useAuth } from '../contexts/AuthContext'
 import { Trophy, Users, Calendar, TrendingUp, Plus, Play } from 'lucide-react'
+import Matchup from '../components/Matchup'
 
 const Leagues = () => {
   const { leagues, loading, createLeague, joinLeague } = useLeagues()
@@ -45,8 +46,22 @@ const Leagues = () => {
   const mockMatchups = [
     {
       id: '1',
-      homeTeam: 'Haaland\'s Heroes',
-      awayTeam: 'De Bruyne Dynasty',
+      homeTeam: {
+        name: 'Haaland\'s Heroes',
+        lineup: [
+          { id: '1', name: 'Player 1' },
+          { id: '2', name: 'Player 2' },
+          { id: '3', name: 'Player 3' },
+        ],
+      },
+      awayTeam: {
+        name: 'De Bruyne Dynasty',
+        lineup: [
+          { id: '4', name: 'Player 4' },
+          { id: '5', name: 'Player 5' },
+          { id: '6', name: 'Player 6' },
+        ],
+      },
       homeScore: 78,
       awayScore: 65,
       status: 'completed',
@@ -54,8 +69,22 @@ const Leagues = () => {
     },
     {
       id: '2',
-      homeTeam: 'Van Dijk\'s Vikings',
-      awayTeam: 'Alisson\'s Army',
+      homeTeam: {
+        name: 'Van Dijk\'s Vikings',
+        lineup: [
+          { id: '7', name: 'Player 7' },
+          { id: '8', name: 'Player 8' },
+          { id: '9', name: 'Player 9' },
+        ],
+      },
+      awayTeam: {
+        name: 'Alisson\'s Army',
+        lineup: [
+          { id: '10', name: 'Player 10' },
+          { id: '11', name: 'Player 11' },
+          { id: '12', name: 'Player 12' },
+        ],
+      },
       homeScore: 0,
       awayScore: 0,
       status: 'upcoming',
@@ -218,18 +247,9 @@ const Leagues = () => {
             
             <div className="space-y-3">
               {mockMatchups.map((matchup) => (
-                <div key={matchup.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm font-medium">{matchup.homeTeam}</div>
-                      <div className="text-lg font-bold">{matchup.homeScore}</div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm font-medium">{matchup.awayTeam}</div>
-                      <div className="text-lg font-bold">{matchup.awayScore}</div>
-                    </div>
-                  </div>
-                  <div className="text-right ml-4">
+                <div key={matchup.id} className="p-3 bg-gray-50 rounded-lg">
+                  <Matchup homeTeam={matchup.homeTeam} awayTeam={matchup.awayTeam} />
+                  <div className="text-right mt-2">
                     <span className={`px-2 py-1 rounded text-xs font-medium ${
                       matchup.status === 'completed'
                         ? 'bg-green-100 text-green-800'
