@@ -1,0 +1,33 @@
+.soccer-field-container {
+  aspect-ratio: 3/4; /* Portrait field view */
+  background: linear-gradient(180deg, #1a4d3a 0%, #134e3a 100%);
+  border: 2px solid #f8fafc;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.field-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* SVG field markings */
+}
+
+.position-zone {
+  position: absolute;
+  /* GK: top 15%, DEF: 15-35%, MID: 35-65%, ATT: 65-85% */
+}
+
+.player-position {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player-position:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}

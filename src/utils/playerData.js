@@ -29,7 +29,10 @@ export const transformPlayerData = (csvData) => {
       form: form,
       playerCode: player.player_code,
       firstName: player.first_name,
-      secondName: player.second_name
+      secondName: player.second_name,
+      squadNumber: Math.floor(Math.random() * 98) + 1,
+      teamColors: { primary: '#00ff00', secondary: '#ff0000' },
+      currentTeam: player.team_name
     }
   })
 }

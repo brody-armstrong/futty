@@ -17,6 +17,19 @@ export const LeagueProvider = ({ children }) => {
   const [userTeams, setUserTeams] = useState([])
   const [loading, setLoading] = useState(true)
 
+  // New state variables
+  const [userLeagues, setUserLeagues] = useState([]);
+  const [selectedLeagueId, setSelectedLeagueId] = useState(null);
+  const [currentMatchup, setCurrentMatchup] = useState({
+    opponent: {},
+    userScore: 0,
+    opponentScore: 0,
+    gameweek: 1,
+    status: 'pending'
+  });
+  const [leagueStandings, setLeagueStandings] = useState([]);
+  const [upcomingFixtures, setUpcomingFixtures] = useState([]);
+
   // Mock league data
   const mockLeagues = [
     {
@@ -87,6 +100,8 @@ export const LeagueProvider = ({ children }) => {
       setTimeout(() => {
         setLeagues(mockLeagues)
         setUserTeams(mockUserTeams)
+        setUserLeagues(mockLeagues);
+        setSelectedLeagueId(mockLeagues[0].id);
         setLoading(false)
       }, 1000)
     }
@@ -160,6 +175,19 @@ export const LeagueProvider = ({ children }) => {
     return userTeams.find(team => team.leagueID === leagueId)
   }
 
+  // New functions
+  const switchLeague = (leagueId) => {
+    setSelectedLeagueId(leagueId);
+  }
+
+  const getCurrentMatchup = () => {
+    // Logic to get current matchup
+  }
+
+  const updateLiveScores = () => {
+    // Logic to update live scores
+  }
+
   const value = {
     leagues,
     userTeams,
@@ -170,7 +198,15 @@ export const LeagueProvider = ({ children }) => {
     addPlayerToTeam,
     removePlayerFromTeam,
     getLeagueById,
-    getUserTeamInLeague
+    getUserTeamInLeague,
+    userLeagues,
+    selectedLeagueId,
+    currentMatchup,
+    leagueStandings,
+    upcomingFixtures,
+    switchLeague,
+    getCurrentMatchup,
+    updateLiveScores
   }
 
   return (
