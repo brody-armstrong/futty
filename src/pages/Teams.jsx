@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { useLeagues } from '../contexts/LeagueContext'
 import { usePlayers } from '../contexts/PlayerContext'
 import { Users, Trophy, TrendingUp, Settings, Plus } from 'lucide-react'
+import Lineup from '../components/Lineup'
 
 const Teams = () => {
   const { userTeams, loading } = useLeagues()
   const { calculatePlayerPoints, players } = usePlayers()
   const [selectedTeam, setSelectedTeam] = useState(null)
+  const [editMode, setEditMode] = useState(false)
 
   const getPositionColor = (position) => {
     switch (position) {
@@ -123,52 +125,16 @@ const Teams = () => {
             <div className="card">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-gray-900">Starting Lineup (9)</h3>
-                <button className="btn btn-primary text-sm">
-                  Edit Lineup
+                <button
+                  className="btn btn-primary text-sm"
+                  onClick={() => setEditMode(!editMode)}
+                >
+                  {editMode ? 'Save Lineup' : 'Edit Lineup'}
                 </button>
               </div>
 
               <div className="space-y-3">
-                {/* Formation Display */}
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-center text-sm text-gray-600 mb-2">Formation: 4-3-2</div>
-                  <div className="grid grid-cols-9 gap-1">
-                    {/* GK */}
-                    <div className="col-span-1">
-                      <div className="bg-yellow-200 rounded p-2 text-center text-xs">
-                        <div className="font-medium">GK</div>
-                        <div className="text-gray-600">{teamPlayers.find(p => p.position === 'GK')?.name || 'Empty'}</div>
-                      </div>
-                    </div>
-                    {/* DEF */}
-                    {teamPlayers.filter(p => p.position === 'DEF').slice(0, 4).map((player, i) => (
-                      <div key={i} className="col-span-1">
-                        <div className="bg-blue-200 rounded p-2 text-center text-xs">
-                          <div className="font-medium">DEF</div>
-                          <div className="text-gray-600">{player.name}</div>
-                        </div>
-                      </div>
-                    ))}
-                    {/* MID */}
-                    {teamPlayers.filter(p => p.position === 'MID').slice(0, 3).map((player, i) => (
-                      <div key={i} className="col-span-1">
-                        <div className="bg-green-200 rounded p-2 text-center text-xs">
-                          <div className="font-medium">MID</div>
-                          <div className="text-gray-600">{player.name}</div>
-                        </div>
-                      </div>
-                    ))}
-                    {/* FWD */}
-                    {teamPlayers.filter(p => p.position === 'FWD').slice(0, 2).map((player, i) => (
-                      <div key={i} className="col-span-1">
-                        <div className="bg-red-200 rounded p-2 text-center text-xs">
-                          <div className="font-medium">FWD</div>
-                          <div className="text-gray-600">{player.name}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <Lineup players={teamPlayers} editMode={editMode} />
               </div>
             </div>
 
