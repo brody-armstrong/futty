@@ -1,0 +1,6050 @@
+[
+  {
+    "player_code": "109745",
+    "player_id": "2",
+    "first_name": "Kepa",
+    "second_name": "Arrizabalaga Revuelta",
+    "web_name": "Arrizabalaga",
+    "position": "Goalkeeper",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "466075",
+    "player_id": "7",
+    "first_name": "Riccardo",
+    "second_name": "Calafiori",
+    "web_name": "Calafiori",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "563324",
+    "player_id": "13",
+    "first_name": "Brayden",
+    "second_name": "Clarke",
+    "web_name": "Clarke",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "438098",
+    "player_id": "23",
+    "first_name": "Fábio",
+    "second_name": "Ferreira Vieira",
+    "web_name": "Fábio Vieira",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "205651",
+    "player_id": "31",
+    "first_name": "Gabriel",
+    "second_name": "Fernando de Jesus",
+    "web_name": "G.Jesus",
+    "position": "Forward",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "226597",
+    "player_id": "5",
+    "first_name": "Gabriel",
+    "second_name": "dos Santos Magalhães",
+    "web_name": "Gabriel",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "224117",
+    "player_id": "666",
+    "first_name": "Viktor",
+    "second_name": "Gyökeres",
+    "web_name": "Gyökeres",
+    "position": "Forward",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "219847",
+    "player_id": "30",
+    "first_name": "Kai",
+    "second_name": "Havertz",
+    "web_name": "Havertz",
+    "position": "Forward",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "463748",
+    "player_id": "3",
+    "first_name": "Karl",
+    "second_name": "Hein",
+    "web_name": "Hein",
+    "position": "Goalkeeper",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "445122",
+    "player_id": "8",
+    "first_name": "Jurriën",
+    "second_name": "Timber",
+    "web_name": "J.Timber",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "588796",
+    "player_id": "28",
+    "first_name": "Ismeal",
+    "second_name": "Kabia",
+    "web_name": "Kabia",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "588793",
+    "player_id": "14",
+    "first_name": "Maldini",
+    "second_name": "Kacurri",
+    "web_name": "Kacurri",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "440854",
+    "player_id": "9",
+    "first_name": "Jakub",
+    "second_name": "Kiwior",
+    "web_name": "Kiwior",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "499169",
+    "player_id": "10",
+    "first_name": "Myles",
+    "second_name": "Lewis-Skelly",
+    "web_name": "Lewis-Skelly",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "248857",
+    "player_id": "18",
+    "first_name": "Noni",
+    "second_name": "Madueke",
+    "web_name": "Madueke",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "444145",
+    "player_id": "19",
+    "first_name": "Gabriel",
+    "second_name": "Martinelli Silva",
+    "web_name": "Martinelli",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "195384",
+    "player_id": "22",
+    "first_name": "Mikel",
+    "second_name": "Merino Zazón",
+    "web_name": "Merino",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "500040",
+    "player_id": "662",
+    "first_name": "Cristhian",
+    "second_name": "Mosquera",
+    "web_name": "Mosquera",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "200641",
+    "player_id": "27",
+    "first_name": "Reiss",
+    "second_name": "Nelson",
+    "web_name": "Nelson",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "499167",
+    "player_id": "15",
+    "first_name": "Josh",
+    "second_name": "Nichols",
+    "web_name": "Nichols",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "499175",
+    "player_id": "25",
+    "first_name": "Ethan",
+    "second_name": "Nwaneri",
+    "web_name": "Nwaneri",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "128295",
+    "player_id": "24",
+    "first_name": "Christian",
+    "second_name": "Nørgaard",
+    "web_name": "Nørgaard",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "154561",
+    "player_id": "1",
+    "first_name": "David",
+    "second_name": "Raya Martín",
+    "web_name": "Raya",
+    "position": "Goalkeeper",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "204480",
+    "player_id": "21",
+    "first_name": "Declan",
+    "second_name": "Rice",
+    "web_name": "Rice",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "223340",
+    "player_id": "16",
+    "first_name": "Bukayo",
+    "second_name": "Saka",
+    "web_name": "Saka",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "462424",
+    "player_id": "6",
+    "first_name": "William",
+    "second_name": "Saliba",
+    "web_name": "Saliba",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "437742",
+    "player_id": "29",
+    "first_name": "Albert",
+    "second_name": "Sambi Lokonga",
+    "web_name": "Sambi",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "551221",
+    "player_id": "4",
+    "first_name": "Tommy",
+    "second_name": "Setford",
+    "web_name": "Setford",
+    "position": "Goalkeeper",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "116216",
+    "player_id": "20",
+    "first_name": "Leandro",
+    "second_name": "Trossard",
+    "web_name": "Trossard",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "198869",
+    "player_id": "11",
+    "first_name": "Benjamin",
+    "second_name": "White",
+    "web_name": "White",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "206325",
+    "player_id": "12",
+    "first_name": "Oleksandr",
+    "second_name": "Zinchenko",
+    "web_name": "Zinchenko",
+    "position": "Defender",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "481655",
+    "player_id": "26",
+    "first_name": "Martín",
+    "second_name": "Zubimendi Ibáñez",
+    "web_name": "Zubimendi",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "184029",
+    "player_id": "17",
+    "first_name": "Martin",
+    "second_name": "Ødegaard",
+    "web_name": "Ødegaard",
+    "position": "Midfielder",
+    "team_name": "Arsenal"
+  },
+  {
+    "player_code": "606798",
+    "player_id": "42",
+    "first_name": "Andrés",
+    "second_name": "García",
+    "web_name": "A.García",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "106468",
+    "player_id": "43",
+    "first_name": "Álex",
+    "second_name": "Moreno Lopera",
+    "web_name": "Alex Moreno",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "215711",
+    "player_id": "49",
+    "first_name": "Leon",
+    "second_name": "Bailey",
+    "web_name": "Bailey",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "88894",
+    "player_id": "55",
+    "first_name": "Ross",
+    "second_name": "Barkley",
+    "web_name": "Barkley",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "491287",
+    "player_id": "56",
+    "first_name": "Enzo",
+    "second_name": "Barrenechea",
+    "web_name": "Barrenechea",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "515597",
+    "player_id": "44",
+    "first_name": "Lamare",
+    "second_name": "Bogarde",
+    "web_name": "Bogarde",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "577731",
+    "player_id": "60",
+    "first_name": "Ben",
+    "second_name": "Broggio",
+    "web_name": "Broggio",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "195546",
+    "player_id": "50",
+    "first_name": "Emiliano",
+    "second_name": "Buendía Stati",
+    "web_name": "Buendía",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "199796",
+    "player_id": "36",
+    "first_name": "Matty",
+    "second_name": "Cash",
+    "web_name": "Cash",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "151589",
+    "player_id": "61",
+    "first_name": "Leander",
+    "second_name": "Dendoncker",
+    "web_name": "Dendoncker",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "101188",
+    "player_id": "37",
+    "first_name": "Lucas",
+    "second_name": "Digne",
+    "web_name": "Digne",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "461421",
+    "player_id": "57",
+    "first_name": "Lewis",
+    "second_name": "Dobbin",
+    "web_name": "Dobbin",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "462492",
+    "player_id": "34",
+    "first_name": "Joe",
+    "second_name": "Gauci",
+    "web_name": "Gauci",
+    "position": "Goalkeeper",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "469247",
+    "player_id": "51",
+    "first_name": "Samuel",
+    "second_name": "Iling-Junior",
+    "web_name": "Iling Jr",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "232653",
+    "player_id": "52",
+    "first_name": "Jacob",
+    "second_name": "Ramsey",
+    "web_name": "J.Ramsey",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "559962",
+    "player_id": "62",
+    "first_name": "Jamaldeen",
+    "second_name": "Jimoh-Aloba",
+    "web_name": "Jimoh-Aloba",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "226944",
+    "player_id": "58",
+    "first_name": "Boubacar",
+    "second_name": "Kamara",
+    "web_name": "Kamara",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "199798",
+    "player_id": "38",
+    "first_name": "Ezri",
+    "second_name": "Konsa Ngoyo",
+    "web_name": "Konsa",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "72147",
+    "player_id": "33",
+    "first_name": "Marco",
+    "second_name": "Bizot",
+    "web_name": "M.Bizot",
+    "position": "Goalkeeper",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "441302",
+    "player_id": "39",
+    "first_name": "Ian",
+    "second_name": "Maatsen",
+    "web_name": "Maatsen",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "204646",
+    "player_id": "53",
+    "first_name": "Donyell",
+    "second_name": "Malen",
+    "web_name": "Malen",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "462381",
+    "player_id": "35",
+    "first_name": "Filip",
+    "second_name": "Marschall",
+    "web_name": "Marschall",
+    "position": "Goalkeeper",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "98980",
+    "player_id": "32",
+    "first_name": "Emiliano",
+    "second_name": "Martínez Romero",
+    "web_name": "Martinez",
+    "position": "Goalkeeper",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "122806",
+    "player_id": "54",
+    "first_name": "John",
+    "second_name": "McGinn",
+    "web_name": "McGinn",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "149484",
+    "player_id": "40",
+    "first_name": "Tyrone",
+    "second_name": "Mings",
+    "web_name": "Mings",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "449871",
+    "player_id": "59",
+    "first_name": "Amadou",
+    "second_name": "Onana",
+    "web_name": "Onana",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "244954",
+    "player_id": "41",
+    "first_name": "Pau",
+    "second_name": "Torres",
+    "web_name": "Pau",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "576756",
+    "player_id": "65",
+    "first_name": "Zépiqueno",
+    "second_name": "Redmond",
+    "web_name": "Redmond",
+    "position": "Forward",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "244850",
+    "player_id": "47",
+    "first_name": "Morgan",
+    "second_name": "Rogers",
+    "web_name": "Rogers",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "514315",
+    "player_id": "45",
+    "first_name": "Lino",
+    "second_name": "da Cruz Sousa",
+    "web_name": "Sousa",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "166989",
+    "player_id": "48",
+    "first_name": "Youri",
+    "second_name": "Tielemans",
+    "web_name": "Tielemans",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "178301",
+    "player_id": "64",
+    "first_name": "Ollie",
+    "second_name": "Watkins",
+    "web_name": "Watkins",
+    "position": "Forward",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "587178",
+    "player_id": "46",
+    "first_name": "Yasin",
+    "second_name": "Özcan",
+    "web_name": "Yasin",
+    "position": "Defender",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "537403",
+    "player_id": "63",
+    "first_name": "Kadan",
+    "second_name": "Young",
+    "web_name": "Young",
+    "position": "Midfielder",
+    "team_name": "Aston Villa"
+  },
+  {
+    "player_code": "200785",
+    "player_id": "85",
+    "first_name": "Tyler",
+    "second_name": "Adams",
+    "web_name": "Adams",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "590760",
+    "player_id": "99",
+    "first_name": "Daniel",
+    "second_name": "Adu-Adjei",
+    "web_name": "Adu-Adjei",
+    "position": "Forward",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "541462",
+    "player_id": "75",
+    "first_name": "Matai",
+    "second_name": "Akinmboni",
+    "web_name": "Akinmboni",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "518906",
+    "player_id": "76",
+    "first_name": "Owen",
+    "second_name": "Bevan",
+    "web_name": "Bevan",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "111317",
+    "player_id": "86",
+    "first_name": "David",
+    "second_name": "Brooks",
+    "web_name": "Brooks",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "158499",
+    "player_id": "87",
+    "first_name": "Ryan",
+    "second_name": "Christie",
+    "web_name": "Christie",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "155408",
+    "player_id": "88",
+    "first_name": "Lewis",
+    "second_name": "Cook",
+    "web_name": "Cook",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "444172",
+    "player_id": "68",
+    "first_name": "Will",
+    "second_name": "Dennis",
+    "web_name": "Dennis",
+    "position": "Goalkeeper",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "168636",
+    "player_id": "98",
+    "first_name": "Enes",
+    "second_name": "Ünal",
+    "web_name": "Enes Ünal",
+    "position": "Forward",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "444102",
+    "player_id": "97",
+    "first_name": "Francisco Evanilson",
+    "second_name": "de Lima Barbosa",
+    "web_name": "Evanilson",
+    "position": "Forward",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "441240",
+    "player_id": "92",
+    "first_name": "Romain",
+    "second_name": "Faivre",
+    "web_name": "Faivre",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "424044",
+    "player_id": "93",
+    "first_name": "Hamed",
+    "second_name": "Traorè",
+    "web_name": "H.Traorè",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "463981",
+    "player_id": "77",
+    "first_name": "James",
+    "second_name": "Hill",
+    "web_name": "Hill",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "436893",
+    "player_id": "78",
+    "first_name": "Julián",
+    "second_name": "Araujo Zúñiga",
+    "web_name": "J.Araujo",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "222683",
+    "player_id": "81",
+    "first_name": "Justin",
+    "second_name": "Kluivert",
+    "web_name": "Kluivert",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "560262",
+    "player_id": "100",
+    "first_name": "Eli Junior",
+    "second_name": "Kroupi",
+    "web_name": "Kroupi.Jr",
+    "position": "Forward",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "568791",
+    "player_id": "69",
+    "first_name": "Callan",
+    "second_name": "McKenna",
+    "web_name": "McKenna",
+    "position": "Goalkeeper",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "223911",
+    "player_id": "79",
+    "first_name": "Chris",
+    "second_name": "Mepham",
+    "web_name": "Mepham",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "69752",
+    "player_id": "66",
+    "first_name": "Norberto",
+    "second_name": "Murara Neto",
+    "web_name": "Neto",
+    "position": "Goalkeeper",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "533463",
+    "player_id": "83",
+    "first_name": "Dango",
+    "second_name": "Ouattara",
+    "web_name": "O.Dango",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "495145",
+    "player_id": "70",
+    "first_name": "Alex",
+    "second_name": "Paulsen",
+    "web_name": "Paulsen",
+    "position": "Goalkeeper",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "457569",
+    "player_id": "67",
+    "first_name": "Đorđe",
+    "second_name": "Petrović",
+    "web_name": "Petrović",
+    "position": "Goalkeeper",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "168991",
+    "player_id": "89",
+    "first_name": "Philip",
+    "second_name": "Billing",
+    "web_name": "Philip",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "550596",
+    "player_id": "94",
+    "first_name": "Dominic",
+    "second_name": "Sadi",
+    "web_name": "Sadi",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "503139",
+    "player_id": "90",
+    "first_name": "Alex",
+    "second_name": "Scott",
+    "web_name": "Scott",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "437730",
+    "player_id": "82",
+    "first_name": "Antoine",
+    "second_name": "Semenyo",
+    "web_name": "Semenyo",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "221466",
+    "player_id": "72",
+    "first_name": "Marcos",
+    "second_name": "Senesi Barón",
+    "web_name": "Senesi",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "530121",
+    "player_id": "95",
+    "first_name": "Zain",
+    "second_name": "Silcott-Duberry",
+    "web_name": "Silcott-Duberry",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "224995",
+    "player_id": "91",
+    "first_name": "Luis",
+    "second_name": "Sinisterra Lucumí",
+    "web_name": "Sinisterra",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "54469",
+    "player_id": "73",
+    "first_name": "Adam",
+    "second_name": "Smith",
+    "web_name": "Smith",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "575901",
+    "player_id": "80",
+    "first_name": "Julio",
+    "second_name": "Soler Barreto",
+    "web_name": "Soler",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "201658",
+    "player_id": "84",
+    "first_name": "Marcus",
+    "second_name": "Tavernier",
+    "web_name": "Tavernier",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "494521",
+    "player_id": "74",
+    "first_name": "Adrien",
+    "second_name": "Truffert",
+    "web_name": "Truffert",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "606775",
+    "player_id": "96",
+    "first_name": "Ben",
+    "second_name": "Winterburn",
+    "web_name": "Winterburn",
+    "position": "Midfielder",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "477580",
+    "player_id": "71",
+    "first_name": "Illia",
+    "second_name": "Zabarnyi",
+    "web_name": "Zabarnyi",
+    "position": "Defender",
+    "team_name": "Bournemouth"
+  },
+  {
+    "player_code": "191866",
+    "player_id": "108",
+    "first_name": "Kristoffer",
+    "second_name": "Ajer",
+    "web_name": "Ajer",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "622536",
+    "player_id": "114",
+    "first_name": "Benjamin",
+    "second_name": "Arthur",
+    "web_name": "Arthur",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "235448",
+    "player_id": "102",
+    "first_name": "Ellery",
+    "second_name": "Balcombe",
+    "web_name": "Balcombe",
+    "position": "Goalkeeper",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "244858",
+    "player_id": "123",
+    "first_name": "Fábio",
+    "second_name": "Freitas Gouveia Carvalho",
+    "web_name": "Carvalho",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "432830",
+    "player_id": "106",
+    "first_name": "Nathan",
+    "second_name": "Collins",
+    "web_name": "Collins",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "503300",
+    "player_id": "103",
+    "first_name": "Matthew",
+    "second_name": "Cox",
+    "web_name": "Cox",
+    "position": "Goalkeeper",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "440089",
+    "player_id": "121",
+    "first_name": "Mikkel",
+    "second_name": "Damsgaard",
+    "web_name": "Damsgaard",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "606689",
+    "player_id": "130",
+    "first_name": "Romelle",
+    "second_name": "Donovan",
+    "web_name": "Donovan",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "535017",
+    "player_id": "104",
+    "first_name": "Julian",
+    "second_name": "Eyestone",
+    "web_name": "Eyestone",
+    "position": "Goalkeeper",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "612534",
+    "player_id": "115",
+    "first_name": "Benjamin",
+    "second_name": "Fredrick",
+    "web_name": "Fredrick",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "56979",
+    "player_id": "124",
+    "first_name": "Jordan",
+    "second_name": "Henderson",
+    "web_name": "Henderson",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "194010",
+    "player_id": "109",
+    "first_name": "Rico",
+    "second_name": "Henry",
+    "web_name": "Henry",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "472713",
+    "player_id": "116",
+    "first_name": "Aaron",
+    "second_name": "Hickey",
+    "web_name": "Hickey",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "204580",
+    "player_id": "125",
+    "first_name": "Vitaly",
+    "second_name": "Janelt",
+    "web_name": "Janelt",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "207283",
+    "player_id": "126",
+    "first_name": "Mathias",
+    "second_name": "Jensen",
+    "web_name": "Jensen",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "570241",
+    "player_id": "117",
+    "first_name": "Kim",
+    "second_name": "Ji-soo",
+    "web_name": "Ji-soo",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "607464",
+    "player_id": "110",
+    "first_name": "Michael",
+    "second_name": "Kayode",
+    "web_name": "Kayode",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "200720",
+    "player_id": "101",
+    "first_name": "Caoimhín",
+    "second_name": "Kelleher",
+    "web_name": "Kelleher",
+    "position": "Goalkeeper",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "628204",
+    "player_id": "131",
+    "first_name": "Yunus Emre",
+    "second_name": "Konak",
+    "web_name": "Konak",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "249231",
+    "player_id": "107",
+    "first_name": "Keane",
+    "second_name": "Lewis-Potter",
+    "web_name": "Lewis-Potter",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "220695",
+    "player_id": "132",
+    "first_name": "Paris",
+    "second_name": "Maghoma",
+    "web_name": "Maghoma",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "499717",
+    "player_id": "118",
+    "first_name": "Jayden",
+    "second_name": "Meghoma",
+    "web_name": "Meghoma",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "543295",
+    "player_id": "122",
+    "first_name": "Antoni",
+    "second_name": "Milambo",
+    "web_name": "Milambo",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "533710",
+    "player_id": "137",
+    "first_name": "Iwan",
+    "second_name": "Morgan",
+    "web_name": "Morgan",
+    "position": "Forward",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "626464",
+    "player_id": "127",
+    "first_name": "Gustavo",
+    "second_name": "Nunes Fernandes Gomes",
+    "web_name": "Nunes",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "428580",
+    "player_id": "128",
+    "first_name": "Frank",
+    "second_name": "Onyeka",
+    "web_name": "Onyeka",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "450539",
+    "player_id": "133",
+    "first_name": "Myles",
+    "second_name": "Peart-Harris",
+    "web_name": "Peart-Harris",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "231065",
+    "player_id": "111",
+    "first_name": "Ethan",
+    "second_name": "Pinnock",
+    "web_name": "Pinnock",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "226956",
+    "player_id": "112",
+    "first_name": "Mads",
+    "second_name": "Roerslev Rasmussen",
+    "web_name": "Roerslev",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "513418",
+    "player_id": "120",
+    "first_name": "Kevin",
+    "second_name": "Schade",
+    "web_name": "Schade",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "502500",
+    "player_id": "136",
+    "first_name": "Igor Thiago",
+    "second_name": "Nascimento Rodrigues",
+    "web_name": "Thiago",
+    "position": "Forward",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "591357",
+    "player_id": "134",
+    "first_name": "Ryan",
+    "second_name": "Trevitt",
+    "web_name": "Trevitt",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "507433",
+    "player_id": "105",
+    "first_name": "Hákon Rafn",
+    "second_name": "Valdimarsson",
+    "web_name": "Valdimarsson",
+    "position": "Goalkeeper",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "444765",
+    "player_id": "113",
+    "first_name": "Sepp",
+    "second_name": "van den Berg",
+    "web_name": "Van den Berg",
+    "position": "Defender",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "216646",
+    "player_id": "135",
+    "first_name": "Yoane",
+    "second_name": "Wissa",
+    "web_name": "Wissa",
+    "position": "Forward",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "508395",
+    "player_id": "129",
+    "first_name": "Yehor",
+    "second_name": "Yarmoliuk",
+    "web_name": "Yarmoliuk",
+    "position": "Midfielder",
+    "team_name": "Brentford"
+  },
+  {
+    "player_code": "509416",
+    "player_id": "166",
+    "first_name": "Yasin",
+    "second_name": "Ayari",
+    "web_name": "Ayari",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "535301",
+    "player_id": "167",
+    "first_name": "Carlos",
+    "second_name": "Baleba",
+    "web_name": "Baleba",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "204120",
+    "player_id": "143",
+    "first_name": "Olivier",
+    "second_name": "Boscagli",
+    "web_name": "Boscagli",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "536916",
+    "player_id": "168",
+    "first_name": "Facundo",
+    "second_name": "Buonanotte",
+    "web_name": "Buonanotte",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "439135",
+    "player_id": "154",
+    "first_name": "Eiran",
+    "second_name": "Cashin",
+    "web_name": "Cashin",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "550090",
+    "player_id": "144",
+    "first_name": "Diego",
+    "second_name": "Coppola",
+    "web_name": "Coppola",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "465730",
+    "player_id": "145",
+    "first_name": "Maxim",
+    "second_name": "De Cuyper",
+    "web_name": "De Cuyper",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "83299",
+    "player_id": "146",
+    "first_name": "Lewis",
+    "second_name": "Dunk",
+    "web_name": "Dunk",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "474120",
+    "player_id": "161",
+    "first_name": "Julio",
+    "second_name": "Enciso Espínola",
+    "web_name": "Enciso",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "204214",
+    "player_id": "147",
+    "first_name": "Pervis",
+    "second_name": "Estupiñán Tenorio",
+    "web_name": "Estupiñan",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "231416",
+    "player_id": "148",
+    "first_name": "Ferdi",
+    "second_name": "Kadıoğlu",
+    "web_name": "F.Kadıoğlu",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "487117",
+    "player_id": "179",
+    "first_name": "Evan",
+    "second_name": "Ferguson",
+    "web_name": "Ferguson",
+    "position": "Forward",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "463067",
+    "player_id": "158",
+    "first_name": "Georginio",
+    "second_name": "Rutter",
+    "web_name": "Georginio",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "514254",
+    "player_id": "169",
+    "first_name": "Diego",
+    "second_name": "Gómez Amarilla",
+    "web_name": "Gomez",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "513433",
+    "player_id": "162",
+    "first_name": "Brajan",
+    "second_name": "Gruda",
+    "web_name": "Gruda",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "532529",
+    "player_id": "163",
+    "first_name": "Jack",
+    "second_name": "Hinshelwood",
+    "web_name": "Hinshelwood",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "223434",
+    "player_id": "149",
+    "first_name": "Igor Julio",
+    "second_name": "dos Santos de Paulo",
+    "web_name": "Igor",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "567121",
+    "player_id": "175",
+    "first_name": "Joe",
+    "second_name": "Knight",
+    "web_name": "Knight",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "647850",
+    "player_id": "181",
+    "first_name": "Charalampos",
+    "second_name": "Kostoulas",
+    "web_name": "Kostoulas",
+    "position": "Forward",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "232792",
+    "player_id": "150",
+    "first_name": "Tariq",
+    "second_name": "Lamptey",
+    "web_name": "Lamptey",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "109345",
+    "player_id": "159",
+    "first_name": "Solly",
+    "second_name": "March",
+    "web_name": "March",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "550141",
+    "player_id": "176",
+    "first_name": "Adrian",
+    "second_name": "Mazilu",
+    "web_name": "Mazilu",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "209288",
+    "player_id": "140",
+    "first_name": "Tom",
+    "second_name": "McGill",
+    "web_name": "McGill",
+    "position": "Goalkeeper",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "15157",
+    "player_id": "170",
+    "first_name": "James",
+    "second_name": "Milner",
+    "web_name": "Milner",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "592031",
+    "player_id": "160",
+    "first_name": "Yankuba",
+    "second_name": "Minteh",
+    "web_name": "Minteh",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "451340",
+    "player_id": "157",
+    "first_name": "Mitoma",
+    "second_name": "Kaoru",
+    "web_name": "Mitoma",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "513834",
+    "player_id": "177",
+    "first_name": "Andrew",
+    "second_name": "Moran",
+    "web_name": "Moran",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "219249",
+    "player_id": "164",
+    "first_name": "Matt",
+    "second_name": "O'Riley",
+    "web_name": "O'Riley",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "472739",
+    "player_id": "141",
+    "first_name": "Carl",
+    "second_name": "Rushworth",
+    "web_name": "Rushworth",
+    "position": "Goalkeeper",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "441192",
+    "player_id": "171",
+    "first_name": "Jeremy",
+    "second_name": "Sarmiento Morante",
+    "web_name": "Sarmiento",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "240514",
+    "player_id": "142",
+    "first_name": "Kjell",
+    "second_name": "Scherpen",
+    "web_name": "Scherpen",
+    "position": "Goalkeeper",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "516211",
+    "player_id": "165",
+    "first_name": "Abdallah",
+    "second_name": "Sima",
+    "web_name": "Sima",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "589100",
+    "player_id": "155",
+    "first_name": "Jacob",
+    "second_name": "Slater",
+    "web_name": "Slater",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "49262",
+    "player_id": "138",
+    "first_name": "Jason",
+    "second_name": "Steele",
+    "web_name": "Steele",
+    "position": "Goalkeeper",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "547720",
+    "player_id": "156",
+    "first_name": "Charlie",
+    "second_name": "Tasker",
+    "web_name": "Tasker",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "608181",
+    "player_id": "180",
+    "first_name": "Stefanos",
+    "second_name": "Tzimas",
+    "web_name": "Tzimas",
+    "position": "Forward",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "469142",
+    "player_id": "151",
+    "first_name": "Jan Paul",
+    "second_name": "van Hecke",
+    "web_name": "Van Hecke",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "111478",
+    "player_id": "152",
+    "first_name": "Joël",
+    "second_name": "Veltman",
+    "web_name": "Veltman",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "489639",
+    "player_id": "139",
+    "first_name": "Bart",
+    "second_name": "Verbruggen",
+    "web_name": "Verbruggen",
+    "position": "Goalkeeper",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "549074",
+    "player_id": "172",
+    "first_name": "Tom",
+    "second_name": "Watson",
+    "web_name": "Watson",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "110735",
+    "player_id": "153",
+    "first_name": "Adam",
+    "second_name": "Webster",
+    "web_name": "Webster",
+    "position": "Defender",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "50175",
+    "player_id": "178",
+    "first_name": "Danny",
+    "second_name": "Welbeck",
+    "web_name": "Welbeck",
+    "position": "Forward",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "467779",
+    "player_id": "173",
+    "first_name": "Mats",
+    "second_name": "Wieffer",
+    "web_name": "Wieffer",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "611695",
+    "player_id": "174",
+    "first_name": "Malick",
+    "second_name": "Yalcouyé",
+    "web_name": "Yalcouye",
+    "position": "Midfielder",
+    "team_name": "Brighton"
+  },
+  {
+    "player_code": "447715",
+    "player_id": "211",
+    "first_name": "Aaron",
+    "second_name": "Ramsey",
+    "web_name": "A.Ramsey",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "576323",
+    "player_id": "212",
+    "first_name": "Oluwaseun",
+    "second_name": "Adewumi",
+    "web_name": "Adewumi",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "492831",
+    "player_id": "216",
+    "first_name": "Zeki",
+    "second_name": "Amdouni",
+    "web_name": "Amdouni",
+    "position": "Forward",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "444180",
+    "player_id": "200",
+    "first_name": "Jaidon",
+    "second_name": "Anthony",
+    "web_name": "Anthony",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "551206",
+    "player_id": "213",
+    "first_name": "Jaydon",
+    "second_name": "Banel",
+    "web_name": "Banel",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "44699",
+    "player_id": "218",
+    "first_name": "Ashley",
+    "second_name": "Barnes",
+    "web_name": "Barnes",
+    "position": "Forward",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "183751",
+    "player_id": "201",
+    "first_name": "Manuel",
+    "second_name": "Benson Hedilazio",
+    "web_name": "Benson",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "578614",
+    "player_id": "203",
+    "first_name": "Enock",
+    "second_name": "Agyei",
+    "web_name": "Boateng",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "179458",
+    "player_id": "202",
+    "first_name": "Jacob",
+    "second_name": "Bruun Larsen",
+    "web_name": "Bruun Larsen",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "250735",
+    "player_id": "204",
+    "first_name": "Darko",
+    "second_name": "Churlinov",
+    "web_name": "Churlinov",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "172567",
+    "player_id": "205",
+    "first_name": "Josh",
+    "second_name": "Cullen",
+    "web_name": "Cullen",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "247245",
+    "player_id": "188",
+    "first_name": "Hannes",
+    "second_name": "Delcroix",
+    "web_name": "Delcroix",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "461567",
+    "player_id": "189",
+    "first_name": "Owen",
+    "second_name": "Dodgson",
+    "web_name": "Dodgson",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "174592",
+    "player_id": "206",
+    "first_name": "Marcus",
+    "second_name": "Edwards",
+    "web_name": "Edwards",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "478969",
+    "player_id": "190",
+    "first_name": "Hjalmar",
+    "second_name": "Ekdal",
+    "web_name": "Ekdal",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "477717",
+    "player_id": "191",
+    "first_name": "Maxime",
+    "second_name": "Estève",
+    "web_name": "Estève",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "431639",
+    "player_id": "215",
+    "first_name": "Zian",
+    "second_name": "Flemming",
+    "web_name": "Flemming",
+    "position": "Forward",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "435973",
+    "player_id": "217",
+    "first_name": "Lyle",
+    "second_name": "Foster",
+    "web_name": "Foster",
+    "position": "Forward",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "489571",
+    "player_id": "184",
+    "first_name": "Etienne",
+    "second_name": "Green",
+    "web_name": "Green",
+    "position": "Goalkeeper",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "465527",
+    "player_id": "207",
+    "first_name": "Hannibal",
+    "second_name": "Mejbri",
+    "web_name": "Hannibal",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "494960",
+    "player_id": "192",
+    "first_name": "Quilindschy",
+    "second_name": "Hartman",
+    "web_name": "Hartman",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "51943",
+    "player_id": "185",
+    "first_name": "Václav",
+    "second_name": "Hladký",
+    "web_name": "Hladký",
+    "position": "Goalkeeper",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "461188",
+    "player_id": "193",
+    "first_name": "Bashir",
+    "second_name": "Humphreys",
+    "web_name": "Humphreys",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "241231",
+    "player_id": "194",
+    "first_name": "Jordan",
+    "second_name": "Beyer",
+    "web_name": "Jordan",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "487702",
+    "player_id": "208",
+    "first_name": "Luca",
+    "second_name": "Koleosho",
+    "web_name": "Koleosho",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "167887",
+    "player_id": "209",
+    "first_name": "Josh",
+    "second_name": "Laurent",
+    "web_name": "Laurent",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "549329",
+    "player_id": "195",
+    "first_name": "Lucas",
+    "second_name": "Pires Silva",
+    "web_name": "Lucas Pires",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "220598",
+    "player_id": "219",
+    "first_name": "Michael",
+    "second_name": "Obafemi",
+    "web_name": "Obafemi",
+    "position": "Forward",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "192290",
+    "player_id": "186",
+    "first_name": "Connor",
+    "second_name": "Roberts",
+    "web_name": "Roberts",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "450072",
+    "player_id": "196",
+    "first_name": "Shurandy",
+    "second_name": "Sambo",
+    "web_name": "Sambo",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "519895",
+    "player_id": "197",
+    "first_name": "Oliver",
+    "second_name": "Sonne",
+    "web_name": "Sonne",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "469272",
+    "player_id": "210",
+    "first_name": "Loum",
+    "second_name": "Tchaouna",
+    "web_name": "Tchaouna",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "437748",
+    "player_id": "214",
+    "first_name": "Mike",
+    "second_name": "Trésor Ndayishimiye",
+    "web_name": "Trésor",
+    "position": "Midfielder",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "180804",
+    "player_id": "198",
+    "first_name": "Axel",
+    "second_name": "Tuanzebe",
+    "web_name": "Tuanzebe",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "58621",
+    "player_id": "187",
+    "first_name": "Kyle",
+    "second_name": "Walker",
+    "web_name": "Walker",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "518030",
+    "player_id": "183",
+    "first_name": "Max",
+    "second_name": "Weiß",
+    "web_name": "Weiss",
+    "position": "Goalkeeper",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "208912",
+    "player_id": "199",
+    "first_name": "Joe",
+    "second_name": "Worrall",
+    "web_name": "Worrall",
+    "position": "Defender",
+    "team_name": "Burnley"
+  },
+  {
+    "player_code": "577016",
+    "player_id": "233",
+    "first_name": "Josh",
+    "second_name": "Acheampong",
+    "web_name": "Acheampong",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "532605",
+    "player_id": "246",
+    "first_name": "Andrey",
+    "second_name": "Nascimento dos Santos",
+    "web_name": "Andrey Santos",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "622758",
+    "player_id": "234",
+    "first_name": "Aarón",
+    "second_name": "Anselmino",
+    "web_name": "Anselmino",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "242880",
+    "player_id": "229",
+    "first_name": "Benoît",
+    "second_name": "Badiashile Mukinayi",
+    "web_name": "B.Badiashile",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "486672",
+    "player_id": "241",
+    "first_name": "Moisés",
+    "second_name": "Caicedo Corozo",
+    "web_name": "Caicedo",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "180736",
+    "player_id": "226",
+    "first_name": "Trevoh",
+    "second_name": "Chalobah",
+    "web_name": "Chalobah",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "460028",
+    "player_id": "227",
+    "first_name": "Levi",
+    "second_name": "Samuels Colwill",
+    "web_name": "Colwill",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "179268",
+    "player_id": "224",
+    "first_name": "Marc",
+    "second_name": "Cucurella Saseta",
+    "web_name": "Cucurella",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "491007",
+    "player_id": "247",
+    "first_name": "Dário",
+    "second_name": "Luís Essugo",
+    "web_name": "D.Essugo",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "463034",
+    "player_id": "250",
+    "first_name": "Liam",
+    "second_name": "Delap",
+    "web_name": "Delap",
+    "position": "Forward",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "215413",
+    "player_id": "242",
+    "first_name": "Kiernan",
+    "second_name": "Dewsbury-Hall",
+    "web_name": "Dewsbury-Hall",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "448047",
+    "player_id": "237",
+    "first_name": "Enzo",
+    "second_name": "Fernández",
+    "web_name": "Enzo",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "624773",
+    "player_id": "238",
+    "first_name": "Estêvão",
+    "second_name": "Almeida de Oliveira Gonçalves",
+    "web_name": "Estêvão",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "444463",
+    "player_id": "230",
+    "first_name": "Wesley",
+    "second_name": "Fofana",
+    "web_name": "Fofana",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "550615",
+    "player_id": "243",
+    "first_name": "Tyrique",
+    "second_name": "George",
+    "web_name": "George",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "463936",
+    "player_id": "239",
+    "first_name": "Jamie",
+    "second_name": "Bynoe-Gittens",
+    "web_name": "Gittens",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "482609",
+    "player_id": "228",
+    "first_name": "Malo",
+    "second_name": "Gusto",
+    "web_name": "Gusto",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "551210",
+    "player_id": "672",
+    "first_name": "Jorrel",
+    "second_name": "Hato",
+    "web_name": "Hato",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "225796",
+    "player_id": "225",
+    "first_name": "Reece",
+    "second_name": "James",
+    "web_name": "James",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "475168",
+    "player_id": "249",
+    "first_name": "João Pedro",
+    "second_name": "Junqueira de Jesus",
+    "web_name": "João Pedro",
+    "position": "Forward",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "508479",
+    "player_id": "221",
+    "first_name": "Filip",
+    "second_name": "Jörgensen",
+    "web_name": "Jörgensen",
+    "position": "Goalkeeper",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "514356",
+    "player_id": "244",
+    "first_name": "Roméo",
+    "second_name": "Lavia",
+    "web_name": "Lavia",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "574458",
+    "player_id": "231",
+    "first_name": "Mamadou",
+    "second_name": "Sarr",
+    "web_name": "M.Sarr",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "499309",
+    "player_id": "252",
+    "first_name": "Marc",
+    "second_name": "Guiu Paz",
+    "web_name": "Marc Guiu",
+    "position": "Forward",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "465920",
+    "player_id": "245",
+    "first_name": "Mykhailo",
+    "second_name": "Mudryk",
+    "web_name": "Mudryk",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "517052",
+    "player_id": "251",
+    "first_name": "Nicolas",
+    "second_name": "Jackson",
+    "web_name": "N.Jackson",
+    "position": "Forward",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "247632",
+    "player_id": "236",
+    "first_name": "Pedro",
+    "second_name": "Lomba Neto",
+    "web_name": "Neto",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "213198",
+    "player_id": "240",
+    "first_name": "Christopher",
+    "second_name": "Nkunku",
+    "web_name": "Nkunku",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "611134",
+    "player_id": "248",
+    "first_name": "Kendry",
+    "second_name": "Páez Andrade",
+    "web_name": "Paez",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "244851",
+    "player_id": "235",
+    "first_name": "Cole",
+    "second_name": "Palmer",
+    "web_name": "Palmer",
+    "position": "Midfielder",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "549939",
+    "player_id": "222",
+    "first_name": "Mike",
+    "second_name": "Penders",
+    "web_name": "Penders",
+    "position": "Goalkeeper",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "471798",
+    "player_id": "223",
+    "first_name": "Gabriel",
+    "second_name": "Słonina",
+    "web_name": "Slonina",
+    "position": "Goalkeeper",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "215059",
+    "player_id": "220",
+    "first_name": "Robert",
+    "second_name": "Lynch Sánchez",
+    "web_name": "Sánchez",
+    "position": "Goalkeeper",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "109646",
+    "player_id": "232",
+    "first_name": "Tosin",
+    "second_name": "Adarabioyo",
+    "web_name": "Tosin",
+    "position": "Defender",
+    "team_name": "Chelsea"
+  },
+  {
+    "player_code": "579075",
+    "player_id": "274",
+    "first_name": "Asher",
+    "second_name": "Agbinone",
+    "web_name": "Agbinone",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "466117",
+    "player_id": "275",
+    "first_name": "Naouirou",
+    "second_name": "Ahamada",
+    "web_name": "Ahamada",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "121709",
+    "player_id": "254",
+    "first_name": "Walter",
+    "second_name": "Benítez",
+    "web_name": "Benitez",
+    "position": "Goalkeeper",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "515621",
+    "player_id": "262",
+    "first_name": "Chadi",
+    "second_name": "Riad Dnanou",
+    "web_name": "Chadi Riad",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "57328",
+    "player_id": "263",
+    "first_name": "Nathaniel",
+    "second_name": "Clyne",
+    "web_name": "Clyne",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "489706",
+    "player_id": "276",
+    "first_name": "Justin",
+    "second_name": "Devenny",
+    "web_name": "Devenny",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "438464",
+    "player_id": "268",
+    "first_name": "Cheick",
+    "second_name": "Doucouré",
+    "web_name": "Doucouré",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "450535",
+    "player_id": "277",
+    "first_name": "Malcolm",
+    "second_name": "Ebiowei",
+    "web_name": "Ebiowei",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "606921",
+    "player_id": "269",
+    "first_name": "Romain",
+    "second_name": "Esse",
+    "web_name": "Esse",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "232413",
+    "player_id": "266",
+    "first_name": "Eberechi",
+    "second_name": "Eze",
+    "web_name": "Eze",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "209036",
+    "player_id": "260",
+    "first_name": "Marc",
+    "second_name": "Guéhi",
+    "web_name": "Guéhi",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "172649",
+    "player_id": "253",
+    "first_name": "Dean",
+    "second_name": "Henderson",
+    "web_name": "Henderson",
+    "position": "Goalkeeper",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "156074",
+    "player_id": "264",
+    "first_name": "Rob",
+    "second_name": "Holding",
+    "web_name": "Holding",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "108413",
+    "player_id": "270",
+    "first_name": "Will",
+    "second_name": "Hughes",
+    "web_name": "Hughes",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "450542",
+    "player_id": "278",
+    "first_name": "Jesurun",
+    "second_name": "Rak-Sakyi",
+    "web_name": "J.Rak-Sakyi",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "209400",
+    "player_id": "271",
+    "first_name": "Daichi",
+    "second_name": "Kamada",
+    "web_name": "Kamada",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "590012",
+    "player_id": "265",
+    "first_name": "Caleb",
+    "second_name": "Kporha",
+    "web_name": "Kporha",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "437499",
+    "player_id": "257",
+    "first_name": "Maxence",
+    "second_name": "Lacroix",
+    "web_name": "Lacroix",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "152551",
+    "player_id": "272",
+    "first_name": "Jefferson",
+    "second_name": "Lerma Solís",
+    "web_name": "Lerma",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "536694",
+    "player_id": "279",
+    "first_name": "Matheus",
+    "second_name": "França de Oliveira",
+    "web_name": "M.França",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "576980",
+    "player_id": "286",
+    "first_name": "Zach",
+    "second_name": "Marsh",
+    "web_name": "Marsh",
+    "position": "Forward",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "231747",
+    "player_id": "283",
+    "first_name": "Jean-Philippe",
+    "second_name": "Mateta",
+    "web_name": "Mateta",
+    "position": "Forward",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "169593",
+    "player_id": "255",
+    "first_name": "Remi",
+    "second_name": "Matthews",
+    "web_name": "Matthews",
+    "position": "Goalkeeper",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "244723",
+    "player_id": "258",
+    "first_name": "Tyrick",
+    "second_name": "Mitchell",
+    "web_name": "Mitchell",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "247348",
+    "player_id": "256",
+    "first_name": "Daniel",
+    "second_name": "Muñoz Mejía",
+    "web_name": "Muñoz",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "205533",
+    "player_id": "284",
+    "first_name": "Eddie",
+    "second_name": "Nketiah",
+    "web_name": "Nketiah",
+    "position": "Forward",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "531989",
+    "player_id": "280",
+    "first_name": "David",
+    "second_name": "Ozoh",
+    "web_name": "Ozoh",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "427623",
+    "player_id": "261",
+    "first_name": "Chris",
+    "second_name": "Richards",
+    "web_name": "Richards",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "530318",
+    "player_id": "281",
+    "first_name": "Kaden",
+    "second_name": "Rodney",
+    "web_name": "Rodney",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "232185",
+    "player_id": "267",
+    "first_name": "Ismaïla",
+    "second_name": "Sarr",
+    "web_name": "Sarr",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "218364",
+    "player_id": "259",
+    "first_name": "Borna",
+    "second_name": "Sosa",
+    "web_name": "Sosa",
+    "position": "Defender",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "574398",
+    "player_id": "282",
+    "first_name": "Franco",
+    "second_name": "Umeh-Chibueze",
+    "web_name": "Umeh",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "496221",
+    "player_id": "273",
+    "first_name": "Adam",
+    "second_name": "Wharton",
+    "web_name": "Wharton",
+    "position": "Midfielder",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "199670",
+    "player_id": "285",
+    "first_name": "Odsonne",
+    "second_name": "Édouard",
+    "web_name": "Édouard",
+    "position": "Forward",
+    "team_name": "Crystal Palace"
+  },
+  {
+    "player_code": "502697",
+    "player_id": "301",
+    "first_name": "Carlos",
+    "second_name": "Alcaraz Durán",
+    "web_name": "Alcaraz",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "609873",
+    "player_id": "305",
+    "first_name": "Harrison",
+    "second_name": "Armstrong",
+    "web_name": "Armstrong",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "499300",
+    "player_id": "667",
+    "first_name": "Adam",
+    "second_name": "Aznou",
+    "web_name": "Aznou",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "586309",
+    "player_id": "310",
+    "first_name": "Thierno",
+    "second_name": "Barry",
+    "web_name": "Barry",
+    "position": "Forward",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "547801",
+    "player_id": "306",
+    "first_name": "Callum",
+    "second_name": "Bates",
+    "web_name": "Bates",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "486385",
+    "player_id": "311",
+    "first_name": "Norberto Bercique",
+    "second_name": "Gomes Betuncal",
+    "web_name": "Beto",
+    "position": "Forward",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "480455",
+    "player_id": "290",
+    "first_name": "Jarrad",
+    "second_name": "Branthwaite",
+    "web_name": "Branthwaite",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "59949",
+    "player_id": "294",
+    "first_name": "Séamus",
+    "second_name": "Coleman",
+    "web_name": "Coleman",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "496178",
+    "player_id": "297",
+    "first_name": "Roman",
+    "second_name": "Dixon",
+    "web_name": "Dixon",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "504296",
+    "player_id": "307",
+    "first_name": "Coby",
+    "second_name": "Ebere",
+    "web_name": "Ebere",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "80801",
+    "player_id": "302",
+    "first_name": "Idrissa Gana",
+    "second_name": "Gueye",
+    "web_name": "Gana",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "232928",
+    "player_id": "303",
+    "first_name": "James",
+    "second_name": "Garner",
+    "web_name": "Garner",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "496279",
+    "player_id": "308",
+    "first_name": "Isaac",
+    "second_name": "Heath",
+    "web_name": "Heath",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "490094",
+    "player_id": "304",
+    "first_name": "Tim",
+    "second_name": "Iroegbunam",
+    "web_name": "Iroegbunam",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "106611",
+    "player_id": "295",
+    "first_name": "Michael",
+    "second_name": "Keane",
+    "web_name": "Keane",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "433154",
+    "player_id": "300",
+    "first_name": "Dwight",
+    "second_name": "McNeil",
+    "web_name": "McNeil",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "491557",
+    "player_id": "309",
+    "first_name": "Jenson",
+    "second_name": "Metcalfe",
+    "web_name": "Metcalfe",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "224967",
+    "player_id": "292",
+    "first_name": "Vitalii",
+    "second_name": "Mykolenko",
+    "web_name": "Mykolenko",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "440993",
+    "player_id": "299",
+    "first_name": "Iliman",
+    "second_name": "Ndiaye",
+    "web_name": "Ndiaye",
+    "position": "Midfielder",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "512462",
+    "player_id": "293",
+    "first_name": "Jake",
+    "second_name": "O'Brien",
+    "web_name": "O'Brien",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "243571",
+    "player_id": "296",
+    "first_name": "Nathan",
+    "second_name": "Patterson",
+    "web_name": "Patterson",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "111234",
+    "player_id": "287",
+    "first_name": "Jordan",
+    "second_name": "Pickford",
+    "web_name": "Pickford",
+    "position": "Goalkeeper",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "536241",
+    "player_id": "313",
+    "first_name": "Martin",
+    "second_name": "Sherif",
+    "web_name": "Sherif",
+    "position": "Forward",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "17761",
+    "player_id": "291",
+    "first_name": "James",
+    "second_name": "Tarkowski",
+    "web_name": "Tarkowski",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "229600",
+    "player_id": "288",
+    "first_name": "Mark",
+    "second_name": "Travers",
+    "web_name": "Travers",
+    "position": "Goalkeeper",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "447325",
+    "player_id": "289",
+    "first_name": "Harry",
+    "second_name": "Tyrer",
+    "web_name": "Tyrer",
+    "position": "Goalkeeper",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "474907",
+    "player_id": "298",
+    "first_name": "Reece",
+    "second_name": "Welch",
+    "web_name": "Welch",
+    "position": "Defender",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "491012",
+    "player_id": "312",
+    "first_name": "Youssef",
+    "second_name": "Ramalho Chermiti",
+    "web_name": "Y.Chermiti",
+    "position": "Forward",
+    "team_name": "Everton"
+  },
+  {
+    "player_code": "159533",
+    "player_id": "326",
+    "first_name": "Adama",
+    "second_name": "Traoré Diarra",
+    "web_name": "Adama",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "591385",
+    "player_id": "323",
+    "first_name": "Samuel",
+    "second_name": "Amissah",
+    "web_name": "Amissah",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "174874",
+    "player_id": "317",
+    "first_name": "Joachim",
+    "second_name": "Andersen",
+    "web_name": "Andersen",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "156689",
+    "player_id": "327",
+    "first_name": "Andreas",
+    "second_name": "Hoelgebaum Pereira",
+    "web_name": "Andreas",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "232892",
+    "player_id": "318",
+    "first_name": "Calvin",
+    "second_name": "Bassey",
+    "web_name": "Bassey",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "428971",
+    "player_id": "315",
+    "first_name": "Steven",
+    "second_name": "Benda",
+    "web_name": "Benda",
+    "position": "Goalkeeper",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "207189",
+    "player_id": "330",
+    "first_name": "Sander",
+    "second_name": "Berge",
+    "web_name": "Berge",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "76357",
+    "player_id": "331",
+    "first_name": "Tom",
+    "second_name": "Cairney",
+    "web_name": "Cairney",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "166477",
+    "player_id": "319",
+    "first_name": "Timothy",
+    "second_name": "Castagne",
+    "web_name": "Castagne",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "219924",
+    "player_id": "320",
+    "first_name": "Issa",
+    "second_name": "Diop",
+    "web_name": "Diop",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "573062",
+    "player_id": "333",
+    "first_name": "Martial",
+    "second_name": "Godo",
+    "web_name": "Godo",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "515024",
+    "player_id": "334",
+    "first_name": "Luke",
+    "second_name": "Harris",
+    "web_name": "Harris",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "153133",
+    "player_id": "324",
+    "first_name": "Alex",
+    "second_name": "Iwobi",
+    "web_name": "Iwobi",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "246301",
+    "player_id": "321",
+    "first_name": "Jorge",
+    "second_name": "Cuenca Barreno",
+    "web_name": "J.Cuenca",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "577725",
+    "player_id": "335",
+    "first_name": "Josh",
+    "second_name": "King",
+    "web_name": "King",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "86873",
+    "player_id": "664",
+    "first_name": "Benjamin",
+    "second_name": "Lecomte",
+    "web_name": "Lecomte",
+    "position": "Goalkeeper",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "80201",
+    "player_id": "314",
+    "first_name": "Bernd",
+    "second_name": "Leno",
+    "web_name": "Leno",
+    "position": "Goalkeeper",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "212314",
+    "player_id": "332",
+    "first_name": "Saša",
+    "second_name": "Lukić",
+    "web_name": "Lukić",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "244042",
+    "player_id": "338",
+    "first_name": "Rodrigo",
+    "second_name": "Muniz Carvalho",
+    "web_name": "Muniz",
+    "position": "Forward",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "102057",
+    "player_id": "337",
+    "first_name": "Raúl",
+    "second_name": "Jiménez Rodríguez",
+    "web_name": "Raúl",
+    "position": "Forward",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "153366",
+    "player_id": "336",
+    "first_name": "Harrison",
+    "second_name": "Reed",
+    "web_name": "Reed",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "169528",
+    "player_id": "316",
+    "first_name": "Antonee",
+    "second_name": "Robinson",
+    "web_name": "Robinson",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "184349",
+    "player_id": "328",
+    "first_name": "Ryan",
+    "second_name": "Sessegnon",
+    "web_name": "Sessegnon",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "209289",
+    "player_id": "325",
+    "first_name": "Emile",
+    "second_name": "Smith Rowe",
+    "web_name": "Smith Rowe",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "167074",
+    "player_id": "322",
+    "first_name": "Kenny",
+    "second_name": "Tete",
+    "web_name": "Tete",
+    "position": "Defender",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "153682",
+    "player_id": "329",
+    "first_name": "Harry",
+    "second_name": "Wilson",
+    "web_name": "Wilson",
+    "position": "Midfielder",
+    "team_name": "Fulham"
+  },
+  {
+    "player_code": "427637",
+    "player_id": "350",
+    "first_name": "Brenden",
+    "second_name": "Aaronson",
+    "web_name": "Aaronson",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "199598",
+    "player_id": "354",
+    "first_name": "Ethan",
+    "second_name": "Ampadu",
+    "web_name": "Ampadu",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "106617",
+    "player_id": "363",
+    "first_name": "Patrick",
+    "second_name": "Bamford",
+    "web_name": "Bamford",
+    "position": "Forward",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "434752",
+    "player_id": "344",
+    "first_name": "Jaka",
+    "second_name": "Bijol",
+    "web_name": "Bijol",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "226182",
+    "player_id": "342",
+    "first_name": "Jayden",
+    "second_name": "Bogle",
+    "web_name": "Bogle",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "437738",
+    "player_id": "345",
+    "first_name": "Sebastiaan",
+    "second_name": "Bornauw",
+    "web_name": "Bornauw",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "113564",
+    "player_id": "346",
+    "first_name": "Sam",
+    "second_name": "Byram",
+    "web_name": "Byram",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "97846",
+    "player_id": "340",
+    "first_name": "Alex",
+    "second_name": "Cairns",
+    "web_name": "Cairns",
+    "position": "Goalkeeper",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "536119",
+    "player_id": "359",
+    "first_name": "Charlie",
+    "second_name": "Crew",
+    "web_name": "Crew",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "59735",
+    "player_id": "341",
+    "first_name": "Karl",
+    "second_name": "Darlow",
+    "web_name": "Darlow",
+    "position": "Goalkeeper",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "462635",
+    "player_id": "360",
+    "first_name": "Joe",
+    "second_name": "Gelhardt",
+    "web_name": "Gelhardt",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "492859",
+    "player_id": "351",
+    "first_name": "Wilfried",
+    "second_name": "Gnonto",
+    "web_name": "Gnonto",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "248937",
+    "player_id": "355",
+    "first_name": "Sam",
+    "second_name": "Greenwood",
+    "web_name": "Greenwood",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "486520",
+    "player_id": "356",
+    "first_name": "Ilia",
+    "second_name": "Gruev",
+    "web_name": "Gruev",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "243526",
+    "player_id": "347",
+    "first_name": "Gabriel",
+    "second_name": "Gudmundsson",
+    "web_name": "Gudmundsson",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "470294",
+    "player_id": "361",
+    "first_name": "Darko",
+    "second_name": "Gyabi",
+    "web_name": "Gyabi",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "221399",
+    "player_id": "352",
+    "first_name": "Jack",
+    "second_name": "Harrison",
+    "web_name": "Harrison",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "200617",
+    "player_id": "353",
+    "first_name": "Daniel",
+    "second_name": "James",
+    "web_name": "James",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "180135",
+    "player_id": "493",
+    "first_name": "Sean",
+    "second_name": "Longstaff",
+    "web_name": "Longstaff",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "565297",
+    "player_id": "364",
+    "first_name": "Mateo",
+    "second_name": "Joseph Fernández-Regatillo",
+    "web_name": "Mateo Joseph",
+    "position": "Forward",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "437495",
+    "player_id": "339",
+    "first_name": "Illan",
+    "second_name": "Meslier",
+    "web_name": "Meslier",
+    "position": "Goalkeeper",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "174594",
+    "player_id": "365",
+    "first_name": "Lukas",
+    "second_name": "Nmecha",
+    "web_name": "Nmecha",
+    "position": "Forward",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "201595",
+    "player_id": "665",
+    "first_name": "Lucas Estella",
+    "second_name": "Perri",
+    "web_name": "Perri",
+    "position": "Goalkeeper",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "235826",
+    "player_id": "362",
+    "first_name": "Joël",
+    "second_name": "Piroe",
+    "web_name": "Piroe",
+    "position": "Forward",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "433952",
+    "player_id": "357",
+    "first_name": "Largie",
+    "second_name": "Ramazani",
+    "web_name": "Ramazani",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "214225",
+    "player_id": "348",
+    "first_name": "Joe",
+    "second_name": "Rodon",
+    "web_name": "Rodon",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "492368",
+    "player_id": "349",
+    "first_name": "Isaac",
+    "second_name": "Schmidt",
+    "web_name": "Schmidt",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "466525",
+    "player_id": "660",
+    "first_name": "Anton",
+    "second_name": "Stach",
+    "web_name": "Stach",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "222694",
+    "player_id": "343",
+    "first_name": "Pascal",
+    "second_name": "Struijk",
+    "web_name": "Struijk",
+    "position": "Defender",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "248056",
+    "player_id": "358",
+    "first_name": "Tanaka",
+    "second_name": "Ao",
+    "web_name": "Tanaka",
+    "position": "Midfielder",
+    "team_name": "Leeds"
+  },
+  {
+    "player_code": "116535",
+    "player_id": "366",
+    "first_name": "Alisson",
+    "second_name": "Becker",
+    "web_name": "A.Becker",
+    "position": "Goalkeeper",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "535928",
+    "player_id": "393",
+    "first_name": "Stefan",
+    "second_name": "Bajčetić Maquieira",
+    "web_name": "Bajcetic",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "492777",
+    "player_id": "375",
+    "first_name": "Conor",
+    "second_name": "Bradley",
+    "web_name": "Bradley",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "206915",
+    "player_id": "388",
+    "first_name": "Curtis",
+    "second_name": "Jones",
+    "web_name": "C.Jones",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "223541",
+    "player_id": "385",
+    "first_name": "Federico",
+    "second_name": "Chiesa",
+    "web_name": "Chiesa",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "500058",
+    "player_id": "398",
+    "first_name": "Jayden",
+    "second_name": "Danns",
+    "web_name": "Danns",
+    "position": "Forward",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "447203",
+    "player_id": "397",
+    "first_name": "Darwin",
+    "second_name": "Núñez Ribeiro",
+    "web_name": "Darwin",
+    "position": "Forward",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "496208",
+    "player_id": "391",
+    "first_name": "Ben",
+    "second_name": "Doak",
+    "web_name": "Doak",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "510663",
+    "player_id": "661",
+    "first_name": "Hugo",
+    "second_name": "Ekitiké",
+    "web_name": "Ekitiké",
+    "position": "Forward",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "444884",
+    "player_id": "389",
+    "first_name": "Harvey",
+    "second_name": "Elliott",
+    "web_name": "Elliott",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "158983",
+    "player_id": "392",
+    "first_name": "Endo",
+    "second_name": "Wataru",
+    "web_name": "Endo",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "216094",
+    "player_id": "370",
+    "first_name": "Jeremie",
+    "second_name": "Frimpong",
+    "web_name": "Frimpong",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "243298",
+    "player_id": "384",
+    "first_name": "Cody",
+    "second_name": "Gakpo",
+    "web_name": "Gakpo",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "171287",
+    "player_id": "376",
+    "first_name": "Joe",
+    "second_name": "Gomez",
+    "web_name": "Gomez",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "441266",
+    "player_id": "390",
+    "first_name": "Ryan",
+    "second_name": "Gravenberch",
+    "web_name": "Gravenberch",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "544877",
+    "player_id": "371",
+    "first_name": "Milos",
+    "second_name": "Kerkez",
+    "web_name": "Kerkez",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "204716",
+    "player_id": "374",
+    "first_name": "Ibrahima",
+    "second_name": "Konaté",
+    "web_name": "Konaté",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "244731",
+    "player_id": "383",
+    "first_name": "Luis",
+    "second_name": "Díaz Marulanda",
+    "web_name": "Luis Díaz",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "118748",
+    "player_id": "381",
+    "first_name": "Mohamed",
+    "second_name": "Salah",
+    "web_name": "M.Salah",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "243016",
+    "player_id": "386",
+    "first_name": "Alexis",
+    "second_name": "Mac Allister",
+    "web_name": "Mac Allister",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "449027",
+    "player_id": "367",
+    "first_name": "Giorgi",
+    "second_name": "Mamardashvili",
+    "web_name": "Mamardashvili",
+    "position": "Goalkeeper",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "491501",
+    "player_id": "394",
+    "first_name": "James",
+    "second_name": "McConnell",
+    "web_name": "McConnell",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "440148",
+    "player_id": "395",
+    "first_name": "Tyler",
+    "second_name": "Morton",
+    "web_name": "Morton",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "611926",
+    "player_id": "378",
+    "first_name": "Amara",
+    "second_name": "Nallo",
+    "web_name": "Nallo",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "591386",
+    "player_id": "396",
+    "first_name": "Trey",
+    "second_name": "Nyoni",
+    "web_name": "Nyoni",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "586268",
+    "player_id": "368",
+    "first_name": "Ármin",
+    "second_name": "Pécsi",
+    "web_name": "Pécsi",
+    "position": "Goalkeeper",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "219937",
+    "player_id": "379",
+    "first_name": "Rhys",
+    "second_name": "Williams",
+    "web_name": "R.Williams",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "489580",
+    "player_id": "380",
+    "first_name": "Calvin",
+    "second_name": "Ramsay",
+    "web_name": "Ramsay",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "122798",
+    "player_id": "372",
+    "first_name": "Andrew",
+    "second_name": "Robertson",
+    "web_name": "Robertson",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "424876",
+    "player_id": "387",
+    "first_name": "Dominik",
+    "second_name": "Szoboszlai",
+    "web_name": "Szoboszlai",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "214285",
+    "player_id": "377",
+    "first_name": "Konstantinos",
+    "second_name": "Tsimikas",
+    "web_name": "Tsimikas",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "97032",
+    "player_id": "373",
+    "first_name": "Virgil",
+    "second_name": "van Dijk",
+    "web_name": "Virgil",
+    "position": "Defender",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "494595",
+    "player_id": "382",
+    "first_name": "Florian",
+    "second_name": "Wirtz",
+    "web_name": "Wirtz",
+    "position": "Midfielder",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "155503",
+    "player_id": "369",
+    "first_name": "Freddie",
+    "second_name": "Woodman",
+    "web_name": "Woodman",
+    "position": "Goalkeeper",
+    "team_name": "Liverpool"
+  },
+  {
+    "player_code": "211975",
+    "player_id": "404",
+    "first_name": "Manuel",
+    "second_name": "Akanji",
+    "web_name": "Akanji",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "126184",
+    "player_id": "405",
+    "first_name": "Nathan",
+    "second_name": "Aké",
+    "web_name": "Aké",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "448514",
+    "player_id": "402",
+    "first_name": "Rayan",
+    "second_name": "Aït-Nouri",
+    "web_name": "Aït-Nouri",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "165809",
+    "player_id": "416",
+    "first_name": "Bernardo",
+    "second_name": "Mota Veiga de Carvalho e Silva",
+    "web_name": "Bernardo",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "122074",
+    "player_id": "401",
+    "first_name": "Marcus",
+    "second_name": "Bettinelli",
+    "web_name": "Bettinelli",
+    "position": "Goalkeeper",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "477555",
+    "player_id": "424",
+    "first_name": "Oscar",
+    "second_name": "Bobb",
+    "web_name": "Bobb",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "466052",
+    "player_id": "417",
+    "first_name": "Rayan",
+    "second_name": "Cherki",
+    "web_name": "Cherki",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "248875",
+    "player_id": "418",
+    "first_name": "Jérémy",
+    "second_name": "Doku",
+    "web_name": "Doku",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "575204",
+    "player_id": "425",
+    "first_name": "Claudio",
+    "second_name": "Echeverri",
+    "web_name": "Echeverri",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "121160",
+    "player_id": "399",
+    "first_name": "Ederson",
+    "second_name": "Santana de Moraes",
+    "web_name": "Ederson M.",
+    "position": "Goalkeeper",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "209244",
+    "player_id": "414",
+    "first_name": "Phil",
+    "second_name": "Foden",
+    "web_name": "Foden",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "114283",
+    "player_id": "419",
+    "first_name": "Jack",
+    "second_name": "Grealish",
+    "web_name": "Grealish",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "477424",
+    "player_id": "403",
+    "first_name": "Joško",
+    "second_name": "Gvardiol",
+    "web_name": "Gvardiol",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "59859",
+    "player_id": "420",
+    "first_name": "İlkay",
+    "second_name": "Gündoğan",
+    "web_name": "Gündoğan",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "223094",
+    "player_id": "430",
+    "first_name": "Erling",
+    "second_name": "Haaland",
+    "web_name": "Haaland",
+    "position": "Forward",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "578153",
+    "player_id": "406",
+    "first_name": "Abdukodir",
+    "second_name": "Khusanov",
+    "web_name": "Khusanov",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "91651",
+    "player_id": "422",
+    "first_name": "Mateo",
+    "second_name": "Kovačić",
+    "web_name": "Kovačić",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "477064",
+    "player_id": "410",
+    "first_name": "Rico",
+    "second_name": "Lewis",
+    "web_name": "Lewis",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "438234",
+    "player_id": "413",
+    "first_name": "Omar",
+    "second_name": "Marmoush",
+    "web_name": "Marmoush",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "465351",
+    "player_id": "407",
+    "first_name": "Matheus",
+    "second_name": "Nunes",
+    "web_name": "Matheus N.",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "432714",
+    "player_id": "426",
+    "first_name": "James",
+    "second_name": "McAtee",
+    "web_name": "McAtee",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "465694",
+    "player_id": "423",
+    "first_name": "Nico",
+    "second_name": "González Iglesias",
+    "web_name": "N.Gonzalez",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "566164",
+    "player_id": "428",
+    "first_name": "Sverre",
+    "second_name": "Nypan",
+    "web_name": "Nypan",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "88248",
+    "player_id": "400",
+    "first_name": "Stefan",
+    "second_name": "Ortega Moreno",
+    "web_name": "Ortega Moreno",
+    "position": "Goalkeeper",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "472769",
+    "player_id": "411",
+    "first_name": "Nico",
+    "second_name": "O'Reilly",
+    "web_name": "O’Reilly",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "155405",
+    "player_id": "429",
+    "first_name": "Kalvin",
+    "second_name": "Phillips",
+    "web_name": "Phillips",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "433036",
+    "player_id": "427",
+    "first_name": "Tijjani",
+    "second_name": "Reijnders",
+    "web_name": "Reijnders",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "220566",
+    "player_id": "421",
+    "first_name": "Rodrigo 'Rodri'",
+    "second_name": "Hernandez Cascante",
+    "web_name": "Rodrigo",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "171314",
+    "player_id": "408",
+    "first_name": "Rúben",
+    "second_name": "dos Santos Gato Alves Dias",
+    "web_name": "Rúben",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "510281",
+    "player_id": "415",
+    "first_name": "Sávio",
+    "second_name": "Moreira de Oliveira",
+    "web_name": "Savinho",
+    "position": "Midfielder",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "97299",
+    "player_id": "409",
+    "first_name": "John",
+    "second_name": "Stones",
+    "web_name": "Stones",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "432720",
+    "player_id": "182",
+    "first_name": "James",
+    "second_name": "Trafford",
+    "web_name": "Trafford",
+    "position": "Goalkeeper",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "616222",
+    "player_id": "412",
+    "first_name": "Vitor",
+    "second_name": "de Oliveira Nunes dos Reis",
+    "web_name": "Vitor Reis",
+    "position": "Defender",
+    "team_name": "Man City"
+  },
+  {
+    "player_code": "493250",
+    "player_id": "452",
+    "first_name": "Amad",
+    "second_name": "Diallo",
+    "web_name": "Amad",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "577974",
+    "player_id": "445",
+    "first_name": "Harry",
+    "second_name": "Amass",
+    "web_name": "Amass",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "467169",
+    "player_id": "454",
+    "first_name": "Antony",
+    "second_name": "dos Santos",
+    "web_name": "Antony",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "141746",
+    "player_id": "449",
+    "first_name": "Bruno",
+    "second_name": "Borges Fernandes",
+    "web_name": "B.Fernandes",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "451302",
+    "player_id": "431",
+    "first_name": "Altay",
+    "second_name": "Bayındır",
+    "web_name": "Bayindir",
+    "position": "Goalkeeper",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "61256",
+    "player_id": "457",
+    "first_name": "Carlos Henrique",
+    "second_name": "Casimiro",
+    "web_name": "Casemiro",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "490881",
+    "player_id": "460",
+    "first_name": "Toby",
+    "second_name": "Collyer",
+    "web_name": "Collyer",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "430871",
+    "player_id": "450",
+    "first_name": "Matheus",
+    "second_name": "Santos Carneiro da Cunha",
+    "web_name": "Cunha",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "661712",
+    "player_id": "439",
+    "first_name": "Diego",
+    "second_name": "León Blanco",
+    "web_name": "D.Leon",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "216051",
+    "player_id": "440",
+    "first_name": "Diogo",
+    "second_name": "Dalot Teixeira",
+    "web_name": "Dalot",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "209365",
+    "player_id": "436",
+    "first_name": "Matthijs",
+    "second_name": "de Ligt",
+    "web_name": "De Ligt",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "596777",
+    "player_id": "441",
+    "first_name": "Patrick",
+    "second_name": "Dorgu",
+    "web_name": "Dorgu",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "556639",
+    "player_id": "461",
+    "first_name": "Jayce",
+    "second_name": "Fitzgerald",
+    "web_name": "Fitzgerald",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "547676",
+    "player_id": "446",
+    "first_name": "Tyler",
+    "second_name": "Fredricson",
+    "web_name": "Fredricson",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "493105",
+    "player_id": "453",
+    "first_name": "Alejandro",
+    "second_name": "Garnacho Ferreyra",
+    "web_name": "Garnacho",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "588555",
+    "player_id": "433",
+    "first_name": "Elyh",
+    "second_name": "Harrison",
+    "web_name": "Harrison",
+    "position": "Goalkeeper",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "21205",
+    "player_id": "434",
+    "first_name": "Tom",
+    "second_name": "Heaton",
+    "web_name": "Heaton",
+    "position": "Goalkeeper",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "606745",
+    "player_id": "447",
+    "first_name": "Ayden",
+    "second_name": "Heaven",
+    "web_name": "Heaven",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "497894",
+    "player_id": "465",
+    "first_name": "Rasmus",
+    "second_name": "Højlund",
+    "web_name": "Højlund",
+    "position": "Forward",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "547037",
+    "player_id": "462",
+    "first_name": "Jack",
+    "second_name": "Fletcher",
+    "web_name": "J.Fletcher",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "618873",
+    "player_id": "463",
+    "first_name": "Sékou",
+    "second_name": "Koné",
+    "web_name": "Kone",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "95658",
+    "player_id": "442",
+    "first_name": "Harry",
+    "second_name": "Maguire",
+    "web_name": "Maguire",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "516895",
+    "player_id": "458",
+    "first_name": "Kobbie",
+    "second_name": "Mainoo",
+    "web_name": "Mainoo",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "222690",
+    "player_id": "448",
+    "first_name": "Tyrell",
+    "second_name": "Malacia",
+    "web_name": "Malacia",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "221820",
+    "player_id": "437",
+    "first_name": "Lisandro",
+    "second_name": "Martínez",
+    "web_name": "Martinez",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "230001",
+    "player_id": "438",
+    "first_name": "Noussair",
+    "second_name": "Mazraoui",
+    "web_name": "Mazraoui",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "446008",
+    "player_id": "119",
+    "first_name": "Bryan",
+    "second_name": "Mbeumo",
+    "web_name": "Mbeumo",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "461537",
+    "player_id": "435",
+    "first_name": "Dermot",
+    "second_name": "Mee",
+    "web_name": "Mee",
+    "position": "Goalkeeper",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "559684",
+    "player_id": "464",
+    "first_name": "Jack",
+    "second_name": "Moorhouse",
+    "web_name": "Moorhouse",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "184341",
+    "player_id": "455",
+    "first_name": "Mason",
+    "second_name": "Mount",
+    "web_name": "Mount",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "596047",
+    "player_id": "467",
+    "first_name": "Chido",
+    "second_name": "Obi",
+    "web_name": "Obi",
+    "position": "Forward",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "202641",
+    "player_id": "432",
+    "first_name": "André",
+    "second_name": "Onana",
+    "web_name": "Onana",
+    "position": "Goalkeeper",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "176297",
+    "player_id": "451",
+    "first_name": "Marcus",
+    "second_name": "Rashford",
+    "web_name": "Rashford",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "209243",
+    "player_id": "456",
+    "first_name": "Jadon",
+    "second_name": "Sancho",
+    "web_name": "Sancho",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "106760",
+    "player_id": "443",
+    "first_name": "Luke",
+    "second_name": "Shaw",
+    "web_name": "Shaw",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "232112",
+    "player_id": "459",
+    "first_name": "Manuel",
+    "second_name": "Ugarte Ribeiro",
+    "web_name": "Ugarte",
+    "position": "Midfielder",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "575034",
+    "player_id": "468",
+    "first_name": "Ethan",
+    "second_name": "Wheatley",
+    "web_name": "Wheatley",
+    "position": "Forward",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "550864",
+    "player_id": "444",
+    "first_name": "Leny",
+    "second_name": "Yoro",
+    "web_name": "Yoro",
+    "position": "Defender",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "458249",
+    "player_id": "466",
+    "first_name": "Joshua",
+    "second_name": "Zirkzee",
+    "web_name": "Zirkzee",
+    "position": "Forward",
+    "team_name": "Man Utd"
+  },
+  {
+    "player_code": "545477",
+    "player_id": "481",
+    "first_name": "Alex",
+    "second_name": "Murphy",
+    "web_name": "A.Murphy",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "640108",
+    "player_id": "492",
+    "first_name": "Antoñito",
+    "second_name": "Cordero Campillo",
+    "web_name": "Antoñito C.",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "441024",
+    "player_id": "482",
+    "first_name": "Harrison",
+    "second_name": "Ashby",
+    "web_name": "Ashby",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "201666",
+    "player_id": "487",
+    "first_name": "Harvey",
+    "second_name": "Barnes",
+    "web_name": "Barnes",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "220237",
+    "player_id": "475",
+    "first_name": "Sven",
+    "second_name": "Botman",
+    "web_name": "Botman",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "208706",
+    "player_id": "488",
+    "first_name": "Bruno",
+    "second_name": "Guimarães Rodriguez Moura",
+    "web_name": "Bruno G.",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "78916",
+    "player_id": "476",
+    "first_name": "Dan",
+    "second_name": "Burn",
+    "web_name": "Burn",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "67089",
+    "player_id": "470",
+    "first_name": "Martin",
+    "second_name": "Dúbravka",
+    "web_name": "Dúbravka",
+    "position": "Goalkeeper",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "449434",
+    "player_id": "486",
+    "first_name": "Anthony",
+    "second_name": "Elanga",
+    "web_name": "Elanga",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "81441",
+    "player_id": "471",
+    "first_name": "Mark",
+    "second_name": "Gillespie",
+    "web_name": "Gillespie",
+    "position": "Goalkeeper",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "232826",
+    "player_id": "485",
+    "first_name": "Anthony",
+    "second_name": "Gordon",
+    "web_name": "Gordon",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "487838",
+    "player_id": "473",
+    "first_name": "Lewis",
+    "second_name": "Hall",
+    "web_name": "Hall",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "153127",
+    "player_id": "495",
+    "first_name": "Isaac",
+    "second_name": "Hayden",
+    "web_name": "Hayden",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "219168",
+    "player_id": "499",
+    "first_name": "Alexander",
+    "second_name": "Isak",
+    "web_name": "Isak",
+    "position": "Forward",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "114243",
+    "player_id": "489",
+    "first_name": "Jacob",
+    "second_name": "Murphy",
+    "web_name": "J.Murphy",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "180974",
+    "player_id": "490",
+    "first_name": "Joelinton Cássio",
+    "second_name": "Apolinário de Lira",
+    "web_name": "Joelinton",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "111773",
+    "player_id": "479",
+    "first_name": "Emil",
+    "second_name": "Krafth",
+    "web_name": "Krafth",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "564510",
+    "player_id": "496",
+    "first_name": "Garang",
+    "second_name": "Kuol",
+    "web_name": "Kuol",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "547719",
+    "player_id": "497",
+    "first_name": "Lewis",
+    "second_name": "Miley",
+    "web_name": "L.Miley",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "101148",
+    "player_id": "480",
+    "first_name": "Jamaal",
+    "second_name": "Lascelles",
+    "web_name": "Lascelles",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "441191",
+    "player_id": "477",
+    "first_name": "Tino",
+    "second_name": "Livramento",
+    "web_name": "Livramento",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "599303",
+    "player_id": "501",
+    "first_name": "Sean",
+    "second_name": "Neave",
+    "web_name": "Neave",
+    "position": "Forward",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "111452",
+    "player_id": "472",
+    "first_name": "Odysseas",
+    "second_name": "Vlachodimos",
+    "web_name": "Odysseas",
+    "position": "Goalkeeper",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "538207",
+    "player_id": "500",
+    "first_name": "William",
+    "second_name": "Osula",
+    "web_name": "Osula",
+    "position": "Forward",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "578512",
+    "player_id": "483",
+    "first_name": "Miodrag",
+    "second_name": "Pivaš",
+    "web_name": "Pivas",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "98747",
+    "player_id": "469",
+    "first_name": "Nick",
+    "second_name": "Pope",
+    "web_name": "Pope",
+    "position": "Goalkeeper",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "119471",
+    "player_id": "474",
+    "first_name": "Fabian",
+    "second_name": "Schär",
+    "web_name": "Schär",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "169359",
+    "player_id": "484",
+    "first_name": "Matt",
+    "second_name": "Targett",
+    "web_name": "Targett",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "432422",
+    "player_id": "491",
+    "first_name": "Sandro",
+    "second_name": "Tonali",
+    "web_name": "Tonali",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "77794",
+    "player_id": "478",
+    "first_name": "Kieran",
+    "second_name": "Trippier",
+    "web_name": "Trippier",
+    "position": "Defender",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "461484",
+    "player_id": "498",
+    "first_name": "Joe",
+    "second_name": "White",
+    "web_name": "White",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "200089",
+    "player_id": "494",
+    "first_name": "Joe",
+    "second_name": "Willock",
+    "web_name": "Willock",
+    "position": "Midfielder",
+    "team_name": "Newcastle"
+  },
+  {
+    "player_code": "549067",
+    "player_id": "513",
+    "first_name": "Zach",
+    "second_name": "Abbott",
+    "web_name": "Abbott",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "159506",
+    "player_id": "507",
+    "first_name": "Ola",
+    "second_name": "Aina",
+    "web_name": "Aina",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "215379",
+    "player_id": "517",
+    "first_name": "Elliot",
+    "second_name": "Anderson",
+    "web_name": "Anderson",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "210156",
+    "player_id": "527",
+    "first_name": "Taiwo",
+    "second_name": "Awoniyi",
+    "web_name": "Awoniyi",
+    "position": "Forward",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "90585",
+    "player_id": "514",
+    "first_name": "Willy",
+    "second_name": "Boly",
+    "web_name": "Boly",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "475123",
+    "player_id": "503",
+    "first_name": "Carlos Miguel",
+    "second_name": "dos Santos Pereira",
+    "web_name": "C.Miguel",
+    "position": "Goalkeeper",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "569014",
+    "player_id": "523",
+    "first_name": "Eric",
+    "second_name": "da Silva Moreira",
+    "web_name": "Da Silva Moreira",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "451432",
+    "player_id": "509",
+    "first_name": "David",
+    "second_name": "Mota Veiga Teixeira do Carmo",
+    "web_name": "David Carmo",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "250199",
+    "player_id": "519",
+    "first_name": "Nicolás",
+    "second_name": "Domínguez",
+    "web_name": "Dominguez",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "222531",
+    "player_id": "515",
+    "first_name": "Morgan",
+    "second_name": "Gibbs-White",
+    "web_name": "Gibbs-White",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "209046",
+    "player_id": "516",
+    "first_name": "Callum",
+    "second_name": "Hudson-Odoi",
+    "web_name": "Hudson-Odoi",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "482973",
+    "player_id": "526",
+    "first_name": "Igor Jesus",
+    "second_name": "Maciel da Cruz",
+    "web_name": "Igor Jesus",
+    "position": "Forward",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "575458",
+    "player_id": "510",
+    "first_name": "Jair",
+    "second_name": "Paula da Cunha Filho",
+    "web_name": "Jair Cunha",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "510500",
+    "player_id": "518",
+    "first_name": "João Pedro",
+    "second_name": "Ferreira da Silva",
+    "web_name": "Jota",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "227444",
+    "player_id": "505",
+    "first_name": "Nikola",
+    "second_name": "Milenković",
+    "web_name": "Milenković",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "485047",
+    "player_id": "511",
+    "first_name": "Felipe",
+    "second_name": "Rodrigues da Silva",
+    "web_name": "Morato",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "575476",
+    "player_id": "506",
+    "first_name": "Murillo",
+    "second_name": "Costa dos Santos",
+    "web_name": "Murillo",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "215136",
+    "player_id": "508",
+    "first_name": "Neco",
+    "second_name": "Williams",
+    "web_name": "N.Williams",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "456512",
+    "player_id": "669",
+    "first_name": "Dan",
+    "second_name": "Ndoye",
+    "web_name": "Ndoye",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "243345",
+    "player_id": "520",
+    "first_name": "Lewis",
+    "second_name": "O'Brien",
+    "web_name": "O'Brien",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "204822",
+    "player_id": "512",
+    "first_name": "Omar",
+    "second_name": "Richards",
+    "web_name": "O.Richards",
+    "position": "Defender",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "210462",
+    "player_id": "521",
+    "first_name": "Ibrahim",
+    "second_name": "Sangaré",
+    "web_name": "Sangaré",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "85633",
+    "player_id": "502",
+    "first_name": "Matz",
+    "second_name": "Sels",
+    "web_name": "Sels",
+    "position": "Goalkeeper",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "495161",
+    "player_id": "524",
+    "first_name": "Marko",
+    "second_name": "Stamenić",
+    "web_name": "Stamenic",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "224068",
+    "player_id": "504",
+    "first_name": "Matt",
+    "second_name": "Turner",
+    "web_name": "Turner",
+    "position": "Goalkeeper",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "60689",
+    "player_id": "525",
+    "first_name": "Chris",
+    "second_name": "Wood",
+    "web_name": "Wood",
+    "position": "Forward",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "204968",
+    "player_id": "522",
+    "first_name": "Ryan",
+    "second_name": "Yates",
+    "web_name": "Yates",
+    "position": "Midfielder",
+    "team_name": "Nott'm Forest"
+  },
+  {
+    "player_code": "214572",
+    "player_id": "566",
+    "first_name": "Brandon",
+    "second_name": "Austin",
+    "web_name": "Austin",
+    "position": "Goalkeeper",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "202993",
+    "player_id": "585",
+    "first_name": "Rodrigo",
+    "second_name": "Bentancur",
+    "web_name": "Bentancur",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "570526",
+    "player_id": "586",
+    "first_name": "Lucas",
+    "second_name": "Bergvall",
+    "web_name": "Bergvall",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "227127",
+    "player_id": "587",
+    "first_name": "Yves",
+    "second_name": "Bissouma",
+    "web_name": "Bissouma",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "436234",
+    "player_id": "590",
+    "first_name": "Bryan",
+    "second_name": "Gil Salvatierra",
+    "web_name": "Bryan",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "135720",
+    "player_id": "570",
+    "first_name": "Kevin",
+    "second_name": "Danso",
+    "web_name": "Danso",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "115556",
+    "player_id": "571",
+    "first_name": "Ben",
+    "second_name": "Davies",
+    "web_name": "Davies",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "493125",
+    "player_id": "572",
+    "first_name": "Radu",
+    "second_name": "Drăgușin",
+    "web_name": "Dragusin",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "547701",
+    "player_id": "591",
+    "first_name": "Archie",
+    "second_name": "Gray",
+    "web_name": "Gray",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "242898",
+    "player_id": "580",
+    "first_name": "Brennan",
+    "second_name": "Johnson",
+    "web_name": "Johnson",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "485055",
+    "player_id": "567",
+    "first_name": "Antonín",
+    "second_name": "Kinský",
+    "web_name": "Kinsky",
+    "position": "Goalkeeper",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "460842",
+    "player_id": "582",
+    "first_name": "Mohammed",
+    "second_name": "Kudus",
+    "web_name": "Kudus",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "445044",
+    "player_id": "583",
+    "first_name": "Dejan",
+    "second_name": "Kulusevski",
+    "web_name": "Kulusevski",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "552427",
+    "player_id": "598",
+    "first_name": "Will",
+    "second_name": "Lankshear",
+    "web_name": "Lankshear",
+    "position": "Forward",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "172780",
+    "player_id": "581",
+    "first_name": "James",
+    "second_name": "Maddison",
+    "web_name": "Maddison",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "623095",
+    "player_id": "594",
+    "first_name": "Yang",
+    "second_name": "Min-hyeok",
+    "web_name": "Min-hyeok",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "499721",
+    "player_id": "592",
+    "first_name": "Mikey",
+    "second_name": "Moore",
+    "web_name": "Moore",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "550839",
+    "player_id": "588",
+    "first_name": "Wilson",
+    "second_name": "Odobert",
+    "web_name": "Odobert",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "499726",
+    "player_id": "595",
+    "first_name": "Callum",
+    "second_name": "Olusesi",
+    "web_name": "Olusesi",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "482442",
+    "player_id": "593",
+    "first_name": "Pape Matar",
+    "second_name": "Sarr",
+    "web_name": "P.M.Sarr",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "441164",
+    "player_id": "568",
+    "first_name": "Pedro",
+    "second_name": "Porro Sauceda",
+    "web_name": "Pedro Porro",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "548308",
+    "player_id": "576",
+    "first_name": "Ashley",
+    "second_name": "Phillips",
+    "web_name": "Phillips",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "212319",
+    "player_id": "597",
+    "first_name": "Richarlison",
+    "second_name": "de Andrade",
+    "web_name": "Richarlison",
+    "position": "Forward",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "221632",
+    "player_id": "569",
+    "first_name": "Cristian",
+    "second_name": "Romero",
+    "web_name": "Romero",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "490145",
+    "player_id": "599",
+    "first_name": "Dane",
+    "second_name": "Scarlett",
+    "web_name": "Scarlett",
+    "position": "Forward",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "154566",
+    "player_id": "596",
+    "first_name": "Dominic",
+    "second_name": "Solanke-Mitchell",
+    "web_name": "Solanke",
+    "position": "Forward",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "235674",
+    "player_id": "589",
+    "first_name": "Manor",
+    "second_name": "Solomon",
+    "web_name": "Solomon",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "85971",
+    "player_id": "579",
+    "first_name": "Son",
+    "second_name": "Heung-min",
+    "web_name": "Son",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "232859",
+    "player_id": "573",
+    "first_name": "Djed",
+    "second_name": "Spence",
+    "web_name": "Spence",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "553299",
+    "player_id": "577",
+    "first_name": "Takai",
+    "second_name": "Kōta",
+    "web_name": "Takai",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "511499",
+    "player_id": "584",
+    "first_name": "Mathys",
+    "second_name": "Tel",
+    "web_name": "Tel",
+    "position": "Midfielder",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "487053",
+    "player_id": "574",
+    "first_name": "Destiny",
+    "second_name": "Udogie",
+    "web_name": "Udogie",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "491279",
+    "player_id": "575",
+    "first_name": "Micky",
+    "second_name": "van de Ven",
+    "web_name": "Van de Ven",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "184254",
+    "player_id": "565",
+    "first_name": "Guglielmo",
+    "second_name": "Vicario",
+    "web_name": "Vicario",
+    "position": "Goalkeeper",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "610799",
+    "player_id": "578",
+    "first_name": "Luka",
+    "second_name": "Vušković",
+    "web_name": "Vuskovic",
+    "position": "Defender",
+    "team_name": "Spurs"
+  },
+  {
+    "player_code": "611975",
+    "player_id": "562",
+    "first_name": "Ahmed",
+    "second_name": "Abdullahi",
+    "web_name": "Abdullahi",
+    "position": "Forward",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "535818",
+    "player_id": "543",
+    "first_name": "Simon",
+    "second_name": "Adingra",
+    "web_name": "Adingra",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "626844",
+    "player_id": "546",
+    "first_name": "Milan",
+    "second_name": "Aleksić",
+    "web_name": "Aleksić",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "220684",
+    "player_id": "533",
+    "first_name": "Aji",
+    "second_name": "Alese",
+    "web_name": "Alese",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "232820",
+    "player_id": "534",
+    "first_name": "Joe",
+    "second_name": "Anderson",
+    "web_name": "Anderson",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "477851",
+    "player_id": "554",
+    "first_name": "Abdoullah",
+    "second_name": "Ba",
+    "web_name": "Ba",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "223827",
+    "player_id": "531",
+    "first_name": "Daniel",
+    "second_name": "Ballard",
+    "web_name": "Ballard",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "171422",
+    "player_id": "555",
+    "first_name": "Alan",
+    "second_name": "Browne",
+    "web_name": "Browne",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "461195",
+    "player_id": "535",
+    "first_name": "Dennis",
+    "second_name": "Cirkin",
+    "web_name": "Cirkin",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "547027",
+    "player_id": "544",
+    "first_name": "Habib",
+    "second_name": "Diarra",
+    "web_name": "Diarra",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "484420",
+    "player_id": "547",
+    "first_name": "Enzo",
+    "second_name": "Le Fée",
+    "web_name": "E.Le Fée",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "458297",
+    "player_id": "556",
+    "first_name": "Pierre",
+    "second_name": "Ekwah Elimby",
+    "web_name": "Ekwah",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "547410",
+    "player_id": "557",
+    "first_name": "Harrison",
+    "second_name": "Jones",
+    "web_name": "H.Jones",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "477547",
+    "player_id": "536",
+    "first_name": "Leo Fuhr",
+    "second_name": "Hjelde",
+    "web_name": "Hjelde",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "492066",
+    "player_id": "537",
+    "first_name": "Niall",
+    "second_name": "Huggins",
+    "web_name": "Huggins",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "487676",
+    "player_id": "532",
+    "first_name": "Trai",
+    "second_name": "Hume",
+    "web_name": "Hume",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "437505",
+    "player_id": "560",
+    "first_name": "Wilson",
+    "second_name": "Isidor",
+    "web_name": "Isidor",
+    "position": "Forward",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "514613",
+    "player_id": "538",
+    "first_name": "Zak",
+    "second_name": "Johnson",
+    "web_name": "Johnson",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "551153",
+    "player_id": "563",
+    "first_name": "Luís Hemir",
+    "second_name": "Silva Semedo",
+    "web_name": "Luís Hemir",
+    "position": "Forward",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "493837",
+    "player_id": "558",
+    "first_name": "Jay",
+    "second_name": "Matete",
+    "web_name": "Matete",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "564406",
+    "player_id": "561",
+    "first_name": "Eliezer",
+    "second_name": "Mayenda Dossou",
+    "web_name": "Mayenda",
+    "position": "Forward",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "74854",
+    "player_id": "529",
+    "first_name": "Simon",
+    "second_name": "Moore",
+    "web_name": "Moore",
+    "position": "Goalkeeper",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "461199",
+    "player_id": "548",
+    "first_name": "Romaine",
+    "second_name": "Mundle",
+    "web_name": "Mundle",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "223336",
+    "player_id": "549",
+    "first_name": "Dan",
+    "second_name": "Neil",
+    "web_name": "Neil",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "490000",
+    "player_id": "530",
+    "first_name": "Blondy",
+    "second_name": "Nna Noukeu",
+    "web_name": "Nna Noukeu",
+    "position": "Goalkeeper",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "167512",
+    "player_id": "539",
+    "first_name": "Luke",
+    "second_name": "O'Nien",
+    "web_name": "O'Nien",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "232571",
+    "player_id": "528",
+    "first_name": "Anthony",
+    "second_name": "Patterson",
+    "web_name": "Patterson",
+    "position": "Goalkeeper",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "465702",
+    "player_id": "540",
+    "first_name": "Timothée",
+    "second_name": "Pembélé",
+    "web_name": "Pembele",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "215460",
+    "player_id": "550",
+    "first_name": "Ian",
+    "second_name": "Poveda-Ocampo",
+    "web_name": "Poveda",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "434399",
+    "player_id": "541",
+    "first_name": "Reinildo",
+    "second_name": "Mandava",
+    "web_name": "Reinildo",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "554197",
+    "player_id": "551",
+    "first_name": "Chris",
+    "second_name": "Rigg",
+    "web_name": "Rigg",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "124165",
+    "player_id": "545",
+    "first_name": "Patrick",
+    "second_name": "Roberts",
+    "web_name": "Roberts",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "498016",
+    "player_id": "670",
+    "first_name": "Robin",
+    "second_name": "Roefs",
+    "web_name": "Roefs",
+    "position": "Goalkeeper",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "440955",
+    "player_id": "564",
+    "first_name": "Nazarii",
+    "second_name": "Rusyn",
+    "web_name": "Rusyn",
+    "position": "Forward",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "577669",
+    "player_id": "552",
+    "first_name": "Noah",
+    "second_name": "Sadiki",
+    "web_name": "Sadiki",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "519634",
+    "player_id": "542",
+    "first_name": "Jenson",
+    "second_name": "Seelt",
+    "web_name": "Seelt",
+    "position": "Defender",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "549912",
+    "player_id": "553",
+    "first_name": "Chemsdine",
+    "second_name": "Talbi",
+    "web_name": "Talbi",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "500696",
+    "player_id": "559",
+    "first_name": "Nectarios",
+    "second_name": "Triantis",
+    "web_name": "Triantis",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "84450",
+    "player_id": "668",
+    "first_name": "Granit",
+    "second_name": "Xhaka",
+    "web_name": "Xhaka",
+    "position": "Midfielder",
+    "team_name": "Sunderland"
+  },
+  {
+    "player_code": "84182",
+    "player_id": "600",
+    "first_name": "Alphonse",
+    "second_name": "Areola",
+    "web_name": "Areola",
+    "position": "Goalkeeper",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "178186",
+    "player_id": "624",
+    "first_name": "Jarrod",
+    "second_name": "Bowen",
+    "web_name": "Bowen",
+    "position": "Forward",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "518438",
+    "player_id": "611",
+    "first_name": "Kaelan",
+    "second_name": "Casey",
+    "web_name": "Casey",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "149519",
+    "player_id": "617",
+    "first_name": "Maxwel",
+    "second_name": "Cornet",
+    "web_name": "Cornet",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "613804",
+    "player_id": "603",
+    "first_name": "El Hadji Malick",
+    "second_name": "Diouf",
+    "web_name": "Diouf",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "490885",
+    "player_id": "620",
+    "first_name": "George",
+    "second_name": "Earthy",
+    "web_name": "Earthy",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "109533",
+    "player_id": "604",
+    "first_name": "Emerson",
+    "second_name": "Palmieri dos Santos",
+    "web_name": "Emerson",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "82143",
+    "player_id": "601",
+    "first_name": "Wes",
+    "second_name": "Foderingham",
+    "web_name": "Foderingham",
+    "position": "Goalkeeper",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "91889",
+    "player_id": "625",
+    "first_name": "Niclas",
+    "second_name": "Füllkrug",
+    "web_name": "Füllkrug",
+    "position": "Forward",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "197024",
+    "player_id": "618",
+    "first_name": "Guido",
+    "second_name": "Rodríguez",
+    "web_name": "G.Rodriguez",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "483364",
+    "player_id": "602",
+    "first_name": "Krisztián",
+    "second_name": "Hegyi",
+    "web_name": "Hegyi",
+    "position": "Goalkeeper",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "229384",
+    "player_id": "621",
+    "first_name": "Andy",
+    "second_name": "Irving",
+    "web_name": "Irving",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "214048",
+    "player_id": "605",
+    "first_name": "Maximilian",
+    "second_name": "Kilman",
+    "web_name": "Kilman",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "577114",
+    "player_id": "619",
+    "first_name": "Luis Guilherme",
+    "second_name": "Lira dos Santos",
+    "web_name": "L.Guilherme",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "224024",
+    "player_id": "612",
+    "first_name": "Lucas",
+    "second_name": "Tolentino Coelho de Lima",
+    "web_name": "L.Paquetá",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "565431",
+    "player_id": "626",
+    "first_name": "Callum",
+    "second_name": "Marshall",
+    "web_name": "Marshall",
+    "position": "Forward",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "233963",
+    "player_id": "606",
+    "first_name": "Konstantinos",
+    "second_name": "Mavropanos",
+    "web_name": "Mavropanos",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "210494",
+    "player_id": "607",
+    "first_name": "Nayef",
+    "second_name": "Aguerd",
+    "web_name": "N.Aguerd",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "518442",
+    "player_id": "622",
+    "first_name": "Lewis",
+    "second_name": "Orford",
+    "web_name": "Orford",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "490142",
+    "player_id": "623",
+    "first_name": "Freddie",
+    "second_name": "Potts",
+    "web_name": "Potts",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "536109",
+    "player_id": "608",
+    "first_name": "Ollie",
+    "second_name": "Scarles",
+    "web_name": "Scarles",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "215439",
+    "player_id": "613",
+    "first_name": "Tomáš",
+    "second_name": "Souček",
+    "web_name": "Souček",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "450070",
+    "player_id": "615",
+    "first_name": "Crysencio",
+    "second_name": "Summerville",
+    "web_name": "Summerville",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "462116",
+    "player_id": "609",
+    "first_name": "Jean-Clair",
+    "second_name": "Todibo",
+    "web_name": "Todibo",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "158534",
+    "player_id": "659",
+    "first_name": "Kyle",
+    "second_name": "Walker-Peters",
+    "web_name": "Walker-Peters",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "214590",
+    "player_id": "610",
+    "first_name": "Aaron",
+    "second_name": "Wan-Bissaka",
+    "web_name": "Wan-Bissaka",
+    "position": "Defender",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "101178",
+    "player_id": "614",
+    "first_name": "James",
+    "second_name": "Ward-Prowse",
+    "web_name": "Ward-Prowse",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "75115",
+    "player_id": "671",
+    "first_name": "Callum",
+    "second_name": "Wilson",
+    "web_name": "Wilson",
+    "position": "Forward",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "213999",
+    "player_id": "616",
+    "first_name": "Edson",
+    "second_name": "Álvarez Velázquez",
+    "web_name": "Álvarez",
+    "position": "Midfielder",
+    "team_name": "West Ham"
+  },
+  {
+    "player_code": "516939",
+    "player_id": "631",
+    "first_name": "Emmanuel",
+    "second_name": "Agbadou",
+    "web_name": "Agbadou",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "509291",
+    "player_id": "643",
+    "first_name": "André",
+    "second_name": "Trindade da Costa Neto",
+    "web_name": "André",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "476502",
+    "player_id": "649",
+    "first_name": "Boubacar",
+    "second_name": "Traoré",
+    "web_name": "B.Traore",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "231057",
+    "player_id": "644",
+    "first_name": "Jean-Ricner",
+    "second_name": "Bellegarde",
+    "web_name": "Bellegarde",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "79602",
+    "player_id": "629",
+    "first_name": "Daniel",
+    "second_name": "Bentley",
+    "web_name": "Bentley",
+    "position": "Goalkeeper",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "497606",
+    "player_id": "650",
+    "first_name": "Tawanda",
+    "second_name": "Chirewa",
+    "web_name": "Chirewa",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "589507",
+    "player_id": "657",
+    "first_name": "Leon",
+    "second_name": "Chiwome",
+    "web_name": "Chiwome",
+    "position": "Forward",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "87835",
+    "player_id": "632",
+    "first_name": "Matt",
+    "second_name": "Doherty",
+    "web_name": "Doherty",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "596054",
+    "player_id": "651",
+    "first_name": "Tom",
+    "second_name": "Edozie",
+    "web_name": "Edozie",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "643135",
+    "player_id": "645",
+    "first_name": "Fer",
+    "second_name": "López González",
+    "web_name": "Fer López",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "531363",
+    "player_id": "658",
+    "first_name": "Nathan",
+    "second_name": "Fraser",
+    "web_name": "Fraser",
+    "position": "Forward",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "449988",
+    "player_id": "655",
+    "first_name": "Fábio",
+    "second_name": "Soares Silva",
+    "web_name": "Fábio Silva",
+    "position": "Forward",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "448089",
+    "player_id": "646",
+    "first_name": "João Victor",
+    "second_name": "Gomes da Silva",
+    "web_name": "Gomes",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "593001",
+    "player_id": "652",
+    "first_name": "Enso",
+    "second_name": "González Medina",
+    "web_name": "Gonzalez",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "181284",
+    "player_id": "647",
+    "first_name": "Gonçalo Manuel",
+    "second_name": "Ganchinho Guedes",
+    "web_name": "Guedes",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "490721",
+    "player_id": "633",
+    "first_name": "Hugo",
+    "second_name": "Bueno López",
+    "web_name": "H.Bueno",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "184754",
+    "player_id": "642",
+    "first_name": "Hwang",
+    "second_name": "Hee-chan",
+    "web_name": "Hee Chan",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "240299",
+    "player_id": "653",
+    "first_name": "Joe",
+    "second_name": "Hodge",
+    "web_name": "Hodge",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "441271",
+    "player_id": "638",
+    "first_name": "Ki-Jana",
+    "second_name": "Hoever",
+    "web_name": "Hoever",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "230376",
+    "player_id": "663",
+    "first_name": "Jhon",
+    "second_name": "Arias",
+    "web_name": "J.Arias",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "101982",
+    "player_id": "627",
+    "first_name": "Sam",
+    "second_name": "Johnstone",
+    "web_name": "Johnstone",
+    "position": "Goalkeeper",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "149065",
+    "player_id": "628",
+    "first_name": "José",
+    "second_name": "Malheiro de Sá",
+    "web_name": "José Sá",
+    "position": "Goalkeeper",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "429414",
+    "player_id": "656",
+    "first_name": "Saša",
+    "second_name": "Kalajdžić",
+    "web_name": "Kalajdžić",
+    "position": "Forward",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "138001",
+    "player_id": "630",
+    "first_name": "Tom",
+    "second_name": "King",
+    "web_name": "King",
+    "position": "Goalkeeper",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "560248",
+    "player_id": "639",
+    "first_name": "Bastien",
+    "second_name": "Meupiyou Menadjou",
+    "web_name": "Meupiyou",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "501837",
+    "player_id": "634",
+    "first_name": "Yerson",
+    "second_name": "Mosquera Valdelamar",
+    "web_name": "Mosquera",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "433312",
+    "player_id": "648",
+    "first_name": "Marshall",
+    "second_name": "Munetsi",
+    "web_name": "Munetsi",
+    "position": "Midfielder",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "641221",
+    "player_id": "640",
+    "first_name": "Pedro",
+    "second_name": "Cardoso de Lima",
+    "web_name": "Pedro Lima",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "517179",
+    "player_id": "641",
+    "first_name": "Alfie",
+    "second_name": "Pond",
+    "web_name": "Pond",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "483081",
+    "player_id": "635",
+    "first_name": "Rodrigo",
+    "second_name": "Martins Gomes",
+    "web_name": "R.Gomes",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "231480",
+    "player_id": "636",
+    "first_name": "Santiago",
+    "second_name": "Ignacio Bueno",
+    "web_name": "S.Bueno",
+    "position": "Defender",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "247412",
+    "player_id": "654",
+    "first_name": "Jørgen",
+    "second_name": "Strand Larsen",
+    "web_name": "Strand Larsen",
+    "position": "Forward",
+    "team_name": "Wolves"
+  },
+  {
+    "player_code": "510362",
+    "player_id": "637",
+    "first_name": "Toti",
+    "second_name": "Gomes",
+    "web_name": "Toti",
+    "position": "Defender",
+    "team_name": "Wolves"
+  }
+]

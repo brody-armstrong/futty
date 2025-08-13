@@ -15,6 +15,7 @@ export const LeagueProvider = ({ children }) => {
   const { user } = useAuth()
   const [leagues, setLeagues] = useState([])
   const [userTeams, setUserTeams] = useState([])
+  const [currentTeam, setCurrentTeam] = useState(null)
   const [loading, setLoading] = useState(true)
 
   // Mock league data
@@ -52,6 +53,56 @@ export const LeagueProvider = ({ children }) => {
       ],
       draftDate: new Date('2024-08-15T18:00:00Z'),
       status: 'draft-pending'
+    },
+    {
+      id: '2',
+      name: 'Champions League Elite',
+      creatorID: '1',
+      settings: {
+        maxTeams: 8,
+        draftType: 'snake',
+        scoringType: 'head-to-head',
+        transferLimit: 1,
+        wildcardAvailable: false
+      },
+      teams: [
+        {
+          id: '3',
+          name: 'City Legends',
+          ownerID: '1',
+          leagueID: '2',
+          roster: [],
+          totalPoints: 0,
+          rank: 1
+        }
+      ],
+      draftDate: new Date('2024-08-20T18:00:00Z'),
+      status: 'draft-pending'
+    },
+    {
+      id: '3',
+      name: 'Europa League Warriors',
+      creatorID: '1',
+      settings: {
+        maxTeams: 12,
+        draftType: 'snake',
+        scoringType: 'head-to-head',
+        transferLimit: 3,
+        wildcardAvailable: true
+      },
+      teams: [
+        {
+          id: '4',
+          name: 'Riverside FC',
+          ownerID: '1',
+          leagueID: '3',
+          roster: [],
+          totalPoints: 0,
+          rank: 1
+        }
+      ],
+      draftDate: new Date('2024-08-25T18:00:00Z'),
+      status: 'draft-pending'
     }
   ]
 
@@ -78,8 +129,70 @@ export const LeagueProvider = ({ children }) => {
         },
         bench: []
       }
+    },
+    {
+      id: '3',
+      name: 'City Legends',
+      ownerID: '1',
+      leagueID: '2',
+      roster: [],
+      totalPoints: 0,
+      rank: 1,
+      lineup: {
+        starters: {
+          GK: null,
+          DEF1: null,
+          DEF2: null,
+          DEF3: null,
+          MID1: null,
+          MID2: null,
+          MID3: null,
+          FWD1: null,
+          FWD2: null
+        },
+        bench: []
+      }
+    },
+    {
+      id: '4',
+      name: 'Riverside FC',
+      ownerID: '1',
+      leagueID: '3',
+      roster: [],
+      totalPoints: 0,
+      rank: 1,
+      lineup: {
+        starters: {
+          GK: null,
+          DEF1: null,
+          DEF2: null,
+          DEF3: null,
+          MID1: null,
+          MID2: null,
+          MID3: null,
+          FWD1: null,
+          FWD2: null
+        },
+        bench: []
+      }
     }
   ]
+
+  // Load current team from localStorage
+  useEffect(() => {
+    if (userTeams.length > 0) {
+      const lastViewed = localStorage.getItem('lastViewedTeam')
+      const favoriteTeam = localStorage.getItem('favoriteTeam')
+      const teamToUse = lastViewed || favoriteTeam || userTeams[0]?.id
+      const selectedTeam = userTeams.find(team => team.id === teamToUse)
+      
+      if (selectedTeam) {
+        setCurrentTeam(selectedTeam)
+      } else {
+        setCurrentTeam(userTeams[0])
+      }
+    }
+  }, [userTeams])
 
   useEffect(() => {
     if (user) {
@@ -160,9 +273,22 @@ export const LeagueProvider = ({ children }) => {
     return userTeams.find(team => team.leagueID === leagueId)
   }
 
+  const setCurrentTeamById = (teamId) => {
+    const team = userTeams.find(t => t.id === teamId)
+    if (team) {
+      setCurrentTeam(team)
+      localStorage.setItem('lastViewedTeam', teamId)
+    }
+  }
+
+  const getCurrentTeam = () => {
+    return currentTeam
+  }
+
   const value = {
     leagues,
     userTeams,
+    currentTeam,
     loading,
     createLeague,
     joinLeague,
@@ -170,7 +296,9 @@ export const LeagueProvider = ({ children }) => {
     addPlayerToTeam,
     removePlayerFromTeam,
     getLeagueById,
-    getUserTeamInLeague
+    getUserTeamInLeague,
+    setCurrentTeamById,
+    getCurrentTeam
   }
 
   return (

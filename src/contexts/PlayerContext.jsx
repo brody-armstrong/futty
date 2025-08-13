@@ -24,13 +24,15 @@ export const PlayerProvider = ({ children }) => {
         // Load the JSON file from the public directory
         const response = await fetch('/players.json')
         if (!response.ok) {
-          throw new Error('Failed to load players data')
+          throw new Error(`Failed to load players data: ${response.status}`)
         }
         
         const csvData = await response.json()
+        console.log('Loaded players data:', csvData.length, 'players')
         
         // Transform the CSV data into our app format
         const transformedPlayers = transformPlayerData(csvData)
+        console.log('Transformed players:', transformedPlayers.length, 'players')
         
         setPlayers(transformedPlayers)
         setFilteredPlayers(transformedPlayers)
@@ -48,53 +50,135 @@ export const PlayerProvider = ({ children }) => {
             id: '1',
             name: 'Erling Haaland',
             position: 'FWD',
+            team: 'Manchester City',
             realTeam: 'Manchester City',
-            stats: {
-              goals: 18,
-              assists: 5,
-              cleanSheets: 0,
-              saves: 0,
-              tackles: 2,
-              interceptions: 1,
-              keyPasses: 12,
-              shotsOnTarget: 45,
-              minutesPlayed: 1620,
-              yellowCards: 2,
-              redCards: 0,
-              ownGoals: 0
-            },
+            stats: { goals: 18, assists: 5, cleanSheets: 0, saves: 0, tackles: 2, interceptions: 1, keyPasses: 12, shotsOnTarget: 45, minutesPlayed: 1620, yellowCards: 2, redCards: 0, ownGoals: 0 },
             isInjured: false,
+            injured: false,
             price: 12.5,
-            form: 8.5
+            form: 8.5,
+            ownership: 85,
+            goals: 18,
+            assists: 5,
+            cleanSheets: 0
           },
           {
             id: '2',
             name: 'Kevin De Bruyne',
             position: 'MID',
+            team: 'Manchester City',
             realTeam: 'Manchester City',
-            stats: {
-              goals: 4,
-              assists: 15,
-              cleanSheets: 0,
-              saves: 0,
-              tackles: 18,
-              interceptions: 12,
-              keyPasses: 89,
-              shotsOnTarget: 12,
-              minutesPlayed: 1680,
-              yellowCards: 3,
-              redCards: 0,
-              ownGoals: 0
-            },
+            stats: { goals: 4, assists: 15, cleanSheets: 0, saves: 0, tackles: 18, interceptions: 12, keyPasses: 89, shotsOnTarget: 12, minutesPlayed: 1680, yellowCards: 3, redCards: 0, ownGoals: 0 },
             isInjured: false,
+            injured: false,
             price: 11.0,
-            form: 8.2
+            form: 8.2,
+            ownership: 72,
+            goals: 4,
+            assists: 15,
+            cleanSheets: 0
+          },
+          {
+            id: '3',
+            name: 'Mohamed Salah',
+            position: 'FWD',
+            team: 'Liverpool',
+            realTeam: 'Liverpool',
+            stats: { goals: 15, assists: 8, cleanSheets: 0, saves: 0, tackles: 5, interceptions: 3, keyPasses: 35, shotsOnTarget: 38, minutesPlayed: 1750, yellowCards: 1, redCards: 0, ownGoals: 0 },
+            isInjured: false,
+            injured: false,
+            price: 11.5,
+            form: 8.0,
+            ownership: 78,
+            goals: 15,
+            assists: 8,
+            cleanSheets: 0
+          },
+          {
+            id: '4',
+            name: 'Bukayo Saka',
+            position: 'MID',
+            team: 'Arsenal',
+            realTeam: 'Arsenal',
+            stats: { goals: 8, assists: 12, cleanSheets: 0, saves: 0, tackles: 12, interceptions: 8, keyPasses: 45, shotsOnTarget: 22, minutesPlayed: 1650, yellowCards: 2, redCards: 0, ownGoals: 0 },
+            isInjured: false,
+            injured: false,
+            price: 9.5,
+            form: 7.8,
+            ownership: 65,
+            goals: 8,
+            assists: 12,
+            cleanSheets: 0
+          },
+          {
+            id: '5',
+            name: 'Cole Palmer',
+            position: 'MID',
+            team: 'Chelsea',
+            realTeam: 'Chelsea',
+            stats: { goals: 12, assists: 9, cleanSheets: 0, saves: 0, tackles: 8, interceptions: 6, keyPasses: 38, shotsOnTarget: 28, minutesPlayed: 1580, yellowCards: 3, redCards: 0, ownGoals: 0 },
+            isInjured: false,
+            injured: false,
+            price: 8.5,
+            form: 8.3,
+            ownership: 58,
+            goals: 12,
+            assists: 9,
+            cleanSheets: 0
+          },
+          {
+            id: '6',
+            name: 'Virgil van Dijk',
+            position: 'DEF',
+            team: 'Liverpool',
+            realTeam: 'Liverpool',
+            stats: { goals: 2, assists: 1, cleanSheets: 12, saves: 0, tackles: 35, interceptions: 45, keyPasses: 8, shotsOnTarget: 5, minutesPlayed: 1890, yellowCards: 2, redCards: 0, ownGoals: 0 },
+            isInjured: false,
+            injured: false,
+            price: 6.5,
+            form: 7.5,
+            ownership: 42,
+            goals: 2,
+            assists: 1,
+            cleanSheets: 12
+          },
+          {
+            id: '7',
+            name: 'Alisson',
+            position: 'GK',
+            team: 'Liverpool',
+            realTeam: 'Liverpool',
+            stats: { goals: 0, assists: 0, cleanSheets: 14, saves: 85, tackles: 0, interceptions: 2, keyPasses: 0, shotsOnTarget: 0, minutesPlayed: 1980, yellowCards: 1, redCards: 0, ownGoals: 0 },
+            isInjured: false,
+            injured: false,
+            price: 5.5,
+            form: 7.8,
+            ownership: 35,
+            goals: 0,
+            assists: 0,
+            cleanSheets: 14
+          },
+          {
+            id: '8',
+            name: 'Ollie Watkins',
+            position: 'FWD',
+            team: 'Aston Villa',
+            realTeam: 'Aston Villa',
+            stats: { goals: 11, assists: 6, cleanSheets: 0, saves: 0, tackles: 3, interceptions: 2, keyPasses: 18, shotsOnTarget: 25, minutesPlayed: 1450, yellowCards: 2, redCards: 0, ownGoals: 0 },
+            isInjured: false,
+            injured: false,
+            price: 7.5,
+            form: 7.2,
+            ownership: 28,
+            goals: 11,
+            assists: 6,
+            cleanSheets: 0
           }
         ]
         
         setPlayers(mockPlayers)
         setFilteredPlayers(mockPlayers)
-        setTeams(['Manchester City', 'Liverpool', 'Arsenal'])
+        setTeams(['Manchester City', 'Liverpool', 'Arsenal', 'Chelsea', 'Aston Villa'])
         setPositions(['GK', 'DEF', 'MID', 'FWD'])
         setLoading(false)
       }
@@ -159,7 +243,7 @@ export const PlayerProvider = ({ children }) => {
     }
 
     if (filters.team) {
-      filtered = filtered.filter(player => player.realTeam === filters.team)
+      filtered = filtered.filter(player => (player.team || player.realTeam) === filters.team)
     }
 
     if (filters.search) {
