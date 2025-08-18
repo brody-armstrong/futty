@@ -35,7 +35,7 @@ const Sidebar = () => {
             style={{ backgroundColor: 'oklch(100% 0 0)' }}
           >
             <img 
-              src="/futty_logo_v2.png" 
+              src="./futty_logo_v2.png" 
               alt="Futty Logo" 
               className="w-full h-full object-contain"
               onError={(e) => {
