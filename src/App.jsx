@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import PlayerSearch from './pages/PlayerSearch'
 import Teams from './pages/Teams'
 import Leagues from './pages/Leagues'
+import Draft from './pages/Draft'
 import Account from './pages/Account'
 import Trades from './pages/Trades'
 import { AuthProvider } from './contexts/AuthContext'
@@ -39,6 +40,7 @@ function App() {
                       <Route path="/players" element={<PlayerSearch />} />
                       <Route path="/teams" element={<Teams />} />
                       <Route path="/leagues" element={<Leagues />} />
+                      <Route path="/draft/:leagueId" element={<Draft />} />
                       <Route path="/trades" element={<Trades />} />
                       <Route path="/account" element={<Account />} />
                     </Routes>

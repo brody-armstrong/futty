@@ -1,15 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useLeagues } from '../contexts/LeagueContext'
 import { useAuth } from '../contexts/AuthContext'
+import { usePlayers } from '../contexts/PlayerContext'
 import { 
   Trophy, Users, Calendar, TrendingUp, Plus, Play, AlertCircle, Clock, Check, X, 
   ArrowRight, Search, Filter, Star, Lock, Globe, Settings, Edit, Crown, 
-  ChevronLeft, ChevronRight, Eye, UserPlus, Shield, Timer, Shuffle
+  ChevronLeft, ChevronRight, Eye, UserPlus, Shield, Timer, Shuffle, Target
 } from 'lucide-react'
+import { getTeamLogo, getTeamDisplayName } from '../utils/teamLogos'
 
 const Leagues = () => {
+  const navigate = useNavigate()
   const { leagues, loading, createLeague, joinLeague } = useLeagues()
   const { user } = useAuth()
+  const { players, loading: playersLoading, calculatePlayerPoints, filterPlayers } = usePlayers()
   
   // Main view states
   const [activeView, setActiveView] = useState('overview')
@@ -23,6 +28,7 @@ const Leagues = () => {
   const [privateLeagueCode, setPrivateLeagueCode] = useState('')
   const [showSuccessNotification, setShowSuccessNotification] = useState(false)
   const [successMessage, setSuccessMessage] = useState('')
+  const [isErrorNotification, setIsErrorNotification] = useState(false)
   
   // Mock data for user's leagues (limited to 5)
   const mockUserLeagues = [
@@ -95,10 +101,12 @@ const Leagues = () => {
   ]
 
   const maxLeagues = 5
-  const userLeagueCount = mockUserLeagues.length
+  const userLeagueCount = Array.isArray(leagues) ? leagues.length : 0
 
-  const handleCreateLeague = (formData) => {
-    if (userLeagueCount >= maxLeagues) {
+
+
+  const handleCreateLeague = async (formData) => {
+    if ((leagues?.length ?? 0) >= maxLeagues) {
       alert(`You can only be in ${maxLeagues} leagues maximum`)
       return
     }
@@ -106,47 +114,67 @@ const Leagues = () => {
     const leagueName = formData.get('name')
     const isPublic = formData.get('privacy') === 'public'
     
-    createLeague({
-      name: leagueName,
-      type: 'Premier League',
-      size: parseInt(formData.get('size')),
-      isPublic: isPublic,
-      description: formData.get('description') || '',
-      draftDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 1 week from now
-      settings: {
-        draftType: 'snake',
-        scoringType: 'head-to-head',
-        transferLimit: 2,
-        pickTime: 60,
-        wildcardAvailable: true
-      }
-    })
-    
-    setShowCreateLeague(false)
-    setSuccessMessage(`Successfully created "${leagueName}" ${isPublic ? 'public' : 'private'} league!`)
-    setShowSuccessNotification(true)
-    
-    // Auto-hide notification after 3 seconds
-    setTimeout(() => setShowSuccessNotification(false), 3000)
+    try {
+      const created = await createLeague({
+        name: leagueName,
+        type: 'Premier League',
+        size: parseInt(formData.get('size')),
+        isPublic: isPublic,
+        description: formData.get('description') || '',
+        draftDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 1 week from now
+        settings: {
+          draftType: 'snake',
+          scoringType: 'head-to-head',
+          transferLimit: 2,
+          pickTime: 60,
+          wildcardAvailable: true
+        }
+      })
+      
+      setShowCreateLeague(false)
+      setSuccessMessage(`Successfully created "${created?.name || leagueName}" ${isPublic ? 'public' : 'private'} league!`)
+      setIsErrorNotification(false)
+      setShowSuccessNotification(true)
+      
+      // Auto-hide notification after 3 seconds
+      setTimeout(() => setShowSuccessNotification(false), 3000)
+    } catch (error) {
+      console.error('Failed to create league:', error)
+      setSuccessMessage('Failed to create league. Please try again.')
+      setIsErrorNotification(true)
+      setShowSuccessNotification(true)
+      setTimeout(() => setShowSuccessNotification(false), 3000)
+    }
   }
 
-  const handleJoinLeague = (leagueId) => {
-    if (userLeagueCount >= maxLeagues) {
+  const handleJoinLeague = async (leagueId) => {
+    if ((leagues?.length ?? 0) >= maxLeagues) {
       alert(`You can only be in ${maxLeagues} leagues maximum`)
       return
     }
     
-    const league = mockPublicLeagues.find(l => l.id === leagueId) || 
-                  { name: leagueId.startsWith('private-') ? 'Private League' : 'Unknown League' }
-    
-    joinLeague(leagueId)
-    setShowJoinLeague(false)
-    setPrivateLeagueCode('')
-    setSuccessMessage(`Successfully joined "${league.name}"!`)
-    setShowSuccessNotification(true)
-    
-    // Auto-hide notification after 3 seconds
-    setTimeout(() => setShowSuccessNotification(false), 3000)
+    try {
+      const joined = await joinLeague(leagueId)
+      setShowJoinLeague(false)
+      setPrivateLeagueCode('')
+      
+      // Get league name for success message
+      const league = mockPublicLeagues.find(l => l.id === leagueId) || 
+                    { name: leagueId.startsWith('private-') ? 'Private League' : 'Unknown League' }
+      
+      setSuccessMessage(`Successfully joined "${joined?.name || league.name}"!`)
+      setIsErrorNotification(false)
+      setShowSuccessNotification(true)
+      
+      // Auto-hide notification after 3 seconds
+      setTimeout(() => setShowSuccessNotification(false), 3000)
+    } catch (error) {
+      console.error('Failed to join league:', error)
+      setSuccessMessage('Failed to join league. Please try again.')
+      setIsErrorNotification(true)
+      setShowSuccessNotification(true)
+      setTimeout(() => setShowSuccessNotification(false), 3000)
+    }
   }
 
   if (loading) {
@@ -220,23 +248,28 @@ const Leagues = () => {
             <div className="flex space-x-3">
               <button
                 onClick={() => setShowJoinLeague(true)}
-                className="px-6 py-3 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-4 flex items-center gap-2"
+                disabled={userLeagueCount >= maxLeagues}
+                className="px-6 py-3 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-4 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
-                  backgroundColor: 'oklch(95% 0 0)',
-                  color: 'oklch(21.778% 0 0)',
+                  backgroundColor: userLeagueCount >= maxLeagues ? 'oklch(90% 0 0)' : 'oklch(95% 0 0)',
+                  color: userLeagueCount >= maxLeagues ? 'oklch(21.778% 0 0 / 0.5)' : 'oklch(21.778% 0 0)',
                   border: '1px solid oklch(90% 0 0)'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'oklch(90% 0 0)'
-                  e.target.style.borderColor = 'oklch(71.772% 0.133 239.443)'
+                  if (userLeagueCount < maxLeagues) {
+                    e.target.style.backgroundColor = 'oklch(90% 0 0)'
+                    e.target.style.borderColor = 'oklch(71.772% 0.133 239.443)'
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'oklch(95% 0 0)'
-                  e.target.style.borderColor = 'oklch(90% 0 0)'
+                  if (userLeagueCount < maxLeagues) {
+                    e.target.style.backgroundColor = 'oklch(95% 0 0)'
+                    e.target.style.borderColor = 'oklch(90% 0 0)'
+                  }
                 }}
               >
                 <UserPlus size={16} />
-                Join League
+                {userLeagueCount >= maxLeagues ? 'League Limit Reached' : 'Join League'}
               </button>
               <button
                 onClick={() => setShowCreateLeague(true)}
@@ -257,7 +290,7 @@ const Leagues = () => {
 
         {/* User's Leagues */}
         <section className="space-y-6">
-          {mockUserLeagues.length === 0 ? (
+          {userLeagueCount === 0 ? (
             <div 
               className="text-center py-16 rounded-2xl border shadow-sm"
               style={{ 
@@ -331,7 +364,7 @@ const Leagues = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {mockUserLeagues.map((league) => (
+              {leagues.map((league) => (
                 <div
                   key={league.id}
                   className="rounded-2xl p-8 border shadow-sm transition-all duration-200 cursor-pointer group"
@@ -397,6 +430,32 @@ const Leagues = () => {
                       </span>
                     </div>
                   </div>
+
+                  {/* Draft Preview Button */}
+                  {league.status === 'draft-pending' && (
+                    <div className="mt-4">
+                      <button
+                        onClick={() => navigate(`/draft/${league.id}`)}
+                        className="w-full px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center gap-2"
+                        style={{
+                          backgroundColor: 'oklch(71.772% 0.133 239.443 / 0.1)',
+                          color: 'oklch(71.772% 0.133 239.443)',
+                          border: '1px solid oklch(71.772% 0.133 239.443 / 0.3)'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.backgroundColor = 'oklch(71.772% 0.133 239.443 / 0.2)'
+                          e.target.style.transform = 'translateY(-1px)'
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.backgroundColor = 'oklch(71.772% 0.133 239.443 / 0.1)'
+                          e.target.style.transform = 'translateY(0)'
+                        }}
+                      >
+                        <Target size={16} />
+                        Enter Draft
+                      </button>
+                    </div>
+                  )}
 
                   {league.currentMatchup && (
                     <div 
@@ -810,16 +869,16 @@ const Leagues = () => {
                         </div>
                         <button
                           onClick={() => handleJoinLeague(league.id)}
-                          disabled={userLeagueCount >= maxLeagues}
+                          disabled={(leagues?.length ?? 0) >= maxLeagues}
                           className="px-6 py-3 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                           style={{
-                            backgroundColor: userLeagueCount >= maxLeagues ? 'oklch(90% 0 0)' : 'oklch(46.949% 0.162 321.406)',
-                            color: userLeagueCount >= maxLeagues ? 'oklch(21.778% 0 0 / 0.5)' : 'oklch(89.389% 0.032 321.406)',
-                            boxShadow: userLeagueCount >= maxLeagues ? 'none' : '0 4px 6px -1px oklch(21.778% 0 0 / 0.1)'
+                            backgroundColor: (leagues?.length ?? 0) >= maxLeagues ? 'oklch(90% 0 0)' : 'oklch(46.949% 0.162 321.406)',
+                            color: (leagues?.length ?? 0) >= maxLeagues ? 'oklch(21.778% 0 0 / 0.5)' : 'oklch(89.389% 0.032 321.406)',
+                            boxShadow: (leagues?.length ?? 0) >= maxLeagues ? 'none' : '0 4px 6px -1px oklch(21.778% 0 0 / 0.1)'
                           }}
                         >
                           <UserPlus size={16} />
-                          {userLeagueCount >= maxLeagues ? 'League Limit Reached' : 'Join League'}
+                          {(leagues?.length ?? 0) >= maxLeagues ? 'League Limit Reached' : 'Join League'}
                         </button>
                       </div>
                     </div>
@@ -905,15 +964,15 @@ const Leagues = () => {
                         </button>
                         <button
                           type="submit"
-                          disabled={!privateLeagueCode.trim() || userLeagueCount >= maxLeagues}
+                          disabled={!privateLeagueCode.trim() || (leagues?.length ?? 0) >= maxLeagues}
                           className="flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                           style={{
-                            backgroundColor: userLeagueCount >= maxLeagues ? 'oklch(90% 0 0)' : 'oklch(46.949% 0.162 321.406)',
-                            color: userLeagueCount >= maxLeagues ? 'oklch(21.778% 0 0 / 0.5)' : 'oklch(89.389% 0.032 321.406)',
-                            boxShadow: userLeagueCount >= maxLeagues ? 'none' : '0 4px 6px -1px oklch(21.778% 0 0 / 0.1)'
+                            backgroundColor: (leagues?.length ?? 0) >= maxLeagues ? 'oklch(90% 0 0)' : 'oklch(46.949% 0.162 321.406)',
+                            color: (leagues?.length ?? 0) >= maxLeagues ? 'oklch(21.778% 0 0 / 0.5)' : 'oklch(89.389% 0.032 321.406)',
+                            boxShadow: (leagues?.length ?? 0) >= maxLeagues ? 'none' : '0 4px 6px -1px oklch(21.778% 0 0 / 0.1)'
                           }}
                         >
-                          {userLeagueCount >= maxLeagues ? 'League Limit Reached' : 'Join League'}
+                          {(leagues?.length ?? 0) >= maxLeagues ? 'League Limit Reached' : 'Join League'}
                         </button>
                       </div>
                     </div>
@@ -925,30 +984,38 @@ const Leagues = () => {
         </div>
       )}
 
-      {/* Success Notification */}
+      {/* Success/Error Notification */}
       {showSuccessNotification && (
         <div className="fixed top-4 right-4 z-50">
           <div 
             className="rounded-2xl p-6 shadow-2xl border-l-4 max-w-sm"
             style={{ 
               backgroundColor: 'oklch(100% 0 0)',
-              borderColor: 'oklch(46.949% 0.162 321.406)',
+              borderColor: isErrorNotification ? 'oklch(62.013% 0.208 28.717)' : 'oklch(46.949% 0.162 321.406)',
               boxShadow: '0 8px 25px oklch(21.778% 0 0 / 0.15)'
             }}
           >
             <div className="flex items-start gap-3">
               <div 
                 className="p-2 rounded-xl"
-                style={{ backgroundColor: 'oklch(46.949% 0.162 321.406 / 0.1)' }}
+                style={{ 
+                  backgroundColor: isErrorNotification 
+                    ? 'oklch(62.013% 0.208 28.717 / 0.1)' 
+                    : 'oklch(46.949% 0.162 321.406 / 0.1)' 
+                }}
               >
-                <Check size={20} style={{ color: 'oklch(46.949% 0.162 321.406)' }} />
+                {isErrorNotification ? (
+                  <AlertCircle size={20} style={{ color: 'oklch(62.013% 0.208 28.717)' }} />
+                ) : (
+                  <Check size={20} style={{ color: 'oklch(46.949% 0.162 321.406)' }} />
+                )}
               </div>
               <div className="flex-1">
                 <h4 
                   className="font-bold mb-1"
                   style={{ color: 'oklch(20% 0 0)' }}
                 >
-                  Success!
+                  {isErrorNotification ? 'Error' : 'Success!'}
                 </h4>
                 <p 
                   className="text-sm"

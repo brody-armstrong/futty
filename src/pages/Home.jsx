@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { 
   Trophy, 
   Users, 
@@ -9,8 +9,137 @@ import {
   Activity,
   Newspaper,
   ExternalLink,
-  Clock
+  Clock,
+  RefreshCw
 } from 'lucide-react'
+
+// Football Web Pages Embed Component
+const FWPEmbed = ({ dataUrl, title, description, className = "" }) => {
+  const embedRef = useRef(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
+
+  useEffect(() => {
+    // Load the FWP script if not already loaded
+    if (!window.fwpScriptLoaded) {
+      const script = document.createElement('script')
+      script.src = 'https://www.footballwebpages.co.uk/embed.js'
+      script.defer = true
+      script.onload = () => {
+        window.fwpScriptLoaded = true
+        // Wait a bit for the script to initialize
+        setTimeout(() => {
+          initializeEmbed()
+        }, 500)
+      }
+      script.onerror = () => {
+        setHasError(true)
+        setIsLoading(false)
+      }
+      document.head.appendChild(script)
+    } else {
+      // If script is already loaded, initialize immediately
+      setTimeout(() => {
+        initializeEmbed()
+      }, 100)
+    }
+
+    return () => {
+      // Cleanup if needed
+      if (embedRef.current) {
+        embedRef.current.innerHTML = ''
+      }
+    }
+  }, [dataUrl])
+
+  const initializeEmbed = () => {
+    if (embedRef.current) {
+      // Create the embed div
+      const embedDiv = document.createElement('div')
+      embedDiv.className = 'fwp-embed'
+      embedDiv.setAttribute('data-url', dataUrl)
+      
+      // Clear and append
+      embedRef.current.innerHTML = ''
+      embedRef.current.appendChild(embedDiv)
+      
+      // Trigger the FWP script to process the embed
+      if (window.FWP && window.FWP.initEmbeds) {
+        window.FWP.initEmbeds()
+      } else {
+        // Fallback: try to trigger manually
+        const event = new Event('DOMContentLoaded')
+        document.dispatchEvent(event)
+      }
+      
+      // Set loading to false after a delay to allow iframe to load
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 3000)
+    }
+  }
+
+  const handleRefresh = () => {
+    setIsLoading(true)
+    setHasError(false)
+    initializeEmbed()
+  }
+
+  return (
+    <div className={`bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden ${className}`}>
+      <div className="p-6 border-b border-gray-100">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+            <p className="text-sm text-gray-500">{description}</p>
+          </div>
+          <button 
+            onClick={handleRefresh}
+            className="text-sm font-medium flex items-center gap-2 px-3 py-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
+            aria-label="Refresh data"
+          >
+            <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
+            <span>Refresh</span>
+          </button>
+        </div>
+      </div>
+      
+      <div className="relative min-h-[400px]">
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-600 border-t-transparent mx-auto mb-3"></div>
+              <p className="text-sm text-gray-600">Loading {title.toLowerCase()}...</p>
+            </div>
+          </div>
+        )}
+        
+        {hasError && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+            <div className="text-center p-6">
+              <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mx-auto mb-4">
+                <AlertCircle size={24} className="text-red-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Unable to load data</h3>
+              <p className="text-sm text-gray-600 mb-4">There was an error loading the {title.toLowerCase()}.</p>
+              <button 
+                onClick={handleRefresh}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
+              >
+                Try Again
+              </button>
+            </div>
+          </div>
+        )}
+        
+        <div 
+          ref={embedRef}
+          className={`${isLoading || hasError ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        />
+      </div>
+    </div>
+  )
+}
 
 const Home = () => {
   // Mock data for demonstration
@@ -29,66 +158,6 @@ const Home = () => {
   }
 
   const mockPendingTrades = 2
-
-  const mockLiveScores = [
-    {
-      id: '1',
-      homeTeam: 'Arsenal',
-      awayTeam: 'Manchester City',
-      homeScore: 2,
-      awayScore: 1,
-      status: 'live',
-      time: '67\'',
-      competition: 'Premier League'
-    },
-    {
-      id: '2',
-      homeTeam: 'Liverpool',
-      awayTeam: 'Chelsea',
-      homeScore: 0,
-      awayScore: 0,
-      status: 'live',
-      time: '23\'',
-      competition: 'Premier League'
-    },
-    {
-      id: '3',
-      homeTeam: 'Manchester United',
-      awayTeam: 'Tottenham',
-      homeScore: 1,
-      awayScore: 1,
-      status: 'live',
-      time: '89\'',
-      competition: 'Premier League'
-    }
-  ]
-
-  const mockNews = [
-    {
-      id: '1',
-      title: 'Haaland continues his impressive form with hat-trick',
-      summary: 'Erling Haaland scored three goals against Arsenal in a dominant 4-1 victory at the Etihad Stadium.',
-      timestamp: '2 hours ago',
-      category: 'Match Report',
-      readTime: '3 min read'
-    },
-    {
-      id: '2',
-      title: 'Transfer window: Latest Premier League moves',
-      summary: 'All the latest transfer news and confirmed deals from the Premier League.',
-      timestamp: '5 hours ago',
-      category: 'Transfer News',
-      readTime: '5 min read'
-    },
-    {
-      id: '3',
-      title: 'Injury update: Key players return to training',
-      summary: 'Several star players are back in training ahead of the weekend fixtures.',
-      timestamp: '1 day ago',
-      category: 'Injury News',
-      readTime: '4 min read'
-    }
-  ]
 
   if (!user) {
     return (
@@ -278,141 +347,28 @@ const Home = () => {
             </div>
           </section>
 
-          {/* Main Content Grid */}
-          <section className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-            {/* Live Scores */}
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-              <div className="p-6 border-b border-gray-100">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center">
-                      <Activity size={20} className="text-red-600" />
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-semibold text-gray-900">Live Scores</h2>
-                      <p className="text-sm text-gray-500">Real-time updates</p>
-                    </div>
-                  </div>
-                  <button 
-                    className="text-sm font-medium flex items-center gap-2 px-3 py-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
-                    aria-label="View all live scores"
-                  >
-                    <span>View all</span>
-                    <ExternalLink size={14} />
-                  </button>
-                </div>
-              </div>
-              
-              <div className="divide-y divide-gray-100">
-                {mockLiveScores.map((match) => (
-                  <div 
-                    key={match.id} 
-                    className="p-6 hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-6 flex-1">
-                        <div className="text-right min-w-0 flex-1">
-                          <span className="font-semibold text-gray-900 text-sm truncate block">
-                            {match.homeTeam}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-3 flex-shrink-0">
-                          <span className="text-2xl font-bold text-gray-900">
-                            {match.homeScore}
-                          </span>
-                          <span className="text-gray-400 font-medium">-</span>
-                          <span className="text-2xl font-bold text-gray-900">
-                            {match.awayScore}
-                          </span>
-                        </div>
-                        <div className="text-left min-w-0 flex-1">
-                          <span className="font-semibold text-gray-900 text-sm truncate block">
-                            {match.awayTeam}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="ml-4">
-                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-red-500 text-white">
-                          LIVE
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-500">
-                        {match.competition}
-                      </span>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                        <span className="text-sm font-semibold text-red-600">
-                          {match.time}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* FWP Content Grid */}
+          <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Latest News */}
+            <FWPEmbed 
+              dataUrl="news"
+              title="Latest News"
+              description="Stay updated with latest football news"
+            />
 
-            {/* News Feed */}
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-              <div className="p-6 border-b border-gray-100">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                      <Newspaper size={20} className="text-blue-600" />
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-semibold text-gray-900">Latest News</h2>
-                      <p className="text-sm text-gray-500">Stay updated</p>
-                    </div>
-                  </div>
-                  <button 
-                    className="text-sm font-medium flex items-center gap-2 px-3 py-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
-                    aria-label="View all news"
-                  >
-                    <span>View all</span>
-                    <ExternalLink size={14} />
-                  </button>
-                </div>
-              </div>
-              
-              <div className="divide-y divide-gray-100">
-                {mockNews.map((news) => (
-                  <article 
-                    key={news.id} 
-                    className="p-6 hover:bg-gray-50 transition-colors duration-200 cursor-pointer group"
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="font-semibold leading-snug flex-1 pr-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
-                        {news.title}
-                      </h3>
-                      <ChevronRight 
-                        size={16} 
-                        className="mt-1 flex-shrink-0 text-gray-400 group-hover:text-blue-600 transition-colors duration-200"
-                      />
-                    </div>
-                    
-                    <p className="text-sm leading-relaxed mb-4 text-gray-600">
-                      {news.summary}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-blue-50 text-blue-700 border border-blue-200">
-                          {news.category}
-                        </span>
-                        <span className="text-xs text-gray-500 font-medium">
-                          {news.readTime}
-                        </span>
-                      </div>
-                      <span className="text-xs text-gray-400 font-medium">
-                        {news.timestamp}
-                      </span>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
+            {/* Premier League Table */}
+            <FWPEmbed 
+              dataUrl="premier-league/league-table"
+              title="Premier League Table"
+              description="Current standings"
+            />
+
+            {/* Today's Fixtures */}
+            <FWPEmbed 
+              dataUrl="premier-league/fixtures-results"
+              title="Today's Fixtures"
+              description="All matches scheduled for today"
+            />
           </section>
         </div>
       </div>

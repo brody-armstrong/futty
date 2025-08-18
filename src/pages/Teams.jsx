@@ -14,7 +14,9 @@ import {
   Star, 
   ArrowUpDown,
   Activity,
-  MoreVertical
+  MoreVertical,
+  X,
+  Check
 } from 'lucide-react'
 
 const Teams = () => {
@@ -29,12 +31,40 @@ const Teams = () => {
   const [selectedTeam, setSelectedTeam] = useState(null)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [draggedPlayer, setDraggedPlayer] = useState(null)
+  const [isSubstitutionMode, setIsSubstitutionMode] = useState(false)
+  const [isChangesMode, setIsChangesMode] = useState(false)
+  const [dropTarget, setDropTarget] = useState(null)
+
+  // Team state management
+  const [teamState, setTeamState] = useState({
+    startingLineup: {
+      gk: [],
+      def: [],
+      mid: [],
+      fwd: []
+    },
+    bench: []
+  })
 
   useEffect(() => {
     if (userTeams.length > 0 && !selectedTeam) {
       setSelectedTeam(userTeams[0])
     }
   }, [userTeams, selectedTeam])
+
+  // Initialize team state with mock data
+  useEffect(() => {
+    const gk = mockPlayers.filter(p => p.position === 'GK').slice(0, 1)
+    const def = mockPlayers.filter(p => p.position === 'DEF').slice(0, 4)
+    const mid = mockPlayers.filter(p => p.position === 'MID').slice(0, 3)
+    const fwd = mockPlayers.filter(p => p.position === 'FWD').slice(0, 3)
+    const bench = mockPlayers.slice(11, 14)
+    
+    setTeamState({
+      startingLineup: { gk, def, mid, fwd },
+      bench
+    })
+  }, [])
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -80,19 +110,6 @@ const Teams = () => {
     )
   }
 
-  // Get players by position for formation display
-  const getPlayersByPosition = () => {
-    const gk = mockPlayers.filter(p => p.position === 'GK').slice(0, 1)
-    const def = mockPlayers.filter(p => p.position === 'DEF').slice(0, 4)
-    const mid = mockPlayers.filter(p => p.position === 'MID').slice(0, 3)
-    const fwd = mockPlayers.filter(p => p.position === 'FWD').slice(0, 3)
-    
-    return { gk, def, mid, fwd }
-  }
-
-  const { gk, def, mid, fwd } = getPlayersByPosition()
-  const benchPlayers = mockPlayers.slice(11, 14)
-
   const getPositionColors = (position) => {
     switch (position) {
       case 'GK': return {
@@ -129,19 +146,172 @@ const Teams = () => {
   }
 
   const handleDragStart = (e, player) => {
+    if (!isSubstitutionMode && !isChangesMode) return
     setDraggedPlayer(player)
     e.dataTransfer.effectAllowed = 'move'
+    e.dataTransfer.setData('text/plain', player.id.toString())
   }
 
   const handleDragOver = (e) => {
+    if (!isSubstitutionMode && !isChangesMode) return
     e.preventDefault()
     e.dataTransfer.dropEffect = 'move'
   }
 
-  const handleDrop = (e) => {
+  const handleDragEnter = (e, targetPosition, targetIndex) => {
+    if (!isSubstitutionMode && !isChangesMode) return
     e.preventDefault()
-    console.log('Player dropped:', draggedPlayer)
+    setDropTarget({ position: targetPosition, index: targetIndex })
+  }
+
+  const handleDragLeave = (e) => {
+    if (!isSubstitutionMode && !isChangesMode) return
+    setDropTarget(null)
+  }
+
+  const handleDrop = (e, targetPosition, targetIndex) => {
+    if (!isSubstitutionMode && !isChangesMode || !draggedPlayer) return
+    e.preventDefault()
+    
+    console.log('Dropping player:', draggedPlayer.name, 'to position:', targetPosition, 'index:', targetIndex)
+    
+    // Find where the dragged player currently is
+    const draggedFrom = findPlayerLocation(draggedPlayer.id)
+    
+    if (!draggedFrom) {
+      console.error('Could not find dragged player location')
+      setDraggedPlayer(null)
+      setDropTarget(null)
+      return
+    }
+
+    // Get the target player (if any)
+    const targetPlayer = getPlayerAtPosition(targetPosition, targetIndex)
+    
+    // Perform the swap
+    swapPlayers(draggedFrom, { position: targetPosition, index: targetIndex }, targetPlayer)
+    
     setDraggedPlayer(null)
+    setDropTarget(null)
+  }
+
+  const findPlayerLocation = (playerId) => {
+    // Check starting lineup
+    for (const [position, players] of Object.entries(teamState.startingLineup)) {
+      const index = players.findIndex(p => p.id === playerId)
+      if (index !== -1) {
+        return { position, index, type: 'startingLineup' }
+      }
+    }
+    
+    // Check bench
+    const benchIndex = teamState.bench.findIndex(p => p.id === playerId)
+    if (benchIndex !== -1) {
+      return { position: 'bench', index: benchIndex, type: 'bench' }
+    }
+    
+    return null
+  }
+
+  const getPlayerAtPosition = (position, index) => {
+    if (position === 'bench') {
+      return teamState.bench[index] || null
+    }
+    return teamState.startingLineup[position]?.[index] || null
+  }
+
+  const swapPlayers = (from, to, targetPlayer) => {
+    setTeamState(prevState => {
+      const newState = { ...prevState }
+      
+      // Remove dragged player from original location
+      if (from.type === 'startingLineup') {
+        newState.startingLineup[from.position] = [
+          ...newState.startingLineup[from.position].slice(0, from.index),
+          ...newState.startingLineup[from.position].slice(from.index + 1)
+        ]
+      } else {
+        newState.bench = [
+          ...newState.bench.slice(0, from.index),
+          ...newState.bench.slice(from.index + 1)
+        ]
+      }
+      
+      // Remove target player from target location (if exists)
+      if (targetPlayer) {
+        if (to.position === 'bench') {
+          newState.bench = [
+            ...newState.bench.slice(0, to.index),
+            ...newState.bench.slice(to.index + 1)
+          ]
+        } else {
+          newState.startingLineup[to.position] = [
+            ...newState.startingLineup[to.position].slice(0, to.index),
+            ...newState.startingLineup[to.position].slice(to.index + 1)
+          ]
+        }
+      }
+      
+      // Add dragged player to target location
+      if (to.position === 'bench') {
+        newState.bench = [
+          ...newState.bench.slice(0, to.index),
+          draggedPlayer,
+          ...newState.bench.slice(to.index)
+        ]
+      } else {
+        newState.startingLineup[to.position] = [
+          ...newState.startingLineup[to.position].slice(0, to.index),
+          draggedPlayer,
+          ...newState.startingLineup[to.position].slice(to.index)
+        ]
+      }
+      
+      // Add target player to original location (if exists)
+      if (targetPlayer) {
+        if (from.type === 'startingLineup') {
+          newState.startingLineup[from.position] = [
+            ...newState.startingLineup[from.position].slice(0, from.index),
+            targetPlayer,
+            ...newState.startingLineup[from.position].slice(from.index)
+          ]
+        } else {
+          newState.bench = [
+            ...newState.bench.slice(0, from.index),
+            targetPlayer,
+            ...newState.bench.slice(from.index)
+          ]
+        }
+      }
+      
+      return newState
+    })
+  }
+
+  const handleMakeSubstitution = () => {
+    setIsSubstitutionMode(true)
+    setIsChangesMode(false)
+  }
+
+  const handleMakeChanges = () => {
+    setIsChangesMode(true)
+    setIsSubstitutionMode(false)
+  }
+
+  const handleCancelMode = () => {
+    setIsSubstitutionMode(false)
+    setIsChangesMode(false)
+    setDraggedPlayer(null)
+    setDropTarget(null)
+  }
+
+  const handleSaveChanges = () => {
+    // Here you would save the changes to the backend
+    console.log('Saving team changes:', teamState)
+    setIsSubstitutionMode(false)
+    setIsChangesMode(false)
+    setDraggedPlayer(null)
+    setDropTarget(null)
   }
 
   // Empty state when user has no teams
@@ -171,20 +341,28 @@ const Teams = () => {
     )
   }
 
-  const PlayerCard = ({ player, isDraggable = true, className = "" }) => {
+  const PlayerCard = ({ player, position, index, isDraggable = false, className = "" }) => {
     const colors = getPositionColors(player.position)
+    const canDrag = (isSubstitutionMode || isChangesMode) && isDraggable
+    const isDropTarget = dropTarget?.position === position && dropTarget?.index === index
     
     return (
       <div
-        draggable={isDraggable}
-        onDragStart={isDraggable ? (e) => handleDragStart(e, player) : undefined}
+        draggable={canDrag}
+        onDragStart={canDrag ? (e) => handleDragStart(e, player) : undefined}
+        onDragEnter={canDrag ? (e) => handleDragEnter(e, position, index) : undefined}
+        onDragLeave={canDrag ? handleDragLeave : undefined}
+        onDragOver={canDrag ? handleDragOver : undefined}
+        onDrop={canDrag ? (e) => handleDrop(e, position, index) : undefined}
         className={`
           bg-white rounded-2xl border-2 shadow-lg transition-all duration-300 
-          ${isDraggable ? 'cursor-move hover:scale-105 hover:-translate-y-2 hover:shadow-xl' : ''}
+          ${canDrag ? 'cursor-move hover:scale-105 hover:-translate-y-2 hover:shadow-xl' : ''}
           ${colors.border} ${className}
+          ${(isSubstitutionMode || isChangesMode) ? 'ring-2 ring-blue-200' : ''}
+          ${isDropTarget ? 'ring-4 ring-green-400 bg-green-50' : ''}
         `}
-        role={isDraggable ? "button" : undefined}
-        tabIndex={isDraggable ? 0 : undefined}
+        role={canDrag ? "button" : undefined}
+        tabIndex={canDrag ? 0 : undefined}
         aria-label={`${player.name} - ${player.position}`}
       >
         <div className={`${colors.bg} rounded-t-xl p-3 border-b ${colors.border}`}>
@@ -304,6 +482,46 @@ const Teams = () => {
             </div>
           </section>
 
+          {/* Mode Indicator */}
+          {(isSubstitutionMode || isChangesMode) && (
+            <section className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <ArrowUpDown size={16} className="text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-blue-900">
+                      {isSubstitutionMode ? 'Substitution Mode' : 'Changes Mode'}
+                    </h3>
+                    <p className="text-sm text-blue-700">
+                      {isSubstitutionMode 
+                        ? 'Drag players to make substitutions between starting lineup and bench'
+                        : 'Drag players to reorganize your team formation'
+                      }
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleSaveChanges}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <Check size={16} />
+                    Save Changes
+                  </button>
+                  <button
+                    onClick={handleCancelMode}
+                    className="px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <X size={16} />
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </section>
+          )}
+
           {/* Formation Display */}
           <section className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
             <div className="p-6 border-b border-gray-100">
@@ -314,12 +532,28 @@ const Teams = () => {
                   </div>
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900">Formation (4-3-3)</h2>
-                    <p className="text-sm text-gray-500">Drag and drop to reorganize your team</p>
+                    <p className="text-sm text-gray-500">
+                      {isSubstitutionMode || isChangesMode 
+                        ? 'Drag players to reorganize your team'
+                        : 'Your current starting lineup'
+                      }
+                    </p>
                   </div>
                 </div>
-                <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                  Change Formation
-                </button>
+                <div className="flex items-center gap-3">
+                  <button 
+                    onClick={handleMakeSubstitution}
+                    className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  >
+                    Make Substitution
+                  </button>
+                  <button 
+                    onClick={handleMakeChanges}
+                    className="px-4 py-2 text-sm font-medium text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                  >
+                    Make Changes
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -327,7 +561,6 @@ const Teams = () => {
             <div 
               className="relative p-8 min-h-[700px] bg-gradient-to-b from-green-400/20 via-green-300/15 to-green-200/10"
               onDragOver={handleDragOver}
-              onDrop={handleDrop}
             >
               {/* Pitch Markings */}
               <div className="absolute inset-4 border-2 border-white/50 rounded-lg">
@@ -342,8 +575,14 @@ const Teams = () => {
                 {/* Goalkeepers */}
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-1 gap-4 max-w-[120px]">
-                    {gk.map((player) => (
-                      <PlayerCard key={player.id} player={player} />
+                    {teamState.startingLineup.gk.map((player, index) => (
+                      <PlayerCard 
+                        key={player.id} 
+                        player={player} 
+                        position="gk"
+                        index={index}
+                        isDraggable={true} 
+                      />
                     ))}
                   </div>
                 </div>
@@ -351,8 +590,14 @@ const Teams = () => {
                 {/* Defenders */}
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-4 gap-4 max-w-[520px]">
-                    {def.map((player) => (
-                      <PlayerCard key={player.id} player={player} />
+                    {teamState.startingLineup.def.map((player, index) => (
+                      <PlayerCard 
+                        key={player.id} 
+                        player={player} 
+                        position="def"
+                        index={index}
+                        isDraggable={true} 
+                      />
                     ))}
                   </div>
                 </div>
@@ -360,8 +605,14 @@ const Teams = () => {
                 {/* Midfielders */}
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-3 gap-4 max-w-[400px]">
-                    {mid.map((player) => (
-                      <PlayerCard key={player.id} player={player} />
+                    {teamState.startingLineup.mid.map((player, index) => (
+                      <PlayerCard 
+                        key={player.id} 
+                        player={player} 
+                        position="mid"
+                        index={index}
+                        isDraggable={true} 
+                      />
                     ))}
                   </div>
                 </div>
@@ -369,8 +620,14 @@ const Teams = () => {
                 {/* Forwards */}
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-3 gap-4 max-w-[400px]">
-                    {fwd.map((player) => (
-                      <PlayerCard key={player.id} player={player} />
+                    {teamState.startingLineup.fwd.map((player, index) => (
+                      <PlayerCard 
+                        key={player.id} 
+                        player={player} 
+                        position="fwd"
+                        index={index}
+                        isDraggable={true} 
+                      />
                     ))}
                   </div>
                 </div>
@@ -388,24 +645,51 @@ const Teams = () => {
                   </div>
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900">Bench</h2>
-                    <p className="text-sm text-gray-500">{benchPlayers.length} substitutes ready</p>
+                    <p className="text-sm text-gray-500">
+                      {isSubstitutionMode || isChangesMode 
+                        ? 'Drag bench players to make substitutions'
+                        : `${teamState.bench.length} substitutes ready`
+                      }
+                    </p>
                   </div>
                 </div>
-                <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center gap-2">
-                  <ArrowUpDown size={16} />
-                  Make Changes
-                </button>
+                <div className="flex items-center gap-3">
+                  <button 
+                    onClick={handleMakeSubstitution}
+                    className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center gap-2"
+                  >
+                    <ArrowUpDown size={16} />
+                    Make Substitution
+                  </button>
+                  <button 
+                    onClick={handleMakeChanges}
+                    className="px-4 py-2 text-sm font-medium text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 flex items-center gap-2"
+                  >
+                    <ArrowUpDown size={16} />
+                    Make Changes
+                  </button>
+                </div>
               </div>
             </div>
 
             <div className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {benchPlayers.map((player) => (
+                {teamState.bench.map((player, index) => (
                   <div
                     key={player.id}
-                    draggable
+                    draggable={isSubstitutionMode || isChangesMode}
                     onDragStart={(e) => handleDragStart(e, player)}
-                    className="bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-300 rounded-2xl p-4 transition-all duration-300 cursor-move hover:shadow-lg hover:-translate-y-1 group"
+                    onDragEnter={(e) => handleDragEnter(e, 'bench', index)}
+                    onDragLeave={handleDragLeave}
+                    onDragOver={handleDragOver}
+                    onDrop={(e) => handleDrop(e, 'bench', index)}
+                    className={`
+                      bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-300 rounded-2xl p-4 transition-all duration-300 
+                      ${(isSubstitutionMode || isChangesMode) ? 'cursor-move hover:shadow-lg hover:-translate-y-1' : ''}
+                      ${(isSubstitutionMode || isChangesMode) ? 'ring-2 ring-blue-200' : ''}
+                      ${dropTarget?.position === 'bench' && dropTarget?.index === index ? 'ring-4 ring-green-400 bg-green-50' : ''}
+                      group
+                    `}
                     role="button"
                     tabIndex={0}
                     aria-label={`${player.name} - Bench player`}
@@ -446,12 +730,33 @@ const Teams = () => {
                 <p className="text-gray-600">Make transfers, set your captain, and optimize your lineup</p>
               </div>
               <div className="flex items-center gap-3">
-                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md">
-                  Save Changes
-                </button>
-                <button className="px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
-                  Reset Team
-                </button>
+                {(isSubstitutionMode || isChangesMode) ? (
+                  <>
+                    <button 
+                      onClick={handleSaveChanges}
+                      className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md flex items-center gap-2"
+                    >
+                      <Check size={16} />
+                      Save Changes
+                    </button>
+                    <button 
+                      onClick={handleCancelMode}
+                      className="px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 flex items-center gap-2"
+                    >
+                      <X size={16} />
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md">
+                      Save Changes
+                    </button>
+                    <button className="px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                      Reset Team
+                    </button>
+                  </>
+                )}
                 <button className="p-3 bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 hover:border-gray-300 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                   <MoreVertical size={20} />
                 </button>
