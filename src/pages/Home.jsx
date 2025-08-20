@@ -1,88 +1,77 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { 
-  Trophy, 
-  Users, 
-  Bell, 
-  ChevronRight,
-  TrendingUp,
-  AlertCircle,
-  Activity,
-  Newspaper,
-  ExternalLink,
-  Clock,
-  RefreshCw
-} from 'lucide-react'
+import { useState, useRef, useEffect } from 'react'
+import { useAuth } from '../contexts/AuthContext'
+import { useLeagues } from '../contexts/LeagueContext'
+import { RefreshCw, ArrowRight, Users, Trophy, Target, Star, Play, LogIn, UserPlus } from 'lucide-react'
 
-// Football Web Pages Embed Component
+// FWP Embed Component
 const FWPEmbed = ({ dataUrl, title, description, className = "" }) => {
   const embedRef = useRef(null)
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
-    // Load the FWP script if not already loaded
-    if (!window.fwpScriptLoaded) {
-      const script = document.createElement('script')
-      script.src = 'https://www.footballwebpages.co.uk/embed.js'
-      script.defer = true
-      script.onload = () => {
-        window.fwpScriptLoaded = true
+    const loadEmbed = async () => {
+      try {
+        setIsLoading(true)
+        setHasError(false)
+
+        // Load the FWP script if not already loaded
+        if (!window.fwpEmbedLoaded) {
+          const script = document.createElement('script')
+          script.src = 'https://www.footballwebpages.co.uk/embed.js'
+          script.defer = true
+          document.head.appendChild(script)
+          
+          await new Promise((resolve, reject) => {
+            script.onload = resolve
+            script.onerror = reject
+          })
+          
+          window.fwpEmbedLoaded = true
+        }
+
         // Wait a bit for the script to initialize
+        await new Promise(resolve => setTimeout(resolve, 1000))
+
+        // Set up the embed div
+        if (embedRef.current) {
+          embedRef.current.setAttribute('data-url', dataUrl)
+          
+          // Trigger the embed initialization
+          if (window.initEmbeds) {
+            window.initEmbeds()
+          } else {
+            // Fallback: dispatch DOMContentLoaded event
+            document.dispatchEvent(new Event('DOMContentLoaded'))
+          }
+        }
+
+        // Wait for content to load
         setTimeout(() => {
-          initializeEmbed()
-        }, 500)
-      }
-      script.onerror = () => {
+          setIsLoading(false)
+        }, 2000)
+
+      } catch (error) {
+        console.error('Error loading FWP embed:', error)
         setHasError(true)
         setIsLoading(false)
       }
-      document.head.appendChild(script)
-    } else {
-      // If script is already loaded, initialize immediately
-      setTimeout(() => {
-        initializeEmbed()
-      }, 100)
     }
 
-    return () => {
-      // Cleanup if needed
-      if (embedRef.current) {
-        embedRef.current.innerHTML = ''
-      }
-    }
+    loadEmbed()
   }, [dataUrl])
-
-  const initializeEmbed = () => {
-    if (embedRef.current) {
-      // Create the embed div
-      const embedDiv = document.createElement('div')
-      embedDiv.className = 'fwp-embed'
-      embedDiv.setAttribute('data-url', dataUrl)
-      
-      // Clear and append
-      embedRef.current.innerHTML = ''
-      embedRef.current.appendChild(embedDiv)
-      
-      // Trigger the FWP script to process the embed
-      if (window.FWP && window.FWP.initEmbeds) {
-        window.FWP.initEmbeds()
-      } else {
-        // Fallback: try to trigger manually
-        const event = new Event('DOMContentLoaded')
-        document.dispatchEvent(event)
-      }
-      
-      // Set loading to false after a delay to allow iframe to load
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 3000)
-    }
-  }
 
   const handleRefresh = () => {
     setIsLoading(true)
     setHasError(false)
-    initializeEmbed()
+    if (embedRef.current) {
+      embedRef.current.innerHTML = ''
+      embedRef.current.setAttribute('data-url', dataUrl)
+      if (window.initEmbeds) {
+        window.initEmbeds()
+      }
+    }
+    setTimeout(() => setIsLoading(false), 2000)
   }
 
   return (
@@ -95,45 +84,34 @@ const FWPEmbed = ({ dataUrl, title, description, className = "" }) => {
           </div>
           <button 
             onClick={handleRefresh}
-            className="text-sm font-medium flex items-center gap-2 px-3 py-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
-            aria-label="Refresh data"
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            title="Refresh"
           >
-            <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
-            <span>Refresh</span>
+            <RefreshCw size={16} className="text-gray-500" />
           </button>
         </div>
       </div>
-      
       <div className="relative min-h-[400px]">
         {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-600 border-t-transparent mx-auto mb-3"></div>
-              <p className="text-sm text-gray-600">Loading {title.toLowerCase()}...</p>
-            </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
           </div>
         )}
-        
         {hasError && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
-            <div className="text-center p-6">
-              <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mx-auto mb-4">
-                <AlertCircle size={24} className="text-red-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Unable to load data</h3>
-              <p className="text-sm text-gray-600 mb-4">There was an error loading the {title.toLowerCase()}.</p>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center">
+              <p className="text-gray-500 mb-2">Failed to load content</p>
               <button 
                 onClick={handleRefresh}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
               >
-                Try Again
+                Retry
               </button>
             </div>
           </div>
         )}
-        
         <div 
-          ref={embedRef}
+          ref={embedRef} 
           className={`${isLoading || hasError ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
         />
       </div>
@@ -142,234 +120,180 @@ const FWPEmbed = ({ dataUrl, title, description, className = "" }) => {
 }
 
 const Home = () => {
-  // Mock data for demonstration
-  const user = { username: 'John' }
-  const userTeams = [1, 2, 3]
-  
-  const navigate = (path) => {
-    console.log(`Navigating to ${path}`)
-  }
+  const { user, isAuthenticated } = useAuth()
+  const { leagues } = useLeagues()
 
-  // Mock data
-  const mockStreak = {
-    current: 'W3',
-    recent: ['W', 'W', 'W', 'L', 'W'],
-    description: '3 wins in a row'
-  }
-
-  const mockPendingTrades = 2
-
-  if (!user) {
+  // Anonymous User - Marketing Content
+  if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="max-w-md mx-auto text-center p-8">
-          <div className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg bg-blue-600">
-            <Trophy size={32} className="text-white" />
+      <div className="min-h-screen p-8">
+        {/* Hero Section */}
+        <div className="max-w-7xl mx-auto mb-12">
+          <div className="text-center">
+            <h1 className="text-5xl font-bold mb-6" style={{ color: 'oklch(21.778% 0 0)' }}>
+              Welcome to <span style={{ color: 'oklch(71.772% 0.133 239.443)' }}>Futty</span>
+            </h1>
+            <p className="text-xl mb-8" style={{ color: 'oklch(21.778% 0 0 / 0.7)' }}>
+              The ultimate fantasy soccer platform where strategy meets passion
+            </p>
+            <div className="flex justify-center space-x-4">
+              <button className="flex items-center px-6 py-3 rounded-lg font-medium transition-all" style={{ backgroundColor: 'oklch(71.772% 0.133 239.443)', color: 'oklch(14.354% 0.026 239.443)' }}>
+                <UserPlus size={20} className="mr-2" />
+                Get Started Free
+              </button>
+              <button className="flex items-center px-6 py-3 rounded-lg border font-medium transition-all" style={{ borderColor: 'oklch(71.772% 0.133 239.443)', color: 'oklch(71.772% 0.133 239.443)' }}>
+                <LogIn size={20} className="mr-2" />
+                Sign In
+              </button>
+            </div>
           </div>
-          <h1 className="text-3xl font-bold mb-4 text-gray-900">
-            Welcome to <span className="text-blue-600">Futty</span>
-          </h1>
-          <p className="mb-8 leading-relaxed text-gray-600">
-            Your ultimate fantasy soccer experience with professional analytics and insights.
-          </p>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-            Get Started
-          </button>
+        </div>
+
+        {/* Features Grid */}
+        <div className="max-w-7xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6 rounded-xl" style={{ backgroundColor: 'oklch(100% 0 0)' }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'oklch(95% 0.02 140)' }}>
+                <Trophy size={32} style={{ color: 'oklch(45% 0.15 140)' }} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: 'oklch(21.778% 0 0)' }}>Create Leagues</h3>
+              <p className="text-sm" style={{ color: 'oklch(21.778% 0 0 / 0.7)' }}>
+                Start your own league or join existing ones with friends and family
+              </p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl" style={{ backgroundColor: 'oklch(100% 0 0)' }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'oklch(95% 0.02 25)' }}>
+                <Target size={32} style={{ color: 'oklch(45% 0.15 25)' }} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: 'oklch(21.778% 0 0)' }}>Live Drafts</h3>
+              <p className="text-sm" style={{ color: 'oklch(21.778% 0 0 / 0.7)' }}>
+                Experience the thrill of live snake drafts with real-time updates
+              </p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl" style={{ backgroundColor: 'oklch(100% 0 0)' }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'oklch(95% 0.02 60)' }}>
+                <Star size={32} style={{ color: 'oklch(45% 0.15 60)' }} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: 'oklch(21.778% 0 0)' }}>Real-time Stats</h3>
+              <p className="text-sm" style={{ color: 'oklch(21.778% 0 0 / 0.7)' }}>
+                Track player performance with live statistics and updates
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Live Content */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-6">
+            <FWPEmbed 
+              dataUrl="premier-league/league-table"
+              title="Premier League Table"
+              description="Current standings and points"
+            />
+            <FWPEmbed 
+              dataUrl="premier-league/fixtures-results"
+              title="Today's Fixtures"
+              description="Live matches and results"
+            />
+            <FWPEmbed 
+              dataUrl="news"
+              title="Latest News"
+              description="Breaking football news and updates"
+            />
+          </div>
         </div>
       </div>
     )
   }
 
+  // Authenticated User - Personalized Content
+  const userLeagueCount = Array.isArray(leagues) ? leagues.length : 0
+  const hasLeagues = userLeagueCount > 0
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="space-y-8">
-          {/* Welcome Header */}
-          <section className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div className="flex-1">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2 leading-tight">
-                  Welcome back, <span className='oklch(71.772% 0.133 239.443)'>{user.username}</span>
-                </h1>
-                <p className="text-gray-600 text-lg">Ready Gaffer?</p>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 text-sm px-4 py-2 rounded-xl font-medium bg-yellow-50 text-yellow-800 border border-yellow-200">
-                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                  <span>2 New Updates</span>
+    <div className="min-h-screen p-8">
+      {/* Welcome Section */}
+      <div className="max-w-7xl mx-auto mb-8">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2" style={{ color: 'oklch(21.778% 0 0)' }}>
+              Welcome back, {user?.username}! 👋
+            </h1>
+            <p className="text-lg" style={{ color: 'oklch(21.778% 0 0 / 0.7)' }}>
+              {hasLeagues 
+                ? `You're in ${userLeagueCount} league${userLeagueCount !== 1 ? 's' : ''}`
+                : "Ready to start your fantasy soccer journey?"
+              }
+            </p>
+          </div>
+          
+          {!hasLeagues && (
+            <button className="flex items-center px-6 py-3 rounded-lg font-medium transition-all" style={{ backgroundColor: 'oklch(71.772% 0.133 239.443)', color: 'oklch(14.354% 0.026 239.443)' }}>
+              <Users size={20} className="mr-2" />
+              Join a League
+              <ArrowRight size={16} className="ml-2" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Quick Actions */}
+      {!hasLeagues && (
+        <div className="max-w-7xl mx-auto mb-8">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-xl border" style={{ backgroundColor: 'oklch(100% 0 0)', borderColor: 'oklch(90% 0 0)' }}>
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: 'oklch(95% 0.02 140)' }}>
+                  <Users size={24} style={{ color: 'oklch(45% 0.15 140)' }} />
                 </div>
-                <button 
-                  className="p-3 rounded-xl border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 relative"
-                  aria-label="View notifications"
-                >
-                  <Bell size={20} />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-red-500"></div>
-                </button>
+                <div>
+                  <h3 className="text-lg font-semibold" style={{ color: 'oklch(21.778% 0 0)' }}>Create a League</h3>
+                  <p className="text-sm" style={{ color: 'oklch(21.778% 0 0 / 0.7)' }}>Start your own fantasy league</p>
+                </div>
               </div>
+              <button className="w-full py-2 px-4 rounded-lg border transition-all" style={{ borderColor: 'oklch(71.772% 0.133 239.443)', color: 'oklch(71.772% 0.133 239.443)' }}>
+                Create League
+              </button>
             </div>
-          </section>
-
-          {/* Quick Stats Grid */}
-          <section>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Current Teams Card */}
-              <div 
-                className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden cursor-pointer hover:shadow-lg hover:-translate-y-1 hover:border-blue-300 transition-all duration-300 ease-out"
-                onClick={() => navigate('/leagues')}
-              >
-                <div className="p-6 pb-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                        <Users size={20} className="text-blue-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 leading-tight">
-                          Current Teams
-                        </h3>
-                        <p className="text-sm text-gray-500 mt-0.5">
-                          Active leagues
-                        </p>
-                      </div>
-                    </div>
-                    <button className="text-sm font-medium flex items-center gap-2 px-3 py-2 rounded-lg text-blue-600 hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-300">
-                      <span>View all</span>
-                      <ExternalLink size={14} />
-                    </button>
-                  </div>
+            
+            <div className="p-6 rounded-xl border" style={{ backgroundColor: 'oklch(100% 0 0)', borderColor: 'oklch(90% 0 0)' }}>
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: 'oklch(95% 0.02 25)' }}>
+                  <Trophy size={24} style={{ color: 'oklch(45% 0.15 25)' }} />
                 </div>
-                <div className="px-6 pb-6">
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <div className="text-4xl font-bold text-gray-900 mb-2 leading-none">
-                        {userTeams.length}
-                      </div>
-                      <div className="text-sm font-medium text-gray-600">
-                        Teams competing
-                      </div>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="text-lg font-semibold" style={{ color: 'oklch(21.778% 0 0)' }}>Join a League</h3>
+                  <p className="text-sm" style={{ color: 'oklch(21.778% 0 0 / 0.7)' }}>Find and join existing leagues</p>
                 </div>
               </div>
-
-              {/* Team Form Card */}
-              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                <div className="p-6 pb-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-                        <TrendingUp size={20} className="text-green-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 leading-tight">
-                          Team Form
-                        </h3>
-                        <p className="text-sm text-gray-500 mt-0.5">
-                          Recent performance
-                        </p>
-                      </div>
-                    </div>
-                    <div className="px-2.5 py-1 rounded-full text-xs font-semibold bg-green-500 text-white">
-                      HOT STREAK
-                    </div>
-                  </div>
-                </div>
-                <div className="px-6 pb-6">
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <div className="text-4xl font-bold text-gray-900 mb-2 leading-none">
-                        {mockStreak.current}
-                      </div>
-                      <div className="text-sm font-medium text-gray-600">
-                        {mockStreak.description}
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-end">
-                      <div className="flex gap-1.5 mb-2">
-                        {mockStreak.recent.map((result, index) => (
-                          <div
-                            key={index}
-                            className={`w-2.5 h-2.5 rounded-full ${
-                              result === 'W' ? 'bg-green-500' : 'bg-red-500'
-                            }`}
-                            title={`${result === 'W' ? 'Win' : 'Loss'}`}
-                          />
-                        ))}
-                      </div>
-                      <p className="text-xs text-gray-400 font-medium">
-                        Last 5 matches
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Trades Pending Card */}
-              <div 
-                className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden cursor-pointer hover:shadow-lg hover:-translate-y-1 hover:border-orange-300 transition-all duration-300 ease-out"
-                onClick={() => navigate('/trades')}
-              >
-                <div className="p-6 pb-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-                        <AlertCircle size={20} className="text-orange-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 leading-tight">
-                          Trades Pending
-                        </h3>
-                        <p className="text-sm text-gray-500 mt-0.5">
-                          Awaiting decisions
-                        </p>
-                      </div>
-                    </div>
-                    <button className="text-sm font-medium flex items-center gap-2 px-3 py-2 rounded-lg text-orange-600 hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-300">
-                      <span>View all</span>
-                      <ExternalLink size={14} />
-                    </button>
-                  </div>
-                </div>
-                <div className="px-6 pb-6">
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <div className="text-4xl font-bold text-gray-900 mb-2 leading-none">
-                        {mockPendingTrades}
-                      </div>
-                      <div className="text-sm font-medium text-gray-600">
-                        Active proposals
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <button className="w-full py-2 px-4 rounded-lg border transition-all" style={{ borderColor: 'oklch(71.772% 0.133 239.443)', color: 'oklch(71.772% 0.133 239.443)' }}>
+                Browse Leagues
+              </button>
             </div>
-          </section>
+          </div>
+        </div>
+      )}
 
-          {/* FWP Content Grid */}
-          <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Latest News */}
-            <FWPEmbed 
-              dataUrl="news"
-              title="Latest News"
-              description="Stay updated with latest football news"
-            />
-
-            {/* Premier League Table */}
-            <FWPEmbed 
-              dataUrl="premier-league/league-table"
-              title="Premier League Table"
-              description="Current standings"
-            />
-
-            {/* Today's Fixtures */}
-            <FWPEmbed 
-              dataUrl="premier-league/fixtures-results"
-              title="Today's Fixtures"
-              description="All matches scheduled for today"
-            />
-          </section>
+      {/* Live Content */}
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-6">
+          <FWPEmbed 
+            dataUrl="premier-league/league-table"
+            title="Premier League Table"
+            description="Current standings and points"
+          />
+          <FWPEmbed 
+            dataUrl="premier-league/fixtures-results"
+            title="Today's Fixtures"
+            description="Live matches and results"
+          />
+          <FWPEmbed 
+            dataUrl="news"
+            title="Latest News"
+            description="Breaking football news and updates"
+          />
         </div>
       </div>
     </div>

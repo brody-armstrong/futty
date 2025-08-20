@@ -13,83 +13,135 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
+  // Check for existing session on mount
   useEffect(() => {
-    // Check for existing user session
     const savedUser = localStorage.getItem('futty_user')
     if (savedUser) {
-      setUser(JSON.parse(savedUser))
-    } else {
-      // Create a demo user for immediate functionality
-      const demoUser = {
-        id: '1',
-        username: 'demo_user',
-        email: 'demo@futty.com',
-        favoriteTeams: ['Arsenal', 'Manchester City'],
-        createdAt: new Date().toISOString()
+      try {
+        setUser(JSON.parse(savedUser))
+      } catch (e) {
+        localStorage.removeItem('futty_user')
       }
-      setUser(demoUser)
-      localStorage.setItem('futty_user', JSON.stringify(demoUser))
     }
     setLoading(false)
   }, [])
 
-  const login = async (email, password) => {
+  const signup = async (email, username, password) => {
+    setError(null)
+    setLoading(true)
+    
     try {
-      // Mock login - replace with actual API call
-      const mockUser = {
-        id: '1',
-        username: 'testuser',
-        email: email,
-        favoriteTeams: ['Arsenal', 'Manchester City'],
-        createdAt: new Date().toISOString()
+      // Basic validation
+      if (!email || !username || !password) {
+        throw new Error('All fields are required')
       }
       
-      setUser(mockUser)
-      localStorage.setItem('futty_user', JSON.stringify(mockUser))
-      return { success: true }
-    } catch (error) {
-      return { success: false, error: error.message }
-    }
-  }
-
-  const register = async (username, email, password) => {
-    try {
-      // Mock registration - replace with actual API call
-      const mockUser = {
+      if (password.length < 6) {
+        throw new Error('Password must be at least 6 characters')
+      }
+      
+      if (username.length < 3) {
+        throw new Error('Username must be at least 3 characters')
+      }
+      
+      // Check if user already exists (simulate API call)
+      const existingUsers = JSON.parse(localStorage.getItem('futty_users') || '[]')
+      const userExists = existingUsers.find(u => u.email === email || u.username === username)
+      
+      if (userExists) {
+        throw new Error('User with this email or username already exists')
+      }
+      
+      // Create new user
+      const newUser = {
         id: Date.now().toString(),
-        username: username,
-        email: email,
-        favoriteTeams: [],
-        createdAt: new Date().toISOString()
+        email,
+        username,
+        password: btoa(password), // Basic encoding (in real app, use proper hashing)
+        createdAt: new Date().toISOString(),
+        currentLeagueId: null
       }
       
-      setUser(mockUser)
-      localStorage.setItem('futty_user', JSON.stringify(mockUser))
-      return { success: true }
-    } catch (error) {
-      return { success: false, error: error.message }
+      // Save user to "database"
+      existingUsers.push(newUser)
+      localStorage.setItem('futty_users', JSON.stringify(existingUsers))
+      
+      // Set current user
+      const { password: _, ...userWithoutPassword } = newUser
+      setUser(userWithoutPassword)
+      localStorage.setItem('futty_user', JSON.stringify(userWithoutPassword))
+      
+      return userWithoutPassword
+    } catch (err) {
+      setError(err.message)
+      throw err
+    } finally {
+      setLoading(false)
     }
   }
 
-  const logout = () => {
+  const signin = async (emailOrUsername, password) => {
+    setError(null)
+    setLoading(true)
+    
+    try {
+      // Find user
+      const users = JSON.parse(localStorage.getItem('futty_users') || '[]')
+      const user = users.find(u => 
+        (u.email === emailOrUsername || u.username === emailOrUsername) && 
+        u.password === btoa(password)
+      )
+      
+      if (!user) {
+        throw new Error('Invalid email/username or password')
+      }
+      
+      // Set current user
+      const { password: _, ...userWithoutPassword } = user
+      setUser(userWithoutPassword)
+      localStorage.setItem('futty_user', JSON.stringify(userWithoutPassword))
+      
+      return userWithoutPassword
+    } catch (err) {
+      setError(err.message)
+      throw err
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const signout = () => {
     setUser(null)
     localStorage.removeItem('futty_user')
   }
 
-  const updateProfile = (updates) => {
+  const updateUser = (updates) => {
+    if (!user) return
+    
     const updatedUser = { ...user, ...updates }
     setUser(updatedUser)
     localStorage.setItem('futty_user', JSON.stringify(updatedUser))
+    
+    // Update in "database"
+    const users = JSON.parse(localStorage.getItem('futty_users') || '[]')
+    const userIndex = users.findIndex(u => u.id === user.id)
+    if (userIndex !== -1) {
+      users[userIndex] = { ...users[userIndex], ...updates }
+      localStorage.setItem('futty_users', JSON.stringify(users))
+    }
   }
 
   const value = {
     user,
     loading,
-    login,
-    register,
-    logout,
-    updateProfile
+    error,
+    signup,
+    signin,
+    signout,
+    updateUser,
+    isAuthenticated: !!user
   }
 
   return (
