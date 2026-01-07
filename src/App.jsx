@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Sidebar from './components/Sidebar'
 import ErrorBoundary from './components/ErrorBoundary'
 import DebugInfo from './components/DebugInfo'
@@ -14,6 +15,30 @@ import { AuthProvider } from './contexts/AuthContext'
 import { LeagueProvider } from './contexts/LeagueContext'
 import { PlayerProvider } from './contexts/PlayerContext'
 import { ThemeProvider } from './contexts/ThemeContext'
+
+// Component to handle GitHub Pages 404.html redirect
+function RedirectHandler() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // Check if we have a redirect query parameter from 404.html
+    const query = location.search
+    if (query.includes('?/')) {
+      // Extract the path from the query parameter
+      const pathMatch = query.match(/\?\/?(.+?)(?:&|$)/)
+      if (pathMatch) {
+        let path = '/' + pathMatch[1].replace(/~and~/g, '&')
+        // Clean up the path
+        path = path.replace(/\?.*$/, '') // Remove any remaining query params
+        // Navigate to the correct path
+        navigate(path, { replace: true })
+      }
+    }
+  }, [location, navigate])
+
+  return null
+}
 
 function App() {
   return (
@@ -32,6 +57,7 @@ function App() {
                   style={{ backgroundColor: 'oklch(95% 0 0)' }}
                 >
                   <DebugInfo />
+                  <RedirectHandler />
                   <div 
                     className="min-h-full"
                     style={{ backgroundColor: 'oklch(95% 0 0)' }}

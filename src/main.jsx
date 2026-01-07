@@ -9,7 +9,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <DndProvider backend={HTML5Backend}>
-      <BrowserRouter>
+      <BrowserRouter basename="/futty">
         <App />
       </BrowserRouter>
     </DndProvider>
