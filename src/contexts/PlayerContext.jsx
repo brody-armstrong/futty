@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { transformPlayerData, getUniqueTeams, getUniquePositions } from '../utils/playerData'
+import { getUniqueTeams, getUniquePositions } from '../utils/playerData'
 
 const PlayerContext = createContext()
 
@@ -11,6 +11,111 @@ export const usePlayers = () => {
   return context
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+
+// Stats aren't tracked in the DB yet (player_stats/scoring_events exist but
+// nothing seeds or reads them) - generate the same mock stats as before,
+// just keyed off the API's short-form position codes instead of the CSV's
+// long-form ones.
+const generateMockStats = (position) => {
+  const baseStats = {
+    goals: 0,
+    assists: 0,
+    cleanSheets: 0,
+    saves: 0,
+    tackles: 0,
+    interceptions: 0,
+    keyPasses: 0,
+    shotsOnTarget: 0,
+    minutesPlayed: Math.floor(Math.random() * 1800) + 200,
+    yellowCards: Math.floor(Math.random() * 5),
+    redCards: Math.floor(Math.random() * 2),
+    ownGoals: 0
+  }
+
+  switch (position) {
+    case 'GK':
+      return {
+        ...baseStats,
+        saves: Math.floor(Math.random() * 100) + 20,
+        cleanSheets: Math.floor(Math.random() * 10) + 2,
+        goals: Math.floor(Math.random() * 2)
+      }
+    case 'DEF':
+      return {
+        ...baseStats,
+        cleanSheets: Math.floor(Math.random() * 8) + 2,
+        tackles: Math.floor(Math.random() * 50) + 10,
+        interceptions: Math.floor(Math.random() * 40) + 10,
+        goals: Math.floor(Math.random() * 5)
+      }
+    case 'MID':
+      return {
+        ...baseStats,
+        goals: Math.floor(Math.random() * 8) + 1,
+        assists: Math.floor(Math.random() * 10) + 2,
+        keyPasses: Math.floor(Math.random() * 60) + 10,
+        tackles: Math.floor(Math.random() * 30) + 5
+      }
+    case 'FWD':
+      return {
+        ...baseStats,
+        goals: Math.floor(Math.random() * 15) + 3,
+        assists: Math.floor(Math.random() * 8) + 1,
+        shotsOnTarget: Math.floor(Math.random() * 40) + 10,
+        keyPasses: Math.floor(Math.random() * 20) + 5
+      }
+    default:
+      return baseStats
+  }
+}
+
+const transformApiPlayer = (apiPlayer) => {
+  const stats = generateMockStats(apiPlayer.position)
+
+  return {
+    id: String(apiPlayer.id),
+    name: apiPlayer.web_name || `${apiPlayer.first_name} ${apiPlayer.second_name}`,
+    position: apiPlayer.position,
+    team: apiPlayer.team_name,
+    realTeam: apiPlayer.team_name,
+    stats,
+    isInjured: Math.random() < 0.1,
+    injured: Math.random() < 0.1,
+    price: Math.floor(Math.random() * 15) + 4,
+    form: Math.floor(Math.random() * 4) + 6,
+    ownership: Math.floor(Math.random() * 80) + 5,
+    goals: stats.goals,
+    assists: stats.assists,
+    cleanSheets: stats.cleanSheets
+  }
+}
+
+// Separate try/catch from the identity fetch on purpose: if this fails
+// (points endpoint down, network error), players should still load and
+// render via calculatePlayerPoints's mock fallback, not fall all the way
+// back to the 8 hardcoded mock players meant for identity-fetch failure.
+const mergeRealPoints = async (players) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/players/points`)
+
+    if (!response.ok) {
+      throw new Error(`Failed to load points data: ${response.status}`)
+    }
+
+    const pointsRows = await response.json()
+    const pointsByPlayerId = new Map(pointsRows.map((row) => [String(row.player_id), row.total_points]))
+
+    return players.map((player) => {
+      const realPoints = pointsByPlayerId.get(player.id)
+      return realPoints === undefined ? player : { ...player, realPoints }
+    })
+  } catch (error) {
+    console.error('Error loading points data:', error)
+    return players
+  }
+}
+
 export const PlayerProvider = ({ children }) => {
   const [players, setPlayers] = useState([])
   const [loading, setLoading] = useState(true)
@@ -19,27 +124,34 @@ export const PlayerProvider = ({ children }) => {
   const [positions, setPositions] = useState([])
 
   useEffect(() => {
+    // Safety timeout to ensure loading always resolves
+    const timeoutId = setTimeout(() => {
+      console.warn('PlayerContext: Loading timeout, forcing loading to false')
+      setLoading(false)
+    }, 5000) // 5 second timeout
+
     const loadPlayers = async () => {
       try {
-        // Load the JSON file from the public directory
-        const response = await fetch('/players.json')
+        const response = await fetch(`${API_BASE_URL}/api/players`)
+
         if (!response.ok) {
           throw new Error(`Failed to load players data: ${response.status}`)
         }
-        
-        const csvData = await response.json()
-        console.log('Loaded players data:', csvData.length, 'players')
-        
-        // Transform the CSV data into our app format
-        const transformedPlayers = transformPlayerData(csvData)
+
+        const apiPlayers = await response.json()
+        console.log('Loaded players data:', apiPlayers.length, 'players')
+
+        const transformedPlayers = apiPlayers.map(transformApiPlayer)
         console.log('Transformed players:', transformedPlayers.length, 'players')
-        
-        setPlayers(transformedPlayers)
-        setFilteredPlayers(transformedPlayers)
-        
+
+        const playersWithPoints = await mergeRealPoints(transformedPlayers)
+
+        setPlayers(playersWithPoints)
+        setFilteredPlayers(playersWithPoints)
+
         // Extract unique teams and positions
-        setTeams(getUniqueTeams(transformedPlayers))
-        setPositions(getUniquePositions(transformedPlayers))
+        setTeams(getUniqueTeams(playersWithPoints))
+        setPositions(getUniquePositions(playersWithPoints))
         
         setLoading(false)
       } catch (error) {
@@ -181,13 +293,23 @@ export const PlayerProvider = ({ children }) => {
         setTeams(['Manchester City', 'Liverpool', 'Arsenal', 'Chelsea', 'Aston Villa'])
         setPositions(['GK', 'DEF', 'MID', 'FWD'])
         setLoading(false)
+      } finally {
+        clearTimeout(timeoutId)
       }
     }
 
     loadPlayers()
+    
+    return () => {
+      clearTimeout(timeoutId)
+    }
   }, [])
 
   const calculatePlayerPoints = (player) => {
+    if (player.realPoints !== undefined) {
+      return player.realPoints
+    }
+
     const stats = player.stats
     let points = 0
 
