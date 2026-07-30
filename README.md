@@ -2,7 +2,7 @@
 
 A modern, responsive fantasy soccer web application built with React and JavaScript. Experience the thrill of managing your own fantasy soccer team with draft-style gameplay, comprehensive player statistics, and competitive leagues.
 
-## 🚀 Features
+##  Features
 
 ### Core Game Mechanics
 - **Team Formation**: 9 starters + 5 bench players
@@ -22,7 +22,7 @@ A modern, responsive fantasy soccer web application built with React and JavaScr
 - **Routing**: React Router for seamless navigation
 - **Icons**: Lucide React for consistent iconography
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Tab Navigation Structure
 ```
@@ -51,7 +51,7 @@ A modern, responsive fantasy soccer web application built with React and JavaScr
 - Goals: +4, Assists: +3, Shot on Target: +0.5, Key Pass: +0.5
 - Yellow Card: -1, Red Card: -3, Own Goal: -2
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -81,7 +81,7 @@ npm run dev
 npm run build
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -102,7 +102,7 @@ src/
 └── index.css           # Global styles and Tailwind CSS
 ```
 
-## 🎯 Key Features by Page
+## Key Features by Page
 
 ### Home Tab
 - Dashboard with current matchday scores
@@ -135,7 +135,7 @@ src/
 - Notification preferences
 - Privacy and app settings
 
-## 🔧 Development
+## Development
 
 ### Adding New Features
 1. Create new components in `src/components/`
@@ -173,7 +173,7 @@ src/
 - Mobile app development
 - API for third-party integrations
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -181,11 +181,11 @@ src/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Premier League for inspiration
 - React and Vite communities
