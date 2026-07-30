@@ -47,21 +47,12 @@ function App() {
         <AuthProvider>
           <PlayerProvider>
             <LeagueProvider>
-              <div 
-                className="flex h-screen min-h-screen"
-                style={{ backgroundColor: 'oklch(95% 0 0)' }}
-              >
+              <div className="flex h-screen min-h-screen bg-chalk">
                 <Sidebar />
-                <main 
-                  className="flex-1 ml-60 min-h-screen"
-                  style={{ backgroundColor: 'oklch(95% 0 0)' }}
-                >
+                <main className="flex-1 ml-60 min-h-screen bg-chalk">
                   <DebugInfo />
                   <RedirectHandler />
-                  <div 
-                    className="min-h-full"
-                    style={{ backgroundColor: 'oklch(95% 0 0)' }}
-                  >
+                  <div className="min-h-full bg-chalk">
                     <Routes>
                       {/* Public Routes */}
                       <Route path="/" element={<Home />} />

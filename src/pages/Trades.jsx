@@ -4,6 +4,12 @@ import { useLeagues } from '../contexts/LeagueContext'
 import { ArrowLeft, Clock, Check, X, AlertCircle, TrendingUp, Users } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
+const STATUS_STYLES = {
+  pending: { bg: 'bg-card-yellow/20', text: 'text-card-yellow-ink' },
+  accepted: { bg: 'bg-pitch/10', text: 'text-pitch' },
+  rejected: { bg: 'bg-card-red/10', text: 'text-card-red' },
+}
+
 const Trades = () => {
   const { user } = useAuth()
   const { currentTeam } = useLeagues()
@@ -73,19 +79,10 @@ const Trades = () => {
     const now = new Date()
     const time = new Date(timestamp)
     const diffInHours = Math.floor((now - time) / (1000 * 60 * 60))
-    
+
     if (diffInHours < 1) return 'Just now'
     if (diffInHours < 24) return `${diffInHours}h ago`
     return `${Math.floor(diffInHours / 24)}d ago`
-  }
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'pending': return 'text-yellow-600 bg-yellow-100'
-      case 'accepted': return 'text-green-600 bg-green-100'
-      case 'rejected': return 'text-red-600 bg-red-100'
-      default: return 'text-gray-600 bg-gray-100'
-    }
   }
 
   const getStatusIcon = (status) => {
@@ -99,154 +96,162 @@ const Trades = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-chalk">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Please log in to view trades</h1>
+          <h1 className="font-display text-4xl text-ink mb-4">Please log in to view trades</h1>
         </div>
       </div>
     )
   }
 
+  const tabs = [
+    { id: 'pending', label: 'Pending', count: mockTrades.pending.length },
+    { id: 'completed', label: 'Completed', count: mockTrades.completed.length },
+    { id: 'rejected', label: 'Rejected', count: mockTrades.rejected.length }
+  ]
+
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
+    <div className="min-h-screen bg-chalk">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+        {/* Header */}
+        <div className="flex items-center gap-4">
           <button
             onClick={() => navigate(-1)}
-            className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            className="p-2 rounded-lg bg-white border border-[--border] hover:bg-turf-a active:bg-turf-b transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-chalk"
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={20} className="text-ink-muted" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold">Trades</h1>
-            <p className="text-gray-600">
+            <h1 className="font-display text-4xl text-ink">Trades</h1>
+            <p className="text-ink-muted">
               {currentTeam ? `Managing ${currentTeam.name}` : 'Select a team'}
             </p>
           </div>
         </div>
-      </div>
 
-      {/* Tab Navigation */}
-      <div className="flex space-x-1 bg-white rounded-lg p-1">
-        {[
-          { id: 'pending', label: 'Pending', count: mockTrades.pending.length },
-          { id: 'completed', label: 'Completed', count: mockTrades.completed.length },
-          { id: 'rejected', label: 'Rejected', count: mockTrades.rejected.length }
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-md transition-colors duration-200 ${
-              activeTab === tab.id
-                ? 'bg-gray-100 shadow-sm'
-                : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
-            }`}
-          >
-            <span>{tab.label}</span>
-            {tab.count > 0 && (
-              <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full">
-                {tab.count}
-              </span>
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Trade List */}
-      <div className="space-y-4">
-        {mockTrades[activeTab].length === 0 ? (
-          <div className="text-center py-12">
-            <AlertCircle size={48} className="mx-auto text-gray-400 mb-4" />
-            <h3 className="text-lg font-semibold text-gray-600 mb-2">
-              No {activeTab} trades
-            </h3>
-            <p className="text-gray-500">
-              {activeTab === 'pending' 
-                ? 'You have no pending trade proposals'
-                : `No ${activeTab} trades to display`
-              }
-            </p>
-          </div>
-        ) : (
-          mockTrades[activeTab].map((trade) => (
-            <div
-              key={trade.id}
-              className="bg-white border-2 rounded-lg p-6 transition-all duration-200 hover:shadow-md"
-              style={{ borderColor: 'var(--border)' }}
+        {/* Tab Navigation */}
+        <div role="tablist" className="flex gap-1 bg-white rounded-xl p-1 border border-[--border]">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              role="tab"
+              aria-selected={activeTab === tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg transition-colors duration-200 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                activeTab === tab.id
+                  ? 'bg-pitch text-chalk shadow-sm'
+                  : 'text-ink-muted hover:bg-turf-a'
+              }`}
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className={`p-2 rounded-full ${getStatusColor(trade.status)}`}>
-                    {getStatusIcon(trade.status)}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">
-                      {trade.type === 'proposed' ? 'Trade Proposed' : 'Trade Received'}
-                    </h3>
-                    <p className="text-sm text-gray-600">
-                      {formatTimeAgo(trade.timestamp)}
-                    </p>
-                  </div>
-                </div>
-                {trade.status === 'pending' && trade.type === 'received' && (
-                  <div className="flex space-x-2">
-                    <button
-                      onClick={() => handleTradeAction(trade.id, 'accept')}
-                      className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200"
-                    >
-                      Accept
-                    </button>
-                    <button
-                      onClick={() => handleTradeAction(trade.id, 'reject')}
-                      className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-200"
-                    >
-                      Reject
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* From Team */}
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Users size={16} className="text-gray-500" />
-                    <span className="font-medium">{trade.fromTeam}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 p-3 bg-gray-50 rounded-lg">
-                    <TrendingUp size={16} className="text-green-500" />
-                    <span className="font-medium">{trade.fromPlayer}</span>
-                  </div>
-                </div>
-
-                {/* To Team */}
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Users size={16} className="text-gray-500" />
-                    <span className="font-medium">{trade.toTeam}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 p-3 bg-gray-50 rounded-lg">
-                    <TrendingUp size={16} className="text-green-500" />
-                    <span className="font-medium">{trade.toPlayer}</span>
-                  </div>
-                </div>
-              </div>
-
-              {trade.status === 'pending' && trade.expires && (
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
-                    <Clock size={14} />
-                    <span>Expires {formatTimeAgo(trade.expires)}</span>
-                  </div>
-                </div>
+              <span>{tab.label}</span>
+              {tab.count > 0 && (
+                <span
+                  className={`text-xs px-2 py-0.5 rounded-full ${
+                    activeTab === tab.id ? 'bg-white/20 text-chalk' : 'bg-turf-b text-ink-muted'
+                  }`}
+                >
+                  {tab.count}
+                </span>
               )}
+            </button>
+          ))}
+        </div>
+
+        {/* Trade List */}
+        <div className="space-y-4">
+          {mockTrades[activeTab].length === 0 ? (
+            <div className="text-center py-16 rounded-2xl border border-[--border] bg-white shadow-sm">
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 bg-turf-b">
+                <AlertCircle size={28} className="text-ink-muted" />
+              </div>
+              <h3 className="text-xl font-bold text-ink mb-2">No {activeTab} trades</h3>
+              <p className="text-ink-muted">
+                {activeTab === 'pending'
+                  ? 'You have no pending trade proposals'
+                  : `No ${activeTab} trades to display`
+                }
+              </p>
             </div>
-          ))
-        )}
+          ) : (
+            mockTrades[activeTab].map((trade) => {
+              const statusStyle = STATUS_STYLES[trade.status] || STATUS_STYLES.pending
+              return (
+                <div
+                  key={trade.id}
+                  className="bg-white border border-[--border] rounded-2xl p-6 shadow-sm transition-all duration-200 hover:shadow-lg hover:border-pitch/30"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2 rounded-full ${statusStyle.bg} ${statusStyle.text}`}>
+                        {getStatusIcon(trade.status)}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-ink">
+                          {trade.type === 'proposed' ? 'Trade Proposed' : 'Trade Received'}
+                        </h3>
+                        <p className="text-sm text-ink-muted">{formatTimeAgo(trade.timestamp)}</p>
+                      </div>
+                    </div>
+                    {trade.status === 'pending' && trade.type === 'received' && (
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleTradeAction(trade.id, 'accept')}
+                          className="px-4 py-2 bg-pitch text-chalk rounded-lg font-medium transition-colors hover:bg-pitch-light active:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                        >
+                          Accept
+                        </button>
+                        <button
+                          onClick={() => handleTradeAction(trade.id, 'reject')}
+                          className="px-4 py-2 bg-card-red/10 text-card-red rounded-lg font-medium transition-colors hover:bg-card-red/20 active:bg-card-red/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-card-red/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                        >
+                          Reject
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* From Team */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Users size={16} className="text-ink-muted" />
+                        <span className="font-medium text-ink">{trade.fromTeam}</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-chalk rounded-lg">
+                        <TrendingUp size={16} className="text-pitch" />
+                        <span className="font-medium text-ink">{trade.fromPlayer}</span>
+                      </div>
+                    </div>
+
+                    {/* To Team */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Users size={16} className="text-ink-muted" />
+                        <span className="font-medium text-ink">{trade.toTeam}</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-chalk rounded-lg">
+                        <TrendingUp size={16} className="text-pitch" />
+                        <span className="font-medium text-ink">{trade.toPlayer}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {trade.status === 'pending' && trade.expires && (
+                    <div className="mt-4 pt-4 border-t border-[--border]">
+                      <div className="flex items-center gap-2 text-sm text-ink-muted">
+                        <Clock size={14} />
+                        <span>Expires {formatTimeAgo(trade.expires)}</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            })
+          )}
+        </div>
       </div>
     </div>
   )
 }
 
-export default Trades 
+export default Trades

@@ -1,23 +1,17 @@
 import { useState, useEffect } from 'react'
-import { 
-  Users, 
-  Trophy, 
-  TrendingUp, 
-  Settings, 
-  Plus, 
-  Target, 
-  Shield, 
-  Zap, 
-  ChevronRight, 
-  ChevronDown, 
-  PlusCircle, 
-  Star, 
+import * as RadixSelect from '@radix-ui/react-select'
+import {
+  Users,
+  Trophy,
+  Target,
+  ChevronDown,
+  Star,
   ArrowUpDown,
-  Activity,
   MoreVertical,
   X,
   Check
 } from 'lucide-react'
+import PositionBadge, { POSITION_STYLES } from '../components/PositionBadge'
 
 const Teams = () => {
   // Mock data for demonstration
@@ -27,9 +21,8 @@ const Teams = () => {
     { id: 2, name: 'Goal Diggers', league: 'Champions Cup', points: 982, rank: 7 },
     { id: 3, name: 'Net Busters', league: 'Sunday League Elite', points: 1456, rank: 1 }
   ]
-  
+
   const [selectedTeam, setSelectedTeam] = useState(null)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [draggedPlayer, setDraggedPlayer] = useState(null)
   const [isSubstitutionMode, setIsSubstitutionMode] = useState(false)
   const [isChangesMode, setIsChangesMode] = useState(false)
@@ -59,24 +52,12 @@ const Teams = () => {
     const mid = mockPlayers.filter(p => p.position === 'MID').slice(0, 3)
     const fwd = mockPlayers.filter(p => p.position === 'FWD').slice(0, 3)
     const bench = mockPlayers.slice(11, 14)
-    
+
     setTeamState({
       startingLineup: { gk, def, mid, fwd },
       bench
     })
   }, [])
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isDropdownOpen && !event.target.closest('.team-dropdown')) {
-        setIsDropdownOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isDropdownOpen])
 
   // Mock players data
   const mockPlayers = [
@@ -100,49 +81,14 @@ const Teams = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-chalk flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-20 w-20 border-4 border-gray-200 border-t-blue-600 mx-auto mb-8"></div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">Loading Teams</h2>
-          <p className="text-lg text-gray-600">Preparing your fantasy teams...</p>
+          <div className="animate-spin rounded-full h-20 w-20 border-4 border-[--border] border-t-pitch mx-auto mb-8"></div>
+          <h2 className="font-display text-4xl mb-2 text-ink">Loading Teams</h2>
+          <p className="text-lg text-ink-muted">Preparing your fantasy teams...</p>
         </div>
       </div>
     )
-  }
-
-  const getPositionColors = (position) => {
-    switch (position) {
-      case 'GK': return {
-        bg: 'bg-yellow-50',
-        border: 'border-yellow-400',
-        text: 'text-yellow-700',
-        badge: 'bg-yellow-100 text-yellow-800'
-      }
-      case 'DEF': return {
-        bg: 'bg-blue-50',
-        border: 'border-blue-400',
-        text: 'text-blue-700',
-        badge: 'bg-blue-100 text-blue-800'
-      }
-      case 'MID': return {
-        bg: 'bg-green-50',
-        border: 'border-green-400',
-        text: 'text-green-700',
-        badge: 'bg-green-100 text-green-800'
-      }
-      case 'FWD': return {
-        bg: 'bg-red-50',
-        border: 'border-red-400',
-        text: 'text-red-700',
-        badge: 'bg-red-100 text-red-800'
-      }
-      default: return {
-        bg: 'bg-gray-50',
-        border: 'border-gray-300',
-        text: 'text-gray-700',
-        badge: 'bg-gray-100 text-gray-800'
-      }
-    }
   }
 
   const handleDragStart = (e, player) => {
@@ -172,44 +118,36 @@ const Teams = () => {
   const handleDrop = (e, targetPosition, targetIndex) => {
     if (!isSubstitutionMode && !isChangesMode || !draggedPlayer) return
     e.preventDefault()
-    
-    console.log('Dropping player:', draggedPlayer.name, 'to position:', targetPosition, 'index:', targetIndex)
-    
-    // Find where the dragged player currently is
+
     const draggedFrom = findPlayerLocation(draggedPlayer.id)
-    
+
     if (!draggedFrom) {
-      console.error('Could not find dragged player location')
       setDraggedPlayer(null)
       setDropTarget(null)
       return
     }
 
-    // Get the target player (if any)
     const targetPlayer = getPlayerAtPosition(targetPosition, targetIndex)
-    
-    // Perform the swap
+
     swapPlayers(draggedFrom, { position: targetPosition, index: targetIndex }, targetPlayer)
-    
+
     setDraggedPlayer(null)
     setDropTarget(null)
   }
 
   const findPlayerLocation = (playerId) => {
-    // Check starting lineup
     for (const [position, players] of Object.entries(teamState.startingLineup)) {
       const index = players.findIndex(p => p.id === playerId)
       if (index !== -1) {
         return { position, index, type: 'startingLineup' }
       }
     }
-    
-    // Check bench
+
     const benchIndex = teamState.bench.findIndex(p => p.id === playerId)
     if (benchIndex !== -1) {
       return { position: 'bench', index: benchIndex, type: 'bench' }
     }
-    
+
     return null
   }
 
@@ -223,8 +161,7 @@ const Teams = () => {
   const swapPlayers = (from, to, targetPlayer) => {
     setTeamState(prevState => {
       const newState = { ...prevState }
-      
-      // Remove dragged player from original location
+
       if (from.type === 'startingLineup') {
         newState.startingLineup[from.position] = [
           ...newState.startingLineup[from.position].slice(0, from.index),
@@ -236,8 +173,7 @@ const Teams = () => {
           ...newState.bench.slice(from.index + 1)
         ]
       }
-      
-      // Remove target player from target location (if exists)
+
       if (targetPlayer) {
         if (to.position === 'bench') {
           newState.bench = [
@@ -251,8 +187,7 @@ const Teams = () => {
           ]
         }
       }
-      
-      // Add dragged player to target location
+
       if (to.position === 'bench') {
         newState.bench = [
           ...newState.bench.slice(0, to.index),
@@ -266,8 +201,7 @@ const Teams = () => {
           ...newState.startingLineup[to.position].slice(to.index)
         ]
       }
-      
-      // Add target player to original location (if exists)
+
       if (targetPlayer) {
         if (from.type === 'startingLineup') {
           newState.startingLineup[from.position] = [
@@ -283,7 +217,7 @@ const Teams = () => {
           ]
         }
       }
-      
+
       return newState
     })
   }
@@ -306,8 +240,6 @@ const Teams = () => {
   }
 
   const handleSaveChanges = () => {
-    // Here you would save the changes to the backend
-    console.log('Saving team changes:', teamState)
     setIsSubstitutionMode(false)
     setIsChangesMode(false)
     setDraggedPlayer(null)
@@ -317,21 +249,21 @@ const Teams = () => {
   // Empty state when user has no teams
   if (userTeams.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-chalk">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-12 text-center">
-            <div className="w-24 h-24 rounded-2xl bg-blue-100 flex items-center justify-center mx-auto mb-6">
-              <Trophy size={36} className="text-blue-600" />
+          <div className="bg-white rounded-2xl border border-[--border] shadow-sm p-12 text-center">
+            <div className="w-24 h-24 rounded-2xl bg-pitch flex items-center justify-center mx-auto mb-6">
+              <Trophy size={36} className="text-floodlight" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">No Teams Yet</h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+            <h2 className="font-display text-4xl mb-4 text-ink">No Teams Yet</h2>
+            <p className="text-lg text-ink-muted mb-8 max-w-md mx-auto">
               You haven't joined any fantasy leagues yet. Create or join a league to start building your dream team!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              <button className="px-8 py-4 bg-floodlight text-ink rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 hover:brightness-95 active:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/50 focus-visible:ring-offset-2 focus-visible:ring-offset-chalk">
                 Create League
               </button>
-              <button className="px-8 py-4 bg-white hover:bg-gray-50 text-blue-600 border border-blue-600 hover:border-blue-700 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+              <button className="px-8 py-4 bg-white text-pitch border border-pitch rounded-xl font-semibold transition-all duration-200 hover:bg-turf-a active:bg-turf-b focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-chalk">
                 Join League
               </button>
             </div>
@@ -342,10 +274,10 @@ const Teams = () => {
   }
 
   const PlayerCard = ({ player, position, index, isDraggable = false, className = "" }) => {
-    const colors = getPositionColors(player.position)
+    const style = POSITION_STYLES[player.position] || { bg: 'bg-ink-muted', text: 'text-chalk' }
     const canDrag = (isSubstitutionMode || isChangesMode) && isDraggable
     const isDropTarget = dropTarget?.position === position && dropTarget?.index === index
-    
+
     return (
       <div
         draggable={canDrag}
@@ -355,42 +287,36 @@ const Teams = () => {
         onDragOver={canDrag ? handleDragOver : undefined}
         onDrop={canDrag ? (e) => handleDrop(e, position, index) : undefined}
         className={`
-          bg-white rounded-2xl border-2 shadow-lg transition-all duration-300 
+          bg-white rounded-2xl border border-[--border] shadow-lg transition-all duration-300
           ${canDrag ? 'cursor-move hover:scale-105 hover:-translate-y-2 hover:shadow-xl' : ''}
-          ${colors.border} ${className}
-          ${(isSubstitutionMode || isChangesMode) ? 'ring-2 ring-blue-200' : ''}
-          ${isDropTarget ? 'ring-4 ring-green-400 bg-green-50' : ''}
+          ${className}
+          ${(isSubstitutionMode || isChangesMode) ? 'ring-2 ring-floodlight/30' : ''}
+          ${isDropTarget ? 'ring-4 ring-pitch bg-turf-a' : ''}
         `}
         role={canDrag ? "button" : undefined}
         tabIndex={canDrag ? 0 : undefined}
         aria-label={`${player.name} - ${player.position}`}
       >
-        <div className={`${colors.bg} rounded-t-xl p-3 border-b ${colors.border}`}>
-          <div className="flex items-center justify-between">
-            <span className={`text-xs font-bold ${colors.text} uppercase tracking-wider`}>
-              {player.position}
-            </span>
-            <div className={`px-2 py-1 rounded-full text-xs font-medium ${colors.badge}`}>
-              {player.team}
-            </div>
+        <div className={`${style.bg} rounded-t-xl p-3 flex items-center justify-between`}>
+          <span className={`inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider ${style.text}`}>
+            {player.position}
+          </span>
+          <div className="px-2 py-1 rounded-full text-xs font-medium bg-white/25 text-current">
+            {player.team}
           </div>
         </div>
         <div className="p-4">
-          <h3 className="font-bold text-gray-900 text-sm mb-3 leading-tight">
-            {player.name}
-          </h3>
+          <h3 className="font-bold text-ink text-sm mb-3 leading-tight">{player.name}</h3>
           <div className="flex items-center justify-between">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">
+            <div className="flex flex-col items-center rounded-md bg-ink px-3 py-1 border-t-2 border-floodlight">
+              <span className="font-display scoreboard-digits text-2xl leading-none text-floodlight">
                 {calculatePlayerPoints(player)}
-              </div>
-              <div className="text-xs text-gray-500 font-medium">
-                points
-              </div>
+              </span>
+              <span className="text-chalk/70" style={{ fontSize: '0.55rem', letterSpacing: '0.05em' }}>PTS</span>
             </div>
             <div className="flex items-center gap-1">
-              <Star size={14} className="text-yellow-500 fill-yellow-500" />
-              <span className="text-xs font-medium text-gray-600">
+              <Star size={14} className="text-card-yellow-ink fill-card-yellow-ink" />
+              <span className="text-xs font-medium text-ink-muted">
                 {(Math.random() * 2 + 3).toFixed(1)}
               </span>
             </div>
@@ -401,101 +327,100 @@ const Teams = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-chalk">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="space-y-8">
+        <div className="space-y-10">
           {/* Header with Team Dropdown */}
-          <section className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+          <section className="bg-white rounded-2xl p-8 border border-[--border] shadow-sm">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <Users size={20} className="text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-pitch flex items-center justify-center">
+                  <Users size={20} className="text-floodlight" />
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900">
+                  <h1 className="font-display text-4xl text-ink">
                     {selectedTeam?.name || 'My Team'}
                   </h1>
-                  <p className="text-gray-600">
-                    {selectedTeam?.league || 'Fantasy Premier League'}
-                  </p>
+                  <p className="text-ink-muted">{selectedTeam?.league || 'Fantasy Premier League'}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-6">
                 {/* Team Stats */}
-                <div className="flex items-center gap-8">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">
+                <div className="flex items-center gap-6">
+                  <div className="flex flex-col items-center rounded-md bg-ink px-4 py-2 border-t-2 border-floodlight">
+                    <span className="font-display scoreboard-digits text-3xl leading-none text-floodlight">
                       {selectedTeam?.points || 1247}
-                    </div>
-                    <div className="text-sm font-medium text-gray-500">
-                      Total Points
-                    </div>
+                    </span>
+                    <span className="text-chalk/70 text-[0.6rem] tracking-wide">TOTAL POINTS</span>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">
-                      #{selectedTeam?.rank || 3}
-                    </div>
-                    <div className="text-sm font-medium text-gray-500">
-                      League Rank
-                    </div>
+                    <div className="text-2xl font-display text-pitch">#{selectedTeam?.rank || 3}</div>
+                    <div className="text-sm font-medium text-ink-muted">League Rank</div>
                   </div>
                 </div>
 
                 {/* Team Dropdown */}
-                <div className="relative team-dropdown">
-                  <button
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-xl hover:border-blue-300 hover:bg-gray-50 transition-all duration-200 min-w-[200px] justify-between focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm"
-                  >
-                    <span className="font-medium text-gray-900">{selectedTeam?.name || 'Select Team'}</span>
-                    <ChevronDown 
-                      size={20} 
-                      className={`text-gray-400 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
-                    />
-                  </button>
+                <RadixSelect.Root
+                  value={selectedTeam ? String(selectedTeam.id) : undefined}
+                  onValueChange={(val) => {
+                    const team = userTeams.find((t) => String(t.id) === val)
+                    if (team) setSelectedTeam(team)
+                  }}
+                >
+                  <RadixSelect.Trigger className="flex items-center gap-3 px-6 py-3 bg-white border border-[--border] rounded-xl hover:border-pitch/40 hover:bg-turf-a transition-all duration-200 min-w-[200px] justify-between shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-pitch/20 focus-visible:border-pitch data-[state=open]:border-pitch data-[state=open]:ring-2 data-[state=open]:ring-pitch/20">
+                    <RadixSelect.Value>
+                      <span className="font-medium text-ink">{selectedTeam?.name || 'Select Team'}</span>
+                    </RadixSelect.Value>
+                    <RadixSelect.Icon>
+                      <ChevronDown size={20} className="text-ink-muted" />
+                    </RadixSelect.Icon>
+                  </RadixSelect.Trigger>
 
-                  {isDropdownOpen && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden">
-                      {userTeams.map((team) => (
-                        <button
-                          key={team.id}
-                          onClick={() => {
-                            setSelectedTeam(team)
-                            setIsDropdownOpen(false)
-                          }}
-                          className="w-full text-left px-6 py-4 hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between border-b border-gray-100 last:border-b-0"
-                        >
-                          <div>
-                            <p className="font-medium text-gray-900">{team.name}</p>
-                            <p className="text-sm text-gray-500">{team.league}</p>
-                          </div>
-                          {team.id === selectedTeam?.id && (
-                            <Trophy size={16} className="text-yellow-500" />
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                  <RadixSelect.Portal>
+                    <RadixSelect.Content
+                      position="popper"
+                      sideOffset={8}
+                      className="overflow-hidden rounded-xl border border-[--border] bg-white shadow-xl z-50 min-w-[var(--radix-select-trigger-width)]"
+                    >
+                      <RadixSelect.Viewport className="p-1">
+                        {userTeams.map((team) => (
+                          <RadixSelect.Item
+                            key={team.id}
+                            value={String(team.id)}
+                            className="relative flex items-center justify-between gap-3 px-4 py-3 rounded-lg cursor-pointer select-none outline-none data-[highlighted]:bg-turf-a data-[state=checked]:bg-pitch/5"
+                          >
+                            <RadixSelect.ItemText>
+                              <span className="block font-medium text-ink">{team.name}</span>
+                              <span className="block text-sm text-ink-muted">{team.league}</span>
+                            </RadixSelect.ItemText>
+                            <RadixSelect.ItemIndicator>
+                              <Trophy size={16} className="text-floodlight flex-shrink-0" />
+                            </RadixSelect.ItemIndicator>
+                          </RadixSelect.Item>
+                        ))}
+                      </RadixSelect.Viewport>
+                    </RadixSelect.Content>
+                  </RadixSelect.Portal>
+                </RadixSelect.Root>
               </div>
             </div>
           </section>
 
           {/* Mode Indicator */}
           {(isSubstitutionMode || isChangesMode) && (
-            <section className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+            <section className="bg-floodlight/10 border border-floodlight/40 rounded-xl p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <ArrowUpDown size={16} className="text-blue-600" />
+                  <div className="w-8 h-8 rounded-lg bg-floodlight/20 flex items-center justify-center">
+                    <ArrowUpDown size={16} className="text-floodlight" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-blue-900">
+                    <h3 className="font-semibold text-ink">
                       {isSubstitutionMode ? 'Substitution Mode' : 'Changes Mode'}
                     </h3>
-                    <p className="text-sm text-blue-700">
-                      {isSubstitutionMode 
+                    <p className="text-sm text-ink-muted">
+                      {isSubstitutionMode
                         ? 'Drag players to make substitutions between starting lineup and bench'
                         : 'Drag players to reorganize your team formation'
                       }
@@ -505,14 +430,14 @@ const Teams = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleSaveChanges}
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+                    className="px-4 py-2 bg-floodlight text-ink rounded-lg font-medium transition-colors duration-200 flex items-center gap-2 hover:brightness-95 active:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                   >
                     <Check size={16} />
                     Save Changes
                   </button>
                   <button
                     onClick={handleCancelMode}
-                    className="px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+                    className="px-4 py-2 bg-white text-ink border border-[--border] rounded-lg font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-turf-a active:bg-turf-b focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                   >
                     <X size={16} />
                     Cancel
@@ -523,17 +448,17 @@ const Teams = () => {
           )}
 
           {/* Formation Display */}
-          <section className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-gray-100">
+          <section className="bg-white rounded-2xl border border-[--border] shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-[--border]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-                    <Target size={20} className="text-green-600" />
+                  <div className="w-12 h-12 rounded-xl bg-pitch flex items-center justify-center">
+                    <Target size={20} className="text-floodlight" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-900">Formation (4-3-3)</h2>
-                    <p className="text-sm text-gray-500">
-                      {isSubstitutionMode || isChangesMode 
+                    <h2 className="text-xl font-semibold text-ink">Formation (4-3-3)</h2>
+                    <p className="text-sm text-ink-muted">
+                      {isSubstitutionMode || isChangesMode
                         ? 'Drag players to reorganize your team'
                         : 'Your current starting lineup'
                       }
@@ -541,15 +466,15 @@ const Teams = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <button 
+                  <button
                     onClick={handleMakeSubstitution}
-                    className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="px-4 py-2 text-sm font-medium text-pitch hover:bg-turf-a active:bg-turf-b rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                   >
                     Make Substitution
                   </button>
-                  <button 
+                  <button
                     onClick={handleMakeChanges}
-                    className="px-4 py-2 text-sm font-medium text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    className="px-4 py-2 text-sm font-medium text-floodlight-ink hover:bg-floodlight/10 active:bg-floodlight/15 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                   >
                     Make Changes
                   </button>
@@ -558,16 +483,17 @@ const Teams = () => {
             </div>
 
             {/* Soccer Pitch */}
-            <div 
-              className="relative p-8 min-h-[700px] bg-gradient-to-b from-green-400/20 via-green-300/15 to-green-200/10"
+            <div
+              className="relative p-8 min-h-[700px]"
+              style={{ background: 'linear-gradient(180deg, #1E4433 0%, #17392C 50%, #153226 100%)' }}
               onDragOver={handleDragOver}
             >
               {/* Pitch Markings */}
-              <div className="absolute inset-4 border-2 border-white/50 rounded-lg">
-                <div className="absolute top-1/2 left-0 right-0 h-0 border-t-2 border-white/50"></div>
-                <div className="absolute top-1/2 left-1/2 w-20 h-20 border-2 border-white/50 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute top-0 left-1/2 w-24 h-12 border-2 border-white/50 border-t-0 transform -translate-x-1/2"></div>
-                <div className="absolute bottom-0 left-1/2 w-24 h-12 border-2 border-white/50 border-b-0 transform -translate-x-1/2"></div>
+              <div className="absolute inset-4 border-2 border-chalk/25 rounded-lg">
+                <div className="absolute top-1/2 left-0 right-0 h-0 border-t-2 border-chalk/25"></div>
+                <div className="absolute top-1/2 left-1/2 w-20 h-20 border-2 border-chalk/25 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute top-0 left-1/2 w-24 h-12 border-2 border-chalk/25 border-t-0 transform -translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-1/2 w-24 h-12 border-2 border-chalk/25 border-b-0 transform -translate-x-1/2"></div>
               </div>
 
               {/* Formation Grid */}
@@ -576,13 +502,7 @@ const Teams = () => {
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-1 gap-4 max-w-[120px]">
                     {teamState.startingLineup.gk.map((player, index) => (
-                      <PlayerCard 
-                        key={player.id} 
-                        player={player} 
-                        position="gk"
-                        index={index}
-                        isDraggable={true} 
-                      />
+                      <PlayerCard key={player.id} player={player} position="gk" index={index} isDraggable={true} />
                     ))}
                   </div>
                 </div>
@@ -591,13 +511,7 @@ const Teams = () => {
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-4 gap-4 max-w-[520px]">
                     {teamState.startingLineup.def.map((player, index) => (
-                      <PlayerCard 
-                        key={player.id} 
-                        player={player} 
-                        position="def"
-                        index={index}
-                        isDraggable={true} 
-                      />
+                      <PlayerCard key={player.id} player={player} position="def" index={index} isDraggable={true} />
                     ))}
                   </div>
                 </div>
@@ -606,13 +520,7 @@ const Teams = () => {
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-3 gap-4 max-w-[400px]">
                     {teamState.startingLineup.mid.map((player, index) => (
-                      <PlayerCard 
-                        key={player.id} 
-                        player={player} 
-                        position="mid"
-                        index={index}
-                        isDraggable={true} 
-                      />
+                      <PlayerCard key={player.id} player={player} position="mid" index={index} isDraggable={true} />
                     ))}
                   </div>
                 </div>
@@ -621,13 +529,7 @@ const Teams = () => {
                 <div className="flex justify-center items-center">
                   <div className="grid grid-cols-3 gap-4 max-w-[400px]">
                     {teamState.startingLineup.fwd.map((player, index) => (
-                      <PlayerCard 
-                        key={player.id} 
-                        player={player} 
-                        position="fwd"
-                        index={index}
-                        isDraggable={true} 
-                      />
+                      <PlayerCard key={player.id} player={player} position="fwd" index={index} isDraggable={true} />
                     ))}
                   </div>
                 </div>
@@ -636,17 +538,17 @@ const Teams = () => {
           </section>
 
           {/* Bench Section */}
-          <section className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-gray-100">
+          <section className="bg-white rounded-2xl border border-[--border] shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-[--border]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center">
-                    <Users size={20} className="text-gray-600" />
+                  <div className="w-12 h-12 rounded-xl bg-turf-b flex items-center justify-center">
+                    <Users size={20} className="text-ink-muted" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-900">Bench</h2>
-                    <p className="text-sm text-gray-500">
-                      {isSubstitutionMode || isChangesMode 
+                    <h2 className="text-xl font-semibold text-ink">Bench</h2>
+                    <p className="text-sm text-ink-muted">
+                      {isSubstitutionMode || isChangesMode
                         ? 'Drag bench players to make substitutions'
                         : `${teamState.bench.length} substitutes ready`
                       }
@@ -654,16 +556,16 @@ const Teams = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <button 
+                  <button
                     onClick={handleMakeSubstitution}
-                    className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center gap-2"
+                    className="px-4 py-2 text-sm font-medium text-pitch hover:bg-turf-a active:bg-turf-b rounded-lg transition-colors duration-200 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                   >
                     <ArrowUpDown size={16} />
                     Make Substitution
                   </button>
-                  <button 
+                  <button
                     onClick={handleMakeChanges}
-                    className="px-4 py-2 text-sm font-medium text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 flex items-center gap-2"
+                    className="px-4 py-2 text-sm font-medium text-floodlight-ink rounded-lg transition-colors duration-200 flex items-center gap-2 hover:bg-floodlight/10 active:bg-floodlight/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                   >
                     <ArrowUpDown size={16} />
                     Make Changes
@@ -684,10 +586,10 @@ const Teams = () => {
                     onDragOver={handleDragOver}
                     onDrop={(e) => handleDrop(e, 'bench', index)}
                     className={`
-                      bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-300 rounded-2xl p-4 transition-all duration-300 
+                      bg-turf-a hover:bg-white border border-[--border] rounded-2xl p-4 transition-all duration-300
                       ${(isSubstitutionMode || isChangesMode) ? 'cursor-move hover:shadow-lg hover:-translate-y-1' : ''}
-                      ${(isSubstitutionMode || isChangesMode) ? 'ring-2 ring-blue-200' : ''}
-                      ${dropTarget?.position === 'bench' && dropTarget?.index === index ? 'ring-4 ring-green-400 bg-green-50' : ''}
+                      ${(isSubstitutionMode || isChangesMode) ? 'ring-2 ring-floodlight/30' : ''}
+                      ${dropTarget?.position === 'bench' && dropTarget?.index === index ? 'ring-4 ring-pitch bg-turf-a' : ''}
                       group
                     `}
                     role="button"
@@ -697,24 +599,22 @@ const Teams = () => {
                     <div className="flex items-center gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold text-gray-900">{player.name}</h3>
-                          <span className={`px-2 py-1 rounded text-xs font-medium ${getPositionColors(player.position).badge}`}>
-                            {player.position}
-                          </span>
+                          <h3 className="font-semibold text-ink">{player.name}</h3>
+                          <PositionBadge position={player.position} />
                         </div>
-                        <p className="text-sm text-gray-500 mb-2">{player.team}</p>
+                        <p className="text-sm text-ink-muted mb-2">{player.team}</p>
                         <div className="flex items-center gap-3">
                           <div className="flex items-center gap-1">
-                            <span className="text-lg font-bold text-gray-900">{calculatePlayerPoints(player)}</span>
-                            <span className="text-sm text-gray-500">pts</span>
+                            <span className="text-lg font-display text-ink">{calculatePlayerPoints(player)}</span>
+                            <span className="text-sm text-ink-muted">pts</span>
                           </div>
                           <div className="flex items-center gap-1">
-                            <Star size={12} className="text-yellow-500 fill-yellow-500" />
-                            <span className="text-xs text-gray-600">{(Math.random() * 2 + 3).toFixed(1)}</span>
+                            <Star size={12} className="text-card-yellow-ink fill-card-yellow-ink" />
+                            <span className="text-xs text-ink-muted">{(Math.random() * 2 + 3).toFixed(1)}</span>
                           </div>
                         </div>
                       </div>
-                      <ArrowUpDown size={20} className="text-gray-400 group-hover:text-blue-600 transition-colors duration-200" />
+                      <ArrowUpDown size={20} className="text-ink-muted/60 group-hover:text-pitch transition-colors duration-200" />
                     </div>
                   </div>
                 ))}
@@ -723,25 +623,25 @@ const Teams = () => {
           </section>
 
           {/* Team Actions */}
-          <section className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+          <section className="bg-white rounded-2xl border border-[--border] shadow-sm p-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Team Management</h3>
-                <p className="text-gray-600">Make transfers, set your captain, and optimize your lineup</p>
+                <h3 className="text-lg font-semibold text-ink mb-2">Team Management</h3>
+                <p className="text-ink-muted">Make transfers, set your captain, and optimize your lineup</p>
               </div>
               <div className="flex items-center gap-3">
                 {(isSubstitutionMode || isChangesMode) ? (
                   <>
-                    <button 
+                    <button
                       onClick={handleSaveChanges}
-                      className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md flex items-center gap-2"
+                      className="px-6 py-3 bg-floodlight text-ink rounded-xl font-semibold transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 hover:brightness-95 active:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                     >
                       <Check size={16} />
                       Save Changes
                     </button>
-                    <button 
+                    <button
                       onClick={handleCancelMode}
-                      className="px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 flex items-center gap-2"
+                      className="px-6 py-3 bg-white text-ink border border-[--border] rounded-xl font-semibold transition-all duration-200 flex items-center gap-2 hover:bg-turf-a active:bg-turf-b focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                     >
                       <X size={16} />
                       Cancel
@@ -749,15 +649,15 @@ const Teams = () => {
                   </>
                 ) : (
                   <>
-                    <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md">
+                    <button className="px-6 py-3 bg-floodlight text-ink rounded-xl font-semibold transition-all duration-200 shadow-sm hover:shadow-md hover:brightness-95 active:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
                       Save Changes
                     </button>
-                    <button className="px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                    <button className="px-6 py-3 bg-white text-ink border border-[--border] rounded-xl font-semibold transition-all duration-200 hover:bg-turf-a active:bg-turf-b focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
                       Reset Team
                     </button>
                   </>
                 )}
-                <button className="p-3 bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 hover:border-gray-300 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                <button className="p-3 bg-white text-ink-muted border border-[--border] rounded-xl transition-all duration-200 hover:bg-turf-a active:bg-turf-b focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
                   <MoreVertical size={20} />
                 </button>
               </div>

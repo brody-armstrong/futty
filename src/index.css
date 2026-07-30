@@ -1,36 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* CMYK Color Scheme */
-  --background: oklch(95% 0 0);
-  --card: oklch(100% 0 0);
-  --primary: oklch(71.772% 0.133 239.443);
-  --secondary: oklch(64.476% 0.202 359.339);
-  --accent: oklch(94.228% 0.189 105.306);
-  --text-primary: oklch(20% 0 0);
-  --text-secondary: oklch(21.778% 0 0);
-  --border: oklch(90% 0 0);
-  --shadow: 0 1px 3px oklch(21.778% 0 0 / 0.1);
-  --shadow-lg: 0 4px 6px -1px oklch(21.778% 0 0 / 0.1), 0 2px 4px -1px oklch(21.778% 0 0 / 0.06);
-  --shadow-xl: 0 10px 15px -3px oklch(21.778% 0 0 / 0.1), 0 4px 6px -2px oklch(21.778% 0 0 / 0.05);
+  /* Matchday palette */
+  --color-pitch: #153226;
+  --color-pitch-light: #1E4433;
+  --color-chalk: #F7F9F6;
+  --color-floodlight: #F5A623;
+  --color-card-yellow: #F4C430;
+  --color-card-red: #D62839;
+  --color-ink: #0E1B16;
+  --color-ink-muted: #4A5750;
+
+  --background: var(--color-chalk);
+  --card: #FFFFFF;
+  --primary: var(--color-pitch);
+  --secondary: var(--color-floodlight);
+  --accent: var(--color-floodlight);
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-ink-muted);
+  --border: #E2E7DE;
+  --turf-tint-a: #EFF4EC;
+  --turf-tint-b: #E5EDE0;
+  --shadow: 0 1px 3px rgba(14, 27, 22, 0.1);
+  --shadow-lg: 0 4px 6px -1px rgba(14, 27, 22, 0.1), 0 2px 4px -1px rgba(14, 27, 22, 0.06);
+  --shadow-xl: 0 10px 15px -3px rgba(14, 27, 22, 0.12), 0 4px 6px -2px rgba(14, 27, 22, 0.06);
 }
 
 [data-theme="dark"] {
-  /* Dark Mode (Deep Navy) */
-  --background: #101819;
-  --card: #2C365E;
-  --primary: #EEE5E9;
-  --secondary: #EEE5E9;
-  --accent: #EEE5E9;
-  --text-primary: #EEE5E9;
-  --text-secondary: #D1D5DB;
-  --border: #374151;
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -1px rgb(0 0 0 / 0.2);
-  --shadow-xl: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -2px rgb(0 0 0 / 0.2);
+  --background: var(--color-ink);
+  --card: var(--color-pitch);
+  --primary: var(--color-floodlight);
+  --secondary: var(--color-floodlight);
+  --accent: var(--color-floodlight);
+  --text-primary: var(--color-chalk);
+  --text-secondary: #B7C4BC;
+  --border: #26443689;
+  --turf-tint-a: #1A3A2C;
+  --turf-tint-b: #1E4433;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.35), 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+  --shadow-xl: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -38,54 +49,52 @@
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
-  background-color: oklch(95% 0 0);
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--background);
   color: var(--text-primary);
   min-height: 100vh;
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: oklch(95% 0 0);
+  background-color: var(--background);
   color: var(--text-primary);
   min-height: 100vh;
 }
 
 #root {
   min-height: 100vh;
-  background-color: oklch(95% 0 0);
+  background-color: var(--background);
 }
 
 /* Custom Components */
 @layer components {
+  .font-display {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .scoreboard-digits {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
   .btn {
-    @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
   }
 
   .btn-primary {
-    background-color: var(--primary);
-    color: oklch(14.354% 0.026 239.443);
-    @apply hover:shadow-lg focus:ring-blue-500;
-  }
-
-  .btn-primary:hover {
-    background-color: oklch(66% 0.133 239.443);
-    transform: translateY(-1px);
+    @apply btn bg-floodlight text-ink hover:brightness-95 active:brightness-90 focus-visible:ring-floodlight/50 focus-visible:ring-offset-chalk;
   }
 
   .btn-secondary {
-    background-color: var(--background);
-    color: var(--text-primary);
-    border: 2px solid var(--border);
-    @apply hover:shadow-lg focus:ring-gray-500;
-  }
-
-  .btn-secondary:hover {
-    background-color: var(--card);
-    border-color: var(--primary);
+    @apply btn bg-white text-pitch border border-pitch hover:bg-turf-a active:bg-turf-b focus-visible:ring-pitch/40 focus-visible:ring-offset-chalk;
   }
 
   .card {
@@ -113,31 +122,31 @@ body {
   }
 
   .input:focus {
-    border-color: var(--primary);
-    ring-color: var(--primary);
+    border-color: var(--color-pitch);
+    ring-color: var(--color-pitch);
   }
 
   /* Sidebar Styles */
   .sidebar {
     @apply fixed left-0 top-0 h-full w-60 z-50;
-    background-color: oklch(95% 0 0);
-    border-right: 1px solid var(--border);
+    background-color: var(--color-pitch);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .sidebar-nav-item {
-    @apply flex items-center px-6 py-4 transition-all duration-200 cursor-pointer rounded-xl mx-3;
-    color: var(--text-secondary);
+    @apply flex items-center px-6 py-4 transition-all duration-200 cursor-pointer rounded-lg mx-3;
+    color: var(--color-chalk);
+    border-left: 3px solid transparent;
   }
 
   .sidebar-nav-item:hover {
-    background-color: oklch(90% 0 0);
-    transform: translateX(4px);
+    background-color: rgba(247, 249, 246, 0.06);
   }
 
   .sidebar-nav-item.active {
-    background-color: var(--primary);
-    color: oklch(14.354% 0.026 239.443);
-    box-shadow: var(--shadow-lg);
+    background-color: rgba(245, 166, 35, 0.12);
+    border-left-color: var(--color-floodlight);
+    color: var(--color-floodlight);
   }
 
   /* Top Bar Styles */
@@ -150,22 +159,22 @@ body {
   /* Main Content */
   .main-content {
     @apply ml-60 min-h-screen;
-    background-color: oklch(95% 0 0);
+    background-color: var(--background);
   }
 
   /* Typography */
   .heading-1 {
-    @apply text-4xl font-bold tracking-tight;
+    @apply text-5xl font-semibold tracking-tight font-display;
     color: var(--text-primary);
   }
 
   .heading-2 {
-    @apply text-3xl font-semibold tracking-tight;
+    @apply text-4xl font-semibold tracking-tight font-display;
     color: var(--text-primary);
   }
 
   .heading-3 {
-    @apply text-2xl font-semibold;
+    @apply text-3xl font-semibold font-display;
     color: var(--text-primary);
   }
 
@@ -190,7 +199,7 @@ body {
   }
 
   .caption {
-    @apply text-xs font-medium tracking-wide uppercase;
+    @apply text-xs font-semibold tracking-wide uppercase;
     color: var(--text-secondary);
   }
 
@@ -200,8 +209,8 @@ body {
   }
 
   .badge-primary {
-    background-color: var(--primary);
-    color: oklch(14.354% 0.026 239.443);
+    background-color: var(--color-pitch);
+    color: var(--color-chalk);
   }
 
   .badge-secondary {
@@ -211,18 +220,18 @@ body {
   }
 
   .badge-success {
-    background-color: oklch(46.949% 0.162 321.406);
-    color: oklch(89.389% 0.032 321.406);
+    background-color: rgba(21, 50, 38, 0.1);
+    color: var(--color-pitch);
   }
 
   .badge-warning {
-    background-color: oklch(71.236% 0.159 52.023);
-    color: oklch(14.247% 0.031 52.023);
+    background-color: rgba(244, 196, 48, 0.15);
+    color: #7A5B00;
   }
 
   .badge-error {
-    background-color: oklch(62.013% 0.208 28.717);
-    color: oklch(12.402% 0.041 28.717);
+    background-color: rgba(214, 40, 57, 0.1);
+    color: var(--color-card-red);
   }
 
   /* Icon Containers */
@@ -231,8 +240,8 @@ body {
   }
 
   .icon-container-primary {
-    background-color: var(--primary);
-    color: oklch(14.354% 0.026 239.443);
+    background-color: var(--color-pitch);
+    color: var(--color-chalk);
   }
 
   .icon-container-secondary {
@@ -241,8 +250,8 @@ body {
   }
 
   .icon-container-accent {
-    background-color: var(--accent);
-    color: oklch(18.845% 0.037 105.306);
+    background-color: var(--color-floodlight);
+    color: var(--color-ink);
   }
 
   /* Line clamp utilities */
@@ -266,4 +275,4 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-} 
+}

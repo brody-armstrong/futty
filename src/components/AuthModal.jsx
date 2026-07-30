@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 import { useAuth } from '../contexts/AuthContext'
 import { X, Eye, EyeOff, Mail, User, Lock, AlertCircle, CheckCircle } from 'lucide-react'
 
@@ -54,13 +55,13 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'signin' }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (!validateForm()) return
-    
+
     setIsSubmitting(true)
     setFormError('')
     setFormSuccess('')
-    
+
     try {
       if (mode === 'signup') {
         await signup(formData.email, formData.username, formData.password)
@@ -91,74 +92,59 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'signin' }) => {
     setFormSuccess('')
   }
 
-  if (!isOpen) return null
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black bg-opacity-50"
-        onClick={onClose}
-      />
-      
-      {/* Modal */}
-      <div className="relative w-full max-w-md mx-4">
-        <div 
-          className="rounded-2xl shadow-xl overflow-hidden"
-          style={{ backgroundColor: 'oklch(100% 0 0)' }}
+    <Dialog.Root open={isOpen} onOpenChange={(open) => { if (!open) onClose() }}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-ink/60" />
+        <Dialog.Content
+          className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl shadow-xl overflow-hidden bg-white focus:outline-none"
+          onOpenAutoFocus={(e) => {
+            // Let the email field take focus instead of Radix's default first-tabbable-element
+            e.preventDefault()
+            document.getElementById('auth-email')?.focus()
+          }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b" style={{ borderColor: 'oklch(90% 0 0)' }}>
-            <h2 className="text-xl font-semibold" style={{ color: 'oklch(21.778% 0 0)' }}>
+          <div className="flex items-center justify-between p-6 border-b border-[--border] bg-pitch">
+            <Dialog.Title className="text-2xl font-bold text-chalk">
               {mode === 'signin' ? 'Sign In' : 'Create Account'}
-            </h2>
-            <button
-              onClick={onClose}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              <X size={20} style={{ color: 'oklch(21.778% 0 0)' }} />
-            </button>
+            </Dialog.Title>
+            <Dialog.Close asChild>
+              <button className="p-2 rounded-lg transition-colors hover:bg-white/10 active:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/50 focus-visible:ring-offset-2 focus-visible:ring-offset-pitch">
+                <X size={20} className="text-chalk" />
+              </button>
+            </Dialog.Close>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
             {/* Error/Success Messages */}
             {(formError || authError) && (
-              <div className="flex items-center p-3 rounded-lg" style={{ backgroundColor: 'oklch(95% 0.02 25)' }}>
-                <AlertCircle size={16} style={{ color: 'oklch(45% 0.15 25)' }} />
-                <span className="ml-2 text-sm" style={{ color: 'oklch(45% 0.15 25)' }}>
-                  {formError || authError}
-                </span>
+              <div className="flex items-center p-3 rounded-lg bg-card-red/10">
+                <AlertCircle size={16} className="text-card-red" />
+                <span className="ml-2 text-sm text-card-red">{formError || authError}</span>
               </div>
             )}
-            
+
             {formSuccess && (
-              <div className="flex items-center p-3 rounded-lg" style={{ backgroundColor: 'oklch(95% 0.02 140)' }}>
-                <CheckCircle size={16} style={{ color: 'oklch(45% 0.15 140)' }} />
-                <span className="ml-2 text-sm" style={{ color: 'oklch(45% 0.15 140)' }}>
-                  {formSuccess}
-                </span>
+              <div className="flex items-center p-3 rounded-lg bg-pitch/10">
+                <CheckCircle size={16} className="text-pitch" />
+                <span className="ml-2 text-sm text-pitch">{formSuccess}</span>
               </div>
             )}
 
             {/* Email Field */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium" style={{ color: 'oklch(21.778% 0 0)' }}>
-                Email
-              </label>
+              <label className="block text-sm font-medium text-ink">Email</label>
               <div className="relative">
-                <Mail size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2" style={{ color: 'oklch(60% 0 0)' }} />
+                <Mail size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ink-muted" />
                 <input
+                  id="auth-email"
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all"
-                  style={{ 
-                    borderColor: 'oklch(90% 0 0)',
-                    backgroundColor: 'oklch(100% 0 0)',
-                    color: 'oklch(21.778% 0 0)'
-                  }}
+                  className="w-full pl-10 pr-4 py-3 border border-[--border] rounded-lg bg-white text-ink focus:outline-none focus:ring-2 focus:ring-pitch/20 focus:border-pitch transition-all"
                   placeholder="Enter your email"
                 />
               </div>
@@ -167,22 +153,15 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'signin' }) => {
             {/* Username Field (Signup only) */}
             {mode === 'signup' && (
               <div className="space-y-2">
-                <label className="block text-sm font-medium" style={{ color: 'oklch(21.778% 0 0)' }}>
-                  Username
-                </label>
+                <label className="block text-sm font-medium text-ink">Username</label>
                 <div className="relative">
-                  <User size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2" style={{ color: 'oklch(60% 0 0)' }} />
+                  <User size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ink-muted" />
                   <input
                     type="text"
                     name="username"
                     value={formData.username}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all"
-                    style={{ 
-                      borderColor: 'oklch(90% 0 0)',
-                      backgroundColor: 'oklch(100% 0 0)',
-                      color: 'oklch(21.778% 0 0)'
-                    }}
+                    className="w-full pl-10 pr-4 py-3 border border-[--border] rounded-lg bg-white text-ink focus:outline-none focus:ring-2 focus:ring-pitch/20 focus:border-pitch transition-all"
                     placeholder="Choose a username"
                   />
                 </div>
@@ -191,28 +170,21 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'signin' }) => {
 
             {/* Password Field */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium" style={{ color: 'oklch(21.778% 0 0)' }}>
-                Password
-              </label>
+              <label className="block text-sm font-medium text-ink">Password</label>
               <div className="relative">
-                <Lock size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2" style={{ color: 'oklch(60% 0 0)' }} />
+                <Lock size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ink-muted" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-12 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all"
-                  style={{ 
-                    borderColor: 'oklch(90% 0 0)',
-                    backgroundColor: 'oklch(100% 0 0)',
-                    color: 'oklch(21.778% 0 0)'
-                  }}
+                  className="w-full pl-10 pr-12 py-3 border border-[--border] rounded-lg bg-white text-ink focus:outline-none focus:ring-2 focus:ring-pitch/20 focus:border-pitch transition-all"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 rounded text-ink-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/30 focus-visible:ring-offset-1"
                 >
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
@@ -222,28 +194,21 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'signin' }) => {
             {/* Confirm Password Field (Signup only) */}
             {mode === 'signup' && (
               <div className="space-y-2">
-                <label className="block text-sm font-medium" style={{ color: 'oklch(21.778% 0 0)' }}>
-                  Confirm Password
-                </label>
+                <label className="block text-sm font-medium text-ink">Confirm Password</label>
                 <div className="relative">
-                  <Lock size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2" style={{ color: 'oklch(60% 0 0)' }} />
+                  <Lock size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ink-muted" />
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-12 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all"
-                    style={{ 
-                      borderColor: 'oklch(90% 0 0)',
-                      backgroundColor: 'oklch(100% 0 0)',
-                      color: 'oklch(21.778% 0 0)'
-                    }}
+                    className="w-full pl-10 pr-12 py-3 border border-[--border] rounded-lg bg-white text-ink focus:outline-none focus:ring-2 focus:ring-pitch/20 focus:border-pitch transition-all"
                     placeholder="Confirm your password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 rounded text-ink-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/30 focus-visible:ring-offset-1"
                   >
                     {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -255,11 +220,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'signin' }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 px-4 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ 
-                backgroundColor: 'oklch(71.772% 0.133 239.443)',
-                color: 'oklch(14.354% 0.026 239.443)'
-              }}
+              className="w-full py-3 px-4 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-floodlight text-ink hover:brightness-95 active:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-floodlight/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
               {isSubmitting ? 'Loading...' : (mode === 'signin' ? 'Sign In' : 'Create Account')}
             </button>
@@ -269,19 +230,18 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'signin' }) => {
               <button
                 type="button"
                 onClick={switchMode}
-                className="text-sm hover:underline transition-colors"
-                style={{ color: 'oklch(71.772% 0.133 239.443)' }}
+                className="text-sm hover:underline transition-colors text-pitch focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pitch/30 focus-visible:ring-offset-1 rounded"
               >
-                {mode === 'signin' 
-                  ? "Don't have an account? Sign up" 
+                {mode === 'signin'
+                  ? "Don't have an account? Sign up"
                   : "Already have an account? Sign in"
                 }
               </button>
             </div>
           </form>
-        </div>
-      </div>
-    </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   )
 }
 
