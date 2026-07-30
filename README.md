@@ -81,6 +81,44 @@ npm run dev
 npm run build
 ```
 
+## 🔌 Backend API (dev)
+
+A local Express + SQLite API backs real player data. It's a separate process from
+the Vite dev server and needs to be started independently.
+
+```bash
+npm run server          # starts the API on http://localhost:3001
+npm run seed:stats [N]  # generates N matchdays of player_stats (default 10)
+npm run score:calculate [gameweek]  # derives scoring_events from player_stats
+                                     # (all gameweeks if omitted)
+```
+
+The SQLite file (`db/futty.sqlite3`) and its migration live under `db/`. On first
+run, `npm run server` creates the DB, applies `db/migrations/0001_...sql`, and
+seeds `players` from `public/players.json` automatically - `seed:stats` and
+`score:calculate` are separate steps because raw stats and derived points are
+different concerns (see `db/migrations/0001_...sql` for the full schema
+rationale).
+
+`src/contexts/PlayerContext.jsx` fetches player identities from this API (see
+`VITE_API_URL` in `.env`, defaults to `http://localhost:3001`) and falls back to
+hardcoded mock data if the API isn't running.
+
+**Endpoints so far:**
+
+- `GET /api/players?position=&team=` - player identities, both filters optional
+  (omit both for the full list).
+- `GET /api/players/:id/points?from=&to=` - a player's total fantasy points
+  (`SUM` of `scoring_events.points_awarded`), optionally scoped to a gameweek
+  range. Returns `total_points: 0` (never `null`) for a player with no scoring
+  events yet, or a range that excludes all of them.
+
+**Not built yet:** a team/league-points endpoint. `LeagueContext.jsx`'s
+`leagues`/`userTeams` are still mock-only React state with no backing tables -
+see the schema-design discussion in this repo's history for what's needed
+(`teams`, a roster/lineup join, and a gameweek dimension on lineups) before
+that endpoint can exist.
+
 ## Project Structure
 
 ```
