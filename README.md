@@ -191,7 +191,11 @@ src/
 - Separate contexts for different domains (Auth, League, Player)
 - Local state for component-specific data
 
-## 🚀 Future Enhancements
+## Why I Built This
+
+I'm a massive football (soccer) fan, but I also enjoy playing NFL fantasy football with friends every year. Fantasy Premier League is the dominant soccer fantasy format, but works nothing like it. With soccer's popularity in the US growing fast off the back of the World Cup, I saw an opening: bring the NFL-style fantasy format — drafted rosters, position-weighted scoring — to soccer, instead of sticking to FPL's traditional points system. Futty Fantasy is my attempt at that, built on a data model that separates raw stats from scoring logic so the rules can keep evolving as I refine the format.
+
+## Future Enhancements
 
 ### Phase 2 Features
 - Real-time data integration
